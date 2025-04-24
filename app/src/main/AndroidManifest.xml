@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.optimum.Avica" >
+    package="com.optimum.Avica">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,15 +18,80 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        android:usesCleartextTraffic="true" >
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".UI.WatchTutorialActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.ManualActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.AutomaticActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.MedicationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.EducationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.ReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.TelemedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.TutorialActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.RespiratoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Spo2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.EcgActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.TemperatureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.BloodGlucoseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.BloodPressureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.MeasurmentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.TechnicalSupportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.TermsAndConditionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.PrivacyPolicyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.ForgetPasswordActivity"
+            android:exported="false" />
         <activity
             android:name=".UI.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".UI.SplashActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

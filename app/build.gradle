@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 32
 
     defaultConfig {
         applicationId "com.optimum.Avica"
         minSdkVersion 21
-        targetSdkVersion 33
+        targetSdkVersion 32
         versionCode 1
         versionName "1"
         multiDexEnabled true
@@ -45,7 +45,9 @@ dependencies {
     implementation 'com.android.volley:volley:1.2.1'
     implementation 'com.google.code.gson:gson:2.2.4'
     implementation 'com.github.bumptech.glide:glide:4.16.0'
-
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.9'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

@@ -8,10 +8,44 @@
     tools:context=".UI.SplashActivity">
 
     <LinearLayout
+        android:layout_marginTop="@dimen/_50sdp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
+
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:src="@drawable/avica_logo"/>
+
+
+        <TextView
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/_2sdp"
+            android:text="Aman Ventures brings Mobility Health!"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_marginRight="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_40sdp"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/_2sdp"
+            android:text=" A holistic platform for patient monitoring, education, empowerment, engagement and compliance! "
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10ssp" />
 
 
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:title="Dashboard"
+        android:id="@+id/item1"
+        android:icon="@drawable/home_icon"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/item2"
+        android:icon="@drawable/profile_circle"
+        app:showAsAction="always"
+        android:title="My Profile" />
+
+    <item
+        android:id="@+id/item3"
+        android:icon="@drawable/heart_add"
+        app:showAsAction="always"
+        android:title="TeleMed" />
+
+    <item
+        android:id="@+id/item4"
+        android:icon="@drawable/teacher"
+        app:showAsAction="always"
+        android:title="Education" />
+
+    <item
+        android:id="@+id/item5"
+        android:icon="@drawable/medication"
+        app:showAsAction="always"
+        android:title="Medication" />
+
+
+    <item
+        android:id="@+id/item6"
+        android:icon="@drawable/receipt_search"
+        app:showAsAction="always"
+        android:title="History" />
+
+
+    <item
+        android:id="@+id/item7"
+        android:icon="@drawable/frame_16"
+        app:showAsAction="always"
+        android:title="Reports" />
+
+
+</menu>

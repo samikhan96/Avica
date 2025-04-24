@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg_new"
+    android:orientation="vertical"
+    tools:context=".UI.PrivacyPolicyActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp">
+
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:src="@drawable/back_btn" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/_10sdp"
+            android:text="Technical Support"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <CheckBox
+            android:id="@+id/checkbox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:button="@drawable/custom_checkbox"
+            android:padding="@dimen/_5sdp"
+            android:text="Forgot my password"
+            android:textColor="@color/menu_icon"
+            android:textSize="@dimen/_11ssp" />
+
+        <CheckBox
+            android:id="@+id/checkbox2"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:button="@drawable/custom_checkbox"
+            android:padding="@dimen/_5sdp"
+            android:text="Everything fine but not signing in"
+            android:textColor="@color/menu_icon"
+            android:textSize="@dimen/_11ssp" />
+
+        <CheckBox
+            android:id="@+id/checkbox3"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:button="@drawable/custom_checkbox"
+            android:padding="@dimen/_5sdp"
+            android:text="I cannot find anything"
+            android:textColor="@color/menu_icon"
+            android:textSize="@dimen/_11ssp" />
+
+        <CheckBox
+            android:id="@+id/checkbox4"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:button="@drawable/custom_checkbox"
+            android:padding="@dimen/_5sdp"
+            android:text="Showing errors"
+            android:textColor="@color/menu_icon"
+            android:textSize="@dimen/_11ssp" />
+
+        <CheckBox
+            android:id="@+id/checkbox5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:button="@drawable/custom_checkbox"
+            android:padding="@dimen/_5sdp"
+            android:text="Others"
+            android:textColor="@color/menu_icon"
+            android:textSize="@dimen/_11ssp" />
+
+
+        <LinearLayout
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/et_bg_new"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp">
+
+        <EditText
+            android:layout_margin="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:background="@null"
+            android:hint="I Whatever i do but it is not working|"
+            android:textSize="@dimen/_10ssp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:background="@drawable/btn_bg"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_14ssp" />
+
+    </LinearLayout>
+</LinearLayout>
