@@ -41,7 +41,6 @@ public class RequestDialog extends Dialog implements
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.yes_btn:
-                c.startActivity(new Intent(c, DashboardActivity.class));
                 c.finish();
                 break;
 

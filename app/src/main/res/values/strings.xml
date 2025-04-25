@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Avica</string>
+    <string name="ViewAll"><u>View All</u></string>
+
 </resources>

@@ -20,6 +20,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".UI.NotificationActivity"
+            android:exported="false" />
+        <activity
             android:name=".UI.WatchTutorialActivity"
             android:exported="false" />
         <activity

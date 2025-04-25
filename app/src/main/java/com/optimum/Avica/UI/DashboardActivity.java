@@ -49,12 +49,21 @@ public class DashboardActivity extends AppCompatActivity {
         name = header.findViewById(R.id.name);
         navFooter1 = findViewById(R.id.footer_item_1);
         l2 = findViewById(R.id.l2);
+        noti = findViewById(R.id.noti);
 
 
         l2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(DashboardActivity.this, MeasurmentsActivity.class));
+                finish();
+            }
+        });
+
+        noti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DashboardActivity.this, NotificationActivity.class));
                 finish();
             }
         });

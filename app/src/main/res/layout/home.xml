@@ -85,7 +85,6 @@
 
 
             <RelativeLayout
-                android:id="@+id/noti"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_alignParentEnd="true"
@@ -94,6 +93,7 @@
                 android:background="@drawable/sample_circle">
 
                 <ImageView
+                    android:id="@+id/noti"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerInParent="true"
