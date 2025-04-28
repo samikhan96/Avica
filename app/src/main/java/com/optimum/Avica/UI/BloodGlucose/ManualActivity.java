@@ -1,4 +1,4 @@
-package com.optimum.Avica.UI;
+package com.optimum.Avica.UI.BloodGlucose;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -7,12 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.optimum.Avica.R;
-import com.optimum.Avica.Utils.LoginDialog;
 import com.optimum.Avica.Utils.Measurement_TakenDialog;
 
 public class ManualActivity extends AppCompatActivity {

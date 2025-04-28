@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:padding="@dimen/_10sdp"
-            android:text="Blood Glucose"
+            android:text="Add Surgical Procedure"
             android:textColor="@color/black"
             android:textSize="@dimen/_16ssp"
             android:textStyle="bold" />
@@ -50,26 +50,43 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:padding="@dimen/_10sdp"
-            android:text="Blood Glucose Automatic"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:text="Details"
             android:textColor="@color/black"
-            android:textSize="@dimen/_14ssp" />
+            android:textSize="@dimen/_12ssp" />
+
+        <LinearLayout
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/et_bg_new"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp">
+
+            <EditText
+                android:layout_margin="@dimen/_10sdp"
+                android:paddingLeft="@dimen/_5sdp"
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:background="@null"
+                android:hint="I Whatever i do but it is not working|"
+                android:textSize="@dimen/_10ssp" />
+
+        </LinearLayout>
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_30sdp"
-            android:text="Blood Glucose"
+            android:text="Date"
             android:textColor="@color/black"
             android:textSize="@dimen/_12ssp"
-            android:textStyle="bold" />
+            />
 
         <!-- Username Field -->
         <LinearLayout
@@ -85,21 +102,21 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:padding="@dimen/_7sdp"
-                android:src="@drawable/layer_1" />
+                android:src="@drawable/calendar" />
 
             <EditText
+                android:id="@+id/et_calender"
+
                 android:inputType="number"
-                android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:background="@null"
-                android:hint="Enter Username/Email Address"
+                android:hint="Select Date"
                 android:paddingLeft="@dimen/_10sdp"
                 android:textSize="@dimen/_10ssp" />
 
         </LinearLayout>
-
 
         <Button
             android:id="@+id/sendBtn"

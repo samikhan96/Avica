@@ -1,4 +1,4 @@
-package com.optimum.Avica.UI;
+package com.optimum.Avica.UI.History;
 
 import androidx.appcompat.app.AppCompatActivity;
 

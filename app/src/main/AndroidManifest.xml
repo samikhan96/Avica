@@ -20,19 +20,34 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".UI.SelectUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.History.AddMedication"
+            android:exported="false" />
+        <activity
+            android:name=".UI.History.AddSurgicalProcedure"
+            android:exported="false" />
+        <activity
+            android:name=".UI.History.AddFamilyHistory"
+            android:exported="false" />
+        <activity
+            android:name=".UI.History.AddPresentComplain"
+            android:exported="false" />
+        <activity
             android:name=".UI.NotificationActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.WatchTutorialActivity"
+            android:name=".UI.BloodGlucose.WatchTutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.ManualActivity"
+            android:name=".UI.BloodGlucose.ManualActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.AutomaticActivity"
+            android:name=".UI.BloodGlucose.AutomaticActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.HistoryActivity"
+            android:name=".UI.History.HistoryActivity"
             android:exported="false" />
         <activity
             android:name=".UI.MedicationActivity"
@@ -44,28 +59,28 @@
             android:name=".UI.ReportActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.TelemedActivity"
+            android:name=".UI.TeleMedicine.TelemedActivity"
             android:exported="false" />
         <activity
             android:name=".UI.TutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.RespiratoryActivity"
+            android:name=".UI.Respiratory.RespiratoryActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.Spo2Activity"
+            android:name=".UI.Spo2.Spo2Activity"
             android:exported="false" />
         <activity
-            android:name=".UI.EcgActivity"
+            android:name=".UI.Ecg.EcgActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.TemperatureActivity"
+            android:name=".UI.Temperature.TemperatureActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.BloodGlucoseActivity"
+            android:name=".UI.BloodGlucose.BloodGlucoseActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.BloodPressureActivity"
+            android:name=".UI.BloodPressure.BloodPressureActivity"
             android:exported="false" />
         <activity
             android:name=".UI.MeasurmentsActivity"

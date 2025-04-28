@@ -1,4 +1,4 @@
-package com.optimum.Avica.UI;
+package com.optimum.Avica.UI.TeleMedicine;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.optimum.Avica.R;
 
-public class EcgActivity extends AppCompatActivity {
+public class TelemedActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ecg);
+        setContentView(R.layout.activity_telemed);
     }
 }

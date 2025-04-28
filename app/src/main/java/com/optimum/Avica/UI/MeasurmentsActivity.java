@@ -9,9 +9,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.optimum.Avica.R;
+import com.optimum.Avica.UI.BloodGlucose.BloodGlucoseActivity;
+import com.optimum.Avica.UI.BloodPressure.BloodPressureActivity;
+import com.optimum.Avica.UI.Ecg.EcgActivity;
+import com.optimum.Avica.UI.Respiratory.RespiratoryActivity;
+import com.optimum.Avica.UI.Spo2.Spo2Activity;
+import com.optimum.Avica.UI.Temperature.TemperatureActivity;
 
 
 public class MeasurmentsActivity extends AppCompatActivity {

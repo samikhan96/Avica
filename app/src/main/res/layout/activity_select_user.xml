@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.PrivacyPolicyActivity"
+    android:background="@drawable/app_bg_new"
     android:orientation="vertical"
-    android:background="@drawable/app_bg_new">
+    tools:context=".UI.PrivacyPolicyActivity">
 
     <RelativeLayout
         android:id="@+id/toolbar"
@@ -45,108 +45,93 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/_10sdp"
         android:orientation="vertical">
 
 
         <LinearLayout
-            android:layout_marginRight="@dimen/_15sdp"
-            android:layout_marginLeft="@dimen/_15sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:layout_margin="@dimen/_5sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_2sdp">
 
-            <ImageView
-                android:layout_margin="@dimen/_10sdp"
-                android:id="@+id/item_1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/tele_item1" />
+                <ImageView
+                    android:id="@+id/item_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/doctor" />
+
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_margin="@dimen/_5sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_2sdp">
 
                 <ImageView
-                    android:layout_margin="@dimen/_10sdp"
                     android:id="@+id/item_2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/tele_item2" />
+                    android:src="@drawable/patient" />
 
             </androidx.cardview.widget.CardView>
-
-
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginRight="@dimen/_15sdp"
-            android:layout_marginLeft="@dimen/_15sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:layout_margin="@dimen/_5sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_2sdp">
 
                 <ImageView
-                    android:layout_margin="@dimen/_10sdp"
                     android:id="@+id/item_3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/tele_item3" />
-
+                    android:src="@drawable/admin" />
             </androidx.cardview.widget.CardView>
 
+
             <androidx.cardview.widget.CardView
-                android:layout_margin="@dimen/_5sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_2sdp">
 
                 <ImageView
-                    android:layout_margin="@dimen/_10sdp"
-                    android:id="@+id/item_4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/tele_item4" />
+                    android:src="@drawable/nurse"
+                    />
 
             </androidx.cardview.widget.CardView>
-
-
-
         </LinearLayout>
-
-
-
 
 
     </LinearLayout>

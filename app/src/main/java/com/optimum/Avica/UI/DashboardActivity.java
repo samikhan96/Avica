@@ -16,12 +16,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.github.mikephil.charting.utils.Utils;
 import com.google.android.material.navigation.NavigationView;
 import com.optimum.Avica.R;
-import com.optimum.Avica.Utils.LoginDialog;
+import com.optimum.Avica.UI.History.HistoryActivity;
+import com.optimum.Avica.UI.TeleMedicine.TelemedActivity;
 import com.optimum.Avica.Utils.LogoutDialog;
 
 import de.hdodenhof.circleimageview.CircleImageView;
