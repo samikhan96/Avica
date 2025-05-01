@@ -20,6 +20,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".UI.TeleMedicine.NewAppointmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".UI.SelectUserActivity"
             android:exported="false" />
         <activity

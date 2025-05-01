@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.PrivacyPolicyActivity"
+    android:background="@drawable/app_bg_new"
     android:orientation="vertical"
-    android:background="@drawable/app_bg_new">
+    tools:context=".UI.PrivacyPolicyActivity">
 
     <RelativeLayout
         android:id="@+id/toolbar"
@@ -45,48 +45,249 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_margin="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/_10sdp"
         android:orientation="vertical">
 
         <!-- Username Field -->
         <LinearLayout
-
-            android:layout_width="match_parent"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/_50sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:background="@drawable/et_bg"
             android:orientation="horizontal">
 
-
-            <EditText
-                android:layout_weight="1"
-                android:id="@+id/et_calender"
-                android:inputType="number"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:background="@null"
-                android:hint="Select Date"
-                android:paddingLeft="@dimen/_20sdp"
-                android:textSize="@dimen/_10ssp" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/et_bg"
+                android:orientation="horizontal">
 
-            <ImageView
-                android:layout_marginRight="@dimen/_10sdp"
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="match_parent"
+
+                <EditText
+                    android:id="@+id/et_calender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="Select Date"
+                    android:inputType="number"
+                    android:paddingLeft="@dimen/_20sdp"
+                    android:textSize="@dimen/_10ssp" />
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/search_icon" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
                 android:layout_centerVertical="true"
-                android:padding="@dimen/_7sdp"
-                android:src="@drawable/search_icon" />
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:background="@drawable/sample_circle_blue">
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/_7sdp"
+                    android:src="@drawable/sort_icon" />
+            </RelativeLayout>
 
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/group_210"/>
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="@dimen/_2sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:background="#E7F2FF"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Name"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="EMR"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Report"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Sami"
+                        android:textColor="@color/menu_icon"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="112211"
+                        android:textColor="@color/menu_icon"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Arrived"
+                        android:textColor="@color/menu_icon"
+                        android:textSize="@dimen/_11ssp" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Sami"
+                        android:textColor="@color/menu_icon"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="112211"
+                        android:textColor="@color/menu_icon"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Arrived"
+                        android:textColor="@color/menu_icon"
+                        android:textSize="@dimen/_11ssp" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Sami"
+                        android:textColor="@color/menu_icon"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="112211"
+                        android:textColor="@color/menu_icon"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_weight="1"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Arrived"
+                        android:textColor="@color/menu_icon"
+                        android:textSize="@dimen/_11ssp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
 
     </LinearLayout>
