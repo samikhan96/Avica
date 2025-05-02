@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/app_bg_new"
     android:orientation="vertical"
-    tools:context=".UI.PrivacyPolicyActivity">
+    tools:context=".UI.Patient.PrivacyPolicyActivity">
 
     <RelativeLayout
         android:id="@+id/toolbar"
@@ -22,7 +22,7 @@
             android:background="@drawable/sample_circle">
 
             <ImageView
-                android:id="@+id/drawerimage"
+                android:id="@+id/back"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"

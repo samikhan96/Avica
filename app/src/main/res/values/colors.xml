@@ -13,5 +13,6 @@
     <color name="red_color">#EC0000</color>
     <color name="grey">#D1D1D1</color>
     <color name="menu_icon">#777777</color>
+    <color name="text_blue">#0B75F9</color>
 
 </resources>

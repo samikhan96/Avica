@@ -20,97 +20,155 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".UI.TeleMedicine.NewAppointmentActivity"
+            android:name=".UI.Patient.TeleMedicineReport"
             android:exported="false" />
         <activity
-            android:name=".UI.SelectUserActivity"
+            android:name=".UI.Patient.TeleMedicine.NewAppointmentActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.History.AddMedication"
+            android:name=".UI.Patient.SelectUserActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.History.AddSurgicalProcedure"
+            android:name=".UI.Patient.History.AddMedication"
             android:exported="false" />
         <activity
-            android:name=".UI.History.AddFamilyHistory"
+            android:name=".UI.Patient.History.AddSurgicalProcedure"
             android:exported="false" />
         <activity
-            android:name=".UI.History.AddPresentComplain"
+            android:name=".UI.Patient.History.AddFamilyHistory"
             android:exported="false" />
         <activity
-            android:name=".UI.NotificationActivity"
+            android:name=".UI.Patient.History.AddPresentComplain"
             android:exported="false" />
         <activity
-            android:name=".UI.BloodGlucose.WatchTutorialActivity"
+            android:name=".UI.Patient.NotificationActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.BloodGlucose.ManualActivity"
+            android:name=".UI.Patient.BloodGlucose.WatchTutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.BloodGlucose.AutomaticActivity"
+            android:name=".UI.Patient.BloodGlucose.ManualActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.History.HistoryActivity"
+            android:name=".UI.Patient.BloodGlucose.AutomaticActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".UI.Patient.Temperature.WatchTutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.MedicationActivity"
+            android:name=".UI.Patient.Temperature.ManualActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.EducationActivity"
+            android:name=".UI.Patient.Temperature.AutomaticActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".UI.Patient.Spo2.WatchTutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.ReportActivity"
+            android:name=".UI.Patient.Spo2.ManualActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.TeleMedicine.TelemedActivity"
+            android:name=".UI.Patient.Spo2.AutomaticActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".UI.Patient.Respiratory.WatchTutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.TutorialActivity"
+            android:name=".UI.Patient.Respiratory.ManualActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.Respiratory.RespiratoryActivity"
+            android:name=".UI.Patient.Respiratory.AutomaticActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".UI.Patient.Ecg.WatchTutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.Spo2.Spo2Activity"
+            android:name=".UI.Patient.Ecg.ManualActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.Ecg.EcgActivity"
+            android:name=".UI.Patient.Ecg.AutomaticActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".UI.Patient.BloodPressure.WatchTutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.Temperature.TemperatureActivity"
+            android:name=".UI.Patient.BloodPressure.ManualActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.BloodGlucose.BloodGlucoseActivity"
+            android:name=".UI.Patient.BloodPressure.AutomaticActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".UI.Patient.History.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.BloodPressure.BloodPressureActivity"
+            android:name=".UI.Patient.MedicationActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.MeasurmentsActivity"
+            android:name=".UI.Patient.EducationActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.ProfileActivity"
+            android:name=".UI.Patient.ReportActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.DashboardActivity"
+            android:name=".UI.Patient.TeleMedicine.TelemedActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.TechnicalSupportActivity"
+            android:name=".UI.Patient.TutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.TermsAndConditionActivity"
+            android:name=".UI.Patient.Respiratory.RespiratoryActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.PrivacyPolicyActivity"
+            android:name=".UI.Patient.Spo2.Spo2Activity"
             android:exported="false" />
         <activity
-            android:name=".UI.ForgetPasswordActivity"
+            android:name=".UI.Patient.Ecg.EcgActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.LoginActivity"
+            android:name=".UI.Patient.Temperature.TemperatureActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.SplashActivity"
+            android:name=".UI.Patient.BloodGlucose.BloodGlucoseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Patient.BloodPressure.BloodPressureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Patient.MeasurmentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Patient.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Patient.DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Patient.TechnicalSupportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Patient.TermsAndConditionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Patient.PrivacyPolicyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Patient.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Patient.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Patient.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
