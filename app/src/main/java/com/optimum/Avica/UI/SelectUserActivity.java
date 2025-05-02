@@ -26,6 +26,7 @@ public class SelectUserActivity extends AppCompatActivity {
         item_1 = findViewById(R.id.item_1);
         item_2 = findViewById(R.id.item_2);
         item_3 = findViewById(R.id.item_3);
+        item_4 = findViewById(R.id.item_4);
 
 
         item_1.setOnClickListener(new View.OnClickListener() {
