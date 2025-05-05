@@ -33,7 +33,7 @@
         android:textSize="@dimen/_16ssp"
         app:headerLayout="@layout/nav_header_main"
         app:itemIconTint="@color/menu_icon"
-        app:itemTextColor="@color/black"
+        app:itemTextColor="#777777"
         app:menu="@menu/dmenu">
 
         <LinearLayout

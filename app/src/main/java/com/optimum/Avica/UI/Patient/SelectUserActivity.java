@@ -13,6 +13,7 @@ import com.optimum.Avica.R;
 public class SelectUserActivity extends AppCompatActivity {
 
     ImageView item_1,item_2,item_3,item_4;
+    public static String LoginType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class SelectUserActivity extends AppCompatActivity {
         item_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                LoginType="Doctor";
                 startActivity(new Intent(SelectUserActivity.this, LoginActivity.class));
             }
         });
@@ -35,6 +37,7 @@ public class SelectUserActivity extends AppCompatActivity {
         item_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                LoginType="Patient";
                 startActivity(new Intent(SelectUserActivity.this, LoginActivity.class));
             }
         });

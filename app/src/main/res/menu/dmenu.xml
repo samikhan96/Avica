@@ -16,6 +16,12 @@
         android:title="My Profile" />
 
     <item
+        android:id="@+id/item10"
+        android:icon="@drawable/messages_2"
+        app:showAsAction="always"
+        android:title="Chat" />
+
+    <item
         android:id="@+id/item3"
         android:icon="@drawable/heart_add"
         app:showAsAction="always"
@@ -47,5 +53,18 @@
         app:showAsAction="always"
         android:title="Reports" />
 
+
+    <item
+        android:id="@+id/item8"
+        android:icon="@drawable/receipt_search"
+        app:showAsAction="always"
+        android:title="Compliance" />
+
+
+    <item
+        android:id="@+id/item9"
+        android:icon="@drawable/frame_16"
+        app:showAsAction="always"
+        android:title="RAG" />
 
 </menu>

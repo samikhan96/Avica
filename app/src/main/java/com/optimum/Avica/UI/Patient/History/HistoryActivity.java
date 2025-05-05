@@ -2,11 +2,14 @@ package com.optimum.Avica.UI.Patient.History;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.optimum.Avica.R;
+import com.optimum.Avica.UI.Patient.LoginActivity;
+import com.optimum.Avica.UI.Patient.PinActivity;
 
 public class HistoryActivity extends AppCompatActivity {
 
@@ -34,28 +37,32 @@ public class HistoryActivity extends AppCompatActivity {
         item1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(HistoryActivity.this, AddPresentComplain.class);
+                startActivity(intent);
             }
         });
 
         item2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(HistoryActivity.this, AddFamilyHistory.class);
+                startActivity(intent);
             }
         });
 
         item3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(HistoryActivity.this, AddSurgicalProcedure.class);
+                startActivity(intent);
             }
         });
 
         item4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(HistoryActivity.this, AddMedication.class);
+                startActivity(intent);
             }
         });
     }

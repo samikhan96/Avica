@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -32,7 +33,7 @@ public class DashboardActivity extends AppCompatActivity {
     NavigationView navigationView;
     CircleImageView drawer;
     TextView name;
-    LinearLayout l2;
+    LinearLayout l2,l4,l3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +49,11 @@ public class DashboardActivity extends AppCompatActivity {
         name = header.findViewById(R.id.name);
         navFooter1 = findViewById(R.id.footer_item_1);
         l2 = findViewById(R.id.l2);
+        l3 = findViewById(R.id.l3);
+        l4 = findViewById(R.id.l4);
         noti = findViewById(R.id.noti);
 
-
+        hideItem(SelectUserActivity.LoginType);
         l2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,7 +90,6 @@ public class DashboardActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(DashboardActivity.this, ProfileActivity.class);
                 startActivity(intent);
-                finish();
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -100,7 +102,7 @@ public class DashboardActivity extends AppCompatActivity {
                     case R.id.item1:
                         //close drawer
                         drawerLayout.closeDrawer(GravityCompat.START);
-                         intent = new Intent(DashboardActivity.this, DashboardActivity.class);
+                        intent = new Intent(DashboardActivity.this, DashboardActivity.class);
                         startActivity(intent);
                         finish();
                         break;
@@ -108,41 +110,55 @@ public class DashboardActivity extends AppCompatActivity {
                     case R.id.item2:
                         //close drawer
                         drawerLayout.closeDrawer(GravityCompat.START);
-                         intent = new Intent(DashboardActivity.this, ProfileActivity.class);
+                        intent = new Intent(DashboardActivity.this, ProfileActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.item3:
                         //close drawer
                         drawerLayout.closeDrawer(GravityCompat.START);
-                         intent = new Intent(DashboardActivity.this, TelemedActivity.class);
+                        intent = new Intent(DashboardActivity.this, TelemedActivity.class);
                         startActivity(intent);
                         break;
 
                     case R.id.item4:
                         //close drawer
                         drawerLayout.closeDrawer(GravityCompat.START);
-                         intent = new Intent(DashboardActivity.this, EducationActivity.class);
+                        intent = new Intent(DashboardActivity.this, EducationActivity.class);
                         startActivity(intent);
                         break;
 
                     case R.id.item5:
                         //close drawer
                         drawerLayout.closeDrawer(GravityCompat.START);
-                         intent = new Intent(DashboardActivity.this, MedicationActivity.class);
+                        intent = new Intent(DashboardActivity.this, MedicationActivity.class);
                         startActivity(intent);
                         break;
 
                     case R.id.item6:
                         //close drawer
                         drawerLayout.closeDrawer(GravityCompat.START);
-                         intent = new Intent(DashboardActivity.this, HistoryActivity.class);
+                        intent = new Intent(DashboardActivity.this, HistoryActivity.class);
                         startActivity(intent);
                         break;
 
                     case R.id.item7:
                         //close drawer
                         drawerLayout.closeDrawer(GravityCompat.START);
-                         intent = new Intent(DashboardActivity.this, ReportActivity.class);
+                        intent = new Intent(DashboardActivity.this, ReportActivity.class);
+                        startActivity(intent);
+                        break;
+
+                      case R.id.item8:
+                        //close drawer
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        intent = new Intent(DashboardActivity.this, ComplianceActivity.class);
+                        startActivity(intent);
+                        break;
+
+                      case R.id.item9:
+                        //close drawer
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        intent = new Intent(DashboardActivity.this, RAGActivity.class);
                         startActivity(intent);
                         break;
 
@@ -174,5 +190,23 @@ public class DashboardActivity extends AppCompatActivity {
         alert.show();
 
     }
+
+    private void hideItem(String LoginType) {
+        Menu nav_Menu = navigationView.getMenu();
+        if (LoginType.equalsIgnoreCase("Patient")) {
+            nav_Menu.findItem(R.id.item8).setVisible(false);
+            nav_Menu.findItem(R.id.item9).setVisible(false);
+            nav_Menu.findItem(R.id.item10).setVisible(false);
+            l3.setVisibility(View.VISIBLE);
+            l4.setVisibility(View.GONE);
+        } else {
+            nav_Menu.findItem(R.id.item6).setVisible(false);
+            nav_Menu.findItem(R.id.item7).setVisible(false);
+            l4.setVisibility(View.VISIBLE);
+            l3.setVisibility(View.GONE);
+
+        }
+    }
+
 
 }

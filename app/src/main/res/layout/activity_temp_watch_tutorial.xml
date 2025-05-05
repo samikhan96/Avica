@@ -50,7 +50,7 @@
         android:layout_margin="@dimen/_10sdp"
         app:cardCornerRadius="@dimen/_10sdp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_200sdp"
             android:orientation="vertical">
@@ -62,14 +62,20 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/tutorial" />
 
-        </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/play" />
+
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
         android:padding="@dimen/_5sdp"
         android:text="A Tutorial for how to add a Measurements"
         android:textColor="@color/black"
@@ -77,10 +83,10 @@
         android:textStyle="bold" />
 
     <TextView
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
         android:padding="@dimen/_5sdp"
         android:text="Watch the well explained tutorial till end and if still its unclear then contact technical support!"
         android:textColor="@color/black"

@@ -8,9 +8,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.optimum.Avica.R;
-import com.optimum.Avica.UI.Patient.BloodGlucose.AutomaticActivity;
-import com.optimum.Avica.UI.Patient.BloodGlucose.ManualActivity;
-import com.optimum.Avica.UI.Patient.BloodGlucose.WatchTutorialActivity;
 
 public class Spo2Activity extends AppCompatActivity {
 

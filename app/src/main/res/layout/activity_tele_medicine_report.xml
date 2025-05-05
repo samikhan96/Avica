@@ -100,7 +100,7 @@
                                 android:padding="@dimen/_2sdp"
                                 android:text="Mr. Kevin John"
                                 android:textColor="@color/black"
-                                android:textSize="@dimen/_11ssp" />
+                                android:textSize="@dimen/_10ssp" />
 
                             <TextView
                                 android:layout_width="wrap_content"

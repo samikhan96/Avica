@@ -38,7 +38,7 @@ public class RequestDialog extends Dialog implements
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.yes_btn:
-                c.finish();
+                dismiss();
                 break;
 
             default:

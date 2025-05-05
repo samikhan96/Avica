@@ -17,6 +17,7 @@ public class LogoutDialog extends Dialog implements
     public Activity c;
     public Dialog d;
     public Button yes_btn;
+    public Button no_btn;
 
     public LogoutDialog(Activity a) {
         super(a);
@@ -30,6 +31,7 @@ public class LogoutDialog extends Dialog implements
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.logout_dialog);
         yes_btn = (Button) findViewById(R.id.yes_btn);
+        no_btn = (Button) findViewById(R.id.no_btn);
 
 
         yes_btn.setOnClickListener(this);

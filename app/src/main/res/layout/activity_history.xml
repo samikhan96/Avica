@@ -143,7 +143,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginRight="@dimen/_5sdp"
             app:cardCornerRadius="@dimen/_10sdp"
             app:cardElevation="@dimen/_2sdp">
@@ -210,7 +210,7 @@
                         android:padding="@dimen/_5sdp"
                         android:text="Sami"
                         android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_11ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -220,7 +220,7 @@
                         android:padding="@dimen/_5sdp"
                         android:text="112211"
                         android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_11ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -230,7 +230,7 @@
                         android:padding="@dimen/_5sdp"
                         android:text="July 31 2025"
                         android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_11ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
 
                 </LinearLayout>
@@ -251,7 +251,7 @@
                         android:padding="@dimen/_5sdp"
                         android:text="Sami"
                         android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_11ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -261,7 +261,7 @@
                         android:padding="@dimen/_5sdp"
                         android:text="112211"
                         android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_11ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -271,7 +271,7 @@
                         android:padding="@dimen/_5sdp"
                         android:text="July 31 2025"
                         android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_11ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
 
                 </LinearLayout>
@@ -292,7 +292,7 @@
                         android:padding="@dimen/_5sdp"
                         android:text="Sami"
                         android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_11ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -302,7 +302,7 @@
                         android:padding="@dimen/_5sdp"
                         android:text="112211"
                         android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_11ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -312,7 +312,7 @@
                         android:padding="@dimen/_5sdp"
                         android:text="July 31 2025"
                         android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_11ssp" />
+                        android:textSize="@dimen/_10ssp" />
 
 
                 </LinearLayout>

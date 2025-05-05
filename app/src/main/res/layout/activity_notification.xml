@@ -50,6 +50,28 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/all_btn"
+             />
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/unread_btn"
+              />
+        </LinearLayout>
+        <LinearLayout
             android:layout_margin="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -83,6 +105,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/_2sdp"
@@ -144,6 +167,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/_2sdp"
@@ -204,6 +228,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/_2sdp"
@@ -264,10 +289,11 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/_2sdp"
-                    android:text="Appointment Reminder"
+                    android:text="Health Tip"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10ssp" />
 
@@ -276,7 +302,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/_2sdp"
-                    android:text="Your appointment with Dr. John is scheduled for Tuesday at 11:00 AM"
+                    android:text="Stay hydrated! Drinking enough water boosts your immune system and keeps you energized. Tap for more wellness tips."
                     android:textColor="@color/menu_icon"
                     android:textSize="@dimen/_10ssp" />
 

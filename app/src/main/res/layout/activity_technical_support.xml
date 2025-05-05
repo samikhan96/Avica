@@ -55,6 +55,7 @@
 
 
         <CheckBox
+            android:layout_marginTop="@dimen/_5sdp"
             android:id="@+id/checkbox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,10 +64,11 @@
             android:padding="@dimen/_5sdp"
             android:text="Forgot my password"
             android:textColor="@color/menu_icon"
-            android:textSize="@dimen/_11ssp" />
+            android:textSize="@dimen/_10ssp" />
 
         <CheckBox
             android:id="@+id/checkbox2"
+            android:layout_marginTop="@dimen/_5sdp"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -75,10 +77,11 @@
             android:padding="@dimen/_5sdp"
             android:text="Everything fine but not signing in"
             android:textColor="@color/menu_icon"
-            android:textSize="@dimen/_11ssp" />
+            android:textSize="@dimen/_10ssp" />
 
         <CheckBox
             android:id="@+id/checkbox3"
+            android:layout_marginTop="@dimen/_5sdp"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,10 +90,11 @@
             android:padding="@dimen/_5sdp"
             android:text="I cannot find anything"
             android:textColor="@color/menu_icon"
-            android:textSize="@dimen/_11ssp" />
+            android:textSize="@dimen/_10ssp" />
 
         <CheckBox
             android:id="@+id/checkbox4"
+            android:layout_marginTop="@dimen/_5sdp"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,9 +103,11 @@
             android:padding="@dimen/_5sdp"
             android:text="Showing errors"
             android:textColor="@color/menu_icon"
-            android:textSize="@dimen/_11ssp" />
+            android:textSize="@dimen/_10ssp" />
 
         <CheckBox
+            android:layout_marginTop="@dimen/_5sdp"
+
             android:id="@+id/checkbox5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,7 +116,7 @@
             android:padding="@dimen/_5sdp"
             android:text="Others"
             android:textColor="@color/menu_icon"
-            android:textSize="@dimen/_11ssp" />
+            android:textSize="@dimen/_10ssp" />
 
 
         <LinearLayout

@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:padding="@dimen/_10sdp"
-            android:text="Blood Glucose"
+            android:text="ECG"
             android:textColor="@color/black"
             android:textSize="@dimen/_16ssp"
             android:textStyle="bold" />
@@ -56,43 +56,39 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:padding="@dimen/_10sdp"
-            android:text="Blood Glucose Automatic"
+            android:text="ECG Automatic"
             android:textColor="@color/black"
             android:textSize="@dimen/_14ssp" />
 
 
-        <TextView
-            android:padding="@dimen/_10sdp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:text="Measure your blood pressure level here"
-            android:textColor="@color/text_blue"
-            android:textSize="@dimen/_14ssp"
-            android:textStyle="bold" />
 
-        <TextView
+        <ImageView
+            android:layout_margin="@dimen/_10sdp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:text="Wait till the device takes the readings the measurement will appear on the screen.
-Press NEXT for device to take measurements and turn on your Bluetooth."
-            android:textColor="@color/menu_icon"
-            android:textSize="@dimen/_12ssp" />
+            android:layout_height="@dimen/_200sdp"
+            android:src="@drawable/ecg_1"/>
+
+
+        <ImageView
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_200sdp"
+            android:src="@drawable/ecg_2"/>
 
 
         <Button
             android:id="@+id/sendBtn"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_10sdp"
             android:background="@drawable/btn_bg"
-            android:text="Next"
+            android:text="Send"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="@dimen/_14ssp" />
+
     </LinearLayout>
 
 </LinearLayout>

@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.optimum.Avica.R;
 import com.optimum.Avica.UI.Patient.DashboardActivity;
+import com.optimum.Avica.UI.Patient.PinActivity;
 
 public class EmailSendDialog extends Dialog implements
         android.view.View.OnClickListener {
@@ -40,7 +41,7 @@ public class EmailSendDialog extends Dialog implements
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.yes_btn:
-                dismiss();
+                c.startActivity(new Intent(c, PinActivity.class));
                 c.finish();
                 break;
 

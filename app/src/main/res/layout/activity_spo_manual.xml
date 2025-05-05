@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:padding="@dimen/_10sdp"
-            android:text="Blood Glucose"
+            android:text="SPO2"
             android:textColor="@color/black"
             android:textSize="@dimen/_16ssp"
             android:textStyle="bold" />
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:padding="@dimen/_10sdp"
-            android:text="Blood Glucose Manual"
+            android:text="SPO2 Manual"
             android:textColor="@color/black"
             android:textSize="@dimen/_14ssp" />
 
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:text="Blood Glucose"
+            android:text="SPO2"
             android:textColor="@color/black"
             android:textSize="@dimen/_12ssp"
             android:textStyle="bold" />
@@ -85,7 +85,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:padding="@dimen/_7sdp"
-                android:src="@drawable/layer_1" />
+                android:src="@drawable/spo_2_icon" />
 
             <EditText
                 android:inputType="number"
@@ -94,7 +94,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:background="@null"
-                android:hint="Enter Username/Email Address"
+                android:hint="123"
                 android:paddingLeft="@dimen/_10sdp"
                 android:textSize="@dimen/_10ssp" />
 
