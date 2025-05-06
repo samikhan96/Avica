@@ -44,6 +44,9 @@
             android:name=".UI.Patient.NotificationActivity"
             android:exported="false" />
         <activity
+            android:name=".UI.Patient.PatientListActivity"
+            android:exported="false" />
+        <activity
             android:name=".UI.Patient.BloodGlucose.WatchTutorialActivity"
             android:exported="false" />
         <activity
@@ -187,6 +190,13 @@
 
         <activity
             android:name=".UI.Patient.RAGActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".UI.Patient.BloodGlucose.DoctorBloodGlucoseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Patient.BloodPressure.DoctorBloodPressureActivity"
             android:exported="false" />
         <uses-library
             android:name="org.apache.http.legacy"

@@ -33,7 +33,7 @@ public class DashboardActivity extends AppCompatActivity {
     NavigationView navigationView;
     CircleImageView drawer;
     TextView name;
-    LinearLayout l2,l4,l3;
+    LinearLayout l2, l4, l3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,17 +148,23 @@ public class DashboardActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
 
-                      case R.id.item8:
+                    case R.id.item8:
                         //close drawer
                         drawerLayout.closeDrawer(GravityCompat.START);
                         intent = new Intent(DashboardActivity.this, ComplianceActivity.class);
                         startActivity(intent);
                         break;
 
-                      case R.id.item9:
+                    case R.id.item9:
                         //close drawer
                         drawerLayout.closeDrawer(GravityCompat.START);
                         intent = new Intent(DashboardActivity.this, RAGActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.item10:
+                        //close drawer
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        intent = new Intent(DashboardActivity.this, PatientListActivity.class);
                         startActivity(intent);
                         break;
 
