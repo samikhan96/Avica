@@ -4,15 +4,24 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.optimum.Avica.HttpUtils.AppServices;
+import com.optimum.Avica.Listener.ServiceListener;
+import com.optimum.Avica.Models.User;
 import com.optimum.Avica.R;
 import com.optimum.Avica.UI.Patient.Dialogs.LoginDialog;
+import com.optimum.Avica.Utils.AppUtils;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,6 +30,8 @@ public class LoginActivity extends AppCompatActivity {
     TextView techSupport;
     TextView privacyPolicy;
     TextView terms;
+    EditText et_email,password;
+    String email, pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +42,14 @@ public class LoginActivity extends AppCompatActivity {
         techSupport=findViewById(R.id.techSupport);
         privacyPolicy=findViewById(R.id.privacyPolicy);
         terms=findViewById(R.id.terms);
+        et_email=findViewById(R.id.et_email);
+        password=findViewById(R.id.password);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                LoginDialog cdd = new LoginDialog(LoginActivity.this);
-                cdd.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                cdd.show();
+                validate();
 
 
 
@@ -81,8 +92,43 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+    public boolean validate() {
+        email = et_email.getText().toString();
+        pass = password.getText().toString();
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(pass)) {
+            AppUtils.Toast("Please fill all fields");
+            return false;
+        }
+        Login();
+        return true;
+    }
+    public void Login(){
+        AppUtils.showProgressDialog(LoginActivity.this);
 
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("email", email);
+            jsonObject.put("password", pass);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
+        AppServices.Login(LoginActivity.class.getSimpleName(), jsonObject, new ServiceListener<User, String>() {
+            @Override
+            public void success(User success) {
+                AppUtils.dismisProgressDialog(LoginActivity.this);
+                LoginDialog cdd = new LoginDialog(LoginActivity.this);
+                cdd.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                cdd.show();
 
+            }
+
+            @Override
+            public void error(String error) {
+                AppUtils.dismisProgressDialog(LoginActivity.this);
+
+            }
+        });
     }
 }
