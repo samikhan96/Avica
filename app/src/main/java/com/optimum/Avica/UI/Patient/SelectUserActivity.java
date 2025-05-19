@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.optimum.Avica.R;
+import com.optimum.Avica.Utils.AppUtils;
 
 public class SelectUserActivity extends AppCompatActivity {
 
@@ -45,13 +46,13 @@ public class SelectUserActivity extends AppCompatActivity {
         item_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SelectUserActivity.this, LoginActivity.class));
+                AppUtils.Toast("Coming Soon");
             }
         });
         item_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SelectUserActivity.this, LoginActivity.class));
+                AppUtils.Toast("Coming Soon");
             }
         });
     }

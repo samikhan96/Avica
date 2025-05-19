@@ -6,6 +6,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.optimum.Avica.Listener.ServiceListener;
 
@@ -51,75 +52,36 @@ public class RestAPI {
     }
 
 
-    public static void PostUrlEncodedRequest(String TAG, String apiEndpoint, final JSONObject obj, final ServiceListener<JSONObject, VolleyError> listener) {
-        StringRequest objectRequest = new StringRequest(Request.Method.POST,
-                ConfigConstants.API_BASE_URL + apiEndpoint
-                , new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    listener.success(new JSONObject(response));
-                } catch (JSONException e) {
-                    e.printStackTrace();
+    public static void PostJsonRequest(String TAG, String apiEndpoint, final JSONObject obj, final ServiceListener<JSONObject, VolleyError> listener) {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.POST,
+                ConfigConstants.API_BASE_URL + apiEndpoint,
+                obj,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        listener.success(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        listener.error(error);
+                    }
                 }
-            }
-        }, new Response.ErrorListener() {
+        ) {
             @Override
-            public void onErrorResponse(VolleyError error) {
-                listener.error(error);
-            }
-        }) {
-            @Override
-            public String getBodyContentType() {
-                return "application/x-www-form-urlencoded";
-            }
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                //noinspection unchecked
-                return GsonUtils.fromJSON(obj, HashMap.class);
-            }
-
-            /** Passing some request headers* */
-            @Override
-            public Map getHeaders() throws AuthFailureError {
-                HashMap headers = new HashMap();
-//                headers.put("accessToken", Appconstant.token);
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Content-Type", "application/json");
+                headers.put("isMobile", "true");
+                headers.put("Authorization", "Bearer " + ConfigConstants.token);
                 return headers;
-
             }
         };
-        HttpRequestHandler.getInstance().addToRequestQueue(objectRequest, TAG);
+
+        HttpRequestHandler.getInstance().addToRequestQueue(jsonObjectRequest, TAG);
     }
 
-    public static void PostRequestarray(String TAG, String apiEndpoint, JSONArray jsonObj, final ServiceListener<JSONArray, VolleyError> listener) {
-        JsonArrayRequest objectRequest = new JsonArrayRequest(Request.Method.POST, ConfigConstants.API_BASE_URL + apiEndpoint,
-                jsonObj, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                listener.success(response);
 
-            }
-
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                listener.error(error);
-            }
-        }) {
-
-            /** Passing some request headers* */
-            @Override
-            public Map getHeaders() throws AuthFailureError {
-                HashMap headers = new HashMap();
-//                headers.put("accessToken", Appconstant.token);
-
-                return headers;
-
-
-            }
-
-        };
-        HttpRequestHandler.getInstance().addToRequestQueue(objectRequest, TAG);
-    }
 }

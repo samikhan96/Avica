@@ -13,15 +13,15 @@ import org.json.JSONObject;
 public class AppServices {
 
     public static void Login(String TAG, JSONObject userObject, final ServiceListener<User, String> listener) {
-        RestAPI.PostUrlEncodedRequest(TAG, ConfigConstants.Login, userObject, new ServiceListener<JSONObject, VolleyError>() {
+        RestAPI.PostJsonRequest(TAG, ConfigConstants.Login, userObject, new ServiceListener<JSONObject, VolleyError>() {
             @Override
             public void success(JSONObject success) {
                 try {
-                    if (success.getBoolean("Success")) {
+                    if (success.getBoolean("success")) {
                         UserPrefs.getInstance().saveDoctorUser(success.getJSONObject("data"));
                         User user = GsonUtils.fromJSON(success.getJSONObject("data"), User.class);
                         listener.success(user);
-                    } else listener.error(success.getString("Message"));
+                    } else listener.error(success.getJSONObject("data").getString("message"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -36,13 +36,13 @@ public class AppServices {
     }
 
     public static void ForgetPassword(String TAG, JSONObject userObject, final ServiceListener<String, String> listener) {
-        RestAPI.PostUrlEncodedRequest(TAG, ConfigConstants.ForgetPassword, userObject, new ServiceListener<JSONObject, VolleyError>() {
+        RestAPI.PostJsonRequest(TAG, ConfigConstants.ForgetPassword, userObject, new ServiceListener<JSONObject, VolleyError>() {
             @Override
             public void success(JSONObject success) {
                 try {
-                    if (success.getBoolean("Success")) {
-                        listener.success(success.getString("Message"));
-                    } else listener.error(success.getString("Message"));
+                    if (success.getBoolean("success")) {
+                        listener.success(success.getJSONObject("data").getString("message"));
+                    } else listener.error(success.getJSONObject("data").getString("message"));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -58,7 +58,7 @@ public class AppServices {
 
 
     public static void TechnicalSupport(String TAG, JSONObject userObject, final ServiceListener<String, String> listener) {
-        RestAPI.PostUrlEncodedRequest(TAG, ConfigConstants.TechnicalSupport, userObject, new ServiceListener<JSONObject, VolleyError>() {
+        RestAPI.PostJsonRequest(TAG, ConfigConstants.TechnicalSupport, userObject, new ServiceListener<JSONObject, VolleyError>() {
             @Override
             public void success(JSONObject success) {
                 try {
@@ -77,44 +77,5 @@ public class AppServices {
         });
 
     }
-
-
-//    public static void getAER(String TAG, final ServiceListener<ArrayList<Data>, String> listener) {
-//        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.getAER, new ServiceListener<JSONObject, VolleyError>() {
-//            @Override
-//            public void success(JSONObject success) {
-//                try {
-//                    ArrayList<Data> data = new ArrayList<>(Arrays.asList(GsonUtils.fromJSON(success.getJSONArray("Data").toString(), Data[].class)));
-//                    listener.success(data);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//
-//            @Override
-//            public void error(VolleyError error) {
-//                listener.error(error.getMessage());
-//            }
-//        });
-//    }
-//
-//    public static void GetCounselingCardDetail(String TAG, int id, final ServiceListener<CounselingCards, String> listener) {
-//        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.GetCounselingCardById + "?id=" + id, new ServiceListener<JSONObject, VolleyError>() {
-//            @Override
-//            public void success(JSONObject success) {
-//                try {
-//                    CounselingCards counselingCards = GsonUtils.fromJSON(success.getJSONObject("Data").getJSONObject("CounselingCards"), CounselingCards.class);
-//                    listener.success(counselingCards);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//
-//            @Override
-//            public void error(VolleyError error) {
-//                listener.error(error.getMessage());
-//            }
-//        });
-//    }
 
 }
