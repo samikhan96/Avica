@@ -7,5 +7,6 @@ public class ConfigConstants {
     public static final String Login = "/web/auth/login";
     public static final String ForgetPassword = "/web/auth/forgot-password";
     public static final String TechnicalSupport = "/web/support";
+    public static final String ResetPass = "/web/auth/reset-password";
 
 }

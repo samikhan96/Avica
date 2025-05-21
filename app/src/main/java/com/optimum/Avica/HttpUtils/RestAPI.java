@@ -83,5 +83,36 @@ public class RestAPI {
         HttpRequestHandler.getInstance().addToRequestQueue(jsonObjectRequest, TAG);
     }
 
+    public static void PostJsonRequest_new(String TAG, String apiEndpoint, final JSONObject obj, final ServiceListener<JSONObject, VolleyError> listener) {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.PATCH,
+                ConfigConstants.API_BASE_URL + apiEndpoint,
+                obj,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        listener.success(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        listener.error(error);
+                    }
+                }
+        ) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Content-Type", "application/json");
+                headers.put("isMobile", "true");
+                headers.put("Authorization", "Bearer " + ConfigConstants.token);
+                return headers;
+            }
+        };
+
+        HttpRequestHandler.getInstance().addToRequestQueue(jsonObjectRequest, TAG);
+    }
+
 
 }

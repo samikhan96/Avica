@@ -27,6 +27,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
     Button loginBtn;
     EditText et_email;
     String email;
+    public static String emailsaved;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +73,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         AppServices.ForgetPassword(ForgetPasswordActivity.class.getSimpleName(), jsonObject, new ServiceListener<String, String>() {
             @Override
             public void success(String success) {
+                emailsaved=email;
                 AppUtils.dismisProgressDialog(ForgetPasswordActivity.this);
                 EmailSendDialog cdd = new EmailSendDialog(ForgetPasswordActivity.this);
                 cdd.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

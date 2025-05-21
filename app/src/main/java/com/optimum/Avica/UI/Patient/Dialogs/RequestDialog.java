@@ -39,6 +39,7 @@ public class RequestDialog extends Dialog implements
         switch (v.getId()) {
             case R.id.yes_btn:
                 dismiss();
+                c.finish();
                 break;
 
             default:

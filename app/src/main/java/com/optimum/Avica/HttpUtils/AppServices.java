@@ -62,9 +62,30 @@ public class AppServices {
             @Override
             public void success(JSONObject success) {
                 try {
-                    if (success.getBoolean("Success")) {
-                        listener.success(success.getString("Message"));
-                    } else listener.error(success.getString("Message"));
+                    if (success.getBoolean("success")) {
+                        listener.success(success.getJSONObject("data").toString());
+                    } else listener.error(success.getJSONObject("data").toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                listener.error(error.getMessage());
+            }
+        });
+
+    }
+
+    public static void ResetPass(String TAG, JSONObject userObject, final ServiceListener<String, String> listener) {
+        RestAPI.PostJsonRequest_new(TAG, ConfigConstants.ResetPass, userObject, new ServiceListener<JSONObject, VolleyError>() {
+            @Override
+            public void success(JSONObject success) {
+                try {
+                    if (success.getBoolean("success")) {
+                        listener.success(success.getJSONObject("data").toString());
+                    } else listener.error(success.getJSONObject("data").toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
