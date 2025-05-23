@@ -13,7 +13,7 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_gravity="center_vertical"
-            android:id="@+id/drawer"
+            android:id="@+id/drawer_img"
             android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_70sdp"
             android:src="@drawable/ellipse" />
@@ -29,7 +29,7 @@
 
             <TextView
                 android:padding="@dimen/_2sdp"
-                android:id="@+id/name"
+                android:id="@+id/drawer_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -38,6 +38,7 @@
                 android:textSize="@dimen/_10ssp" />
 
             <TextView
+                android:id="@+id/drawer_specs"
                 android:padding="@dimen/_2sdp"
                 android:background="@drawable/nav_header_dep_bg"
                 android:layout_width="wrap_content"

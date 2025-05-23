@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/app_bg_new"
-    android:orientation="vertical"
-    tools:context=".UI.Patient.PrivacyPolicyActivity">
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/toolbar"
@@ -63,7 +62,7 @@
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/drawer"
+                android:id="@+id/prpfile_img"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_100sdp"
                 android:layout_gravity="center_vertical"
@@ -94,7 +93,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/name"
+                            android:id="@+id/tv_1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -104,9 +103,10 @@
                             android:textSize="@dimen/_10ssp" />
 
                         <TextView
+                            android:id="@+id/tv_2"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                             
                             android:gravity="center"
                             android:padding="@dimen/_2sdp"
                             android:text="abc123&amp;gmail.com"
@@ -148,7 +148,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                             
+
                             android:gravity="center"
                             android:padding="@dimen/_2sdp"
                             android:text="DOB"
@@ -156,6 +156,8 @@
                             android:textSize="@dimen/_10ssp" />
 
                         <TextView
+                            android:id="@+id/tv_3"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -197,7 +199,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                             
+
                             android:gravity="center"
                             android:padding="@dimen/_2sdp"
                             android:text="Phone"
@@ -205,6 +207,7 @@
                             android:textSize="@dimen/_10ssp" />
 
                         <TextView
+                            android:id="@+id/tv_4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -275,6 +278,7 @@
                             android:textSize="@dimen/_10ssp" />
 
                         <TextView
+                            android:id="@+id/tv_5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="@dimen/_2sdp"
@@ -300,9 +304,10 @@
                             android:textSize="@dimen/_10ssp" />
 
                         <TextView
+                            android:id="@+id/tv_6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                             
+
                             android:padding="@dimen/_2sdp"
                             android:text="70 Kg"
                             android:textColor="@color/black"
@@ -335,7 +340,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                             
+                            android:id="@+id/tv_7"
+
                             android:padding="@dimen/_2sdp"
                             android:text="English"
                             android:textColor="@color/black"
@@ -361,7 +367,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                             
+                            android:id="@+id/tv_8"
+
                             android:padding="@dimen/_2sdp"
                             android:text="13127386184"
                             android:textColor="@color/black"
@@ -394,7 +401,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                             
+                            android:id="@+id/tv_9"
+
                             android:padding="@dimen/_2sdp"
                             android:text="1234-XYZ"
                             android:textColor="@color/black"
@@ -420,7 +428,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                             
+                            android:id="@+id/tv_10"
+
                             android:padding="@dimen/_2sdp"
                             android:text="Standard"
                             android:textColor="@color/black"
@@ -453,7 +462,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                             
+                            android:id="@+id/tv_11"
+
                             android:padding="@dimen/_2sdp"
                             android:text="UTC+5"
                             android:textColor="@color/black"
@@ -480,7 +490,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                             
+
                             android:padding="@dimen/_2sdp"
                             android:text="70 Kg"
                             android:textColor="@color/menu_icon"

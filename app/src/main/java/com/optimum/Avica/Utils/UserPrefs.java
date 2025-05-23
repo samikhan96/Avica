@@ -20,17 +20,17 @@ public class UserPrefs {
         return manager;
     }
 
-    public static User getGetDoctorUser() {
+    public static User getGetUser() {
         SharedPreferences sharedPreferences = Avica.getContext().getSharedPreferences(Type + "Prefs", 0);
         return GsonUtils.fromJSON(sharedPreferences.getString(Constants.USER, null), User.class);
     }
 
-    public void saveDoctorUser(JSONObject user) {
+    public void saveUser(JSONObject user) {
         docPrefs.putString(Constants.USER, user.toString());
         docPrefs.commit();
     }
 
-    public void saveDoctorUser(User user) {
+    public void saveUser(User user) {
         docPrefs.putString(Constants.USER, user.toString());
         docPrefs.commit();
     }

@@ -41,8 +41,11 @@ public class RestAPI {
             /** Passing some request headers* */
             @Override
             public Map getHeaders() throws AuthFailureError {
+
                 HashMap headers = new HashMap();
-//                headers.put("accessToken", Appconstant.token);
+                headers.put("Content-Type", "application/json");
+                headers.put("isMobile", "true");
+                headers.put("Authorization", "Bearer " + ConfigConstants.token);
                 return headers;
 
             }

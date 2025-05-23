@@ -19,6 +19,7 @@ import com.optimum.Avica.Models.User;
 import com.optimum.Avica.R;
 import com.optimum.Avica.UI.Patient.Dialogs.LoginDialog;
 import com.optimum.Avica.Utils.AppUtils;
+import com.optimum.Avica.Utils.UserPrefs;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,8 +46,18 @@ public class LoginActivity extends AppCompatActivity {
         et_email=findViewById(R.id.et_email);
         password=findViewById(R.id.password);
 
-        et_email.setText("muhammadsaqib@avica.com");
-        password.setText("Doctor@1234");
+        if (SelectUserActivity.LoginType.equalsIgnoreCase("patient")) {
+//        PATIENTLOGIN
+        et_email.setText("haris@avica.com");
+        password.setText("Patient@123");
+        }
+        if (SelectUserActivity.LoginType.equalsIgnoreCase("doctor")) {
+
+//        DOCTORLOGIN
+            et_email.setText("muhammadsaqib@avica.com");
+            password.setText("Doctor@123");
+        }
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,6 +110,7 @@ public class LoginActivity extends AppCompatActivity {
             AppUtils.Toast("Please fill all fields");
             return false;
         }
+        UserPrefs.getInstance().clearDoctorUser();
         Login();
         return true;
     }

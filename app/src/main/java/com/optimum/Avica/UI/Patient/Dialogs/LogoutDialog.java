@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.optimum.Avica.R;
 import com.optimum.Avica.UI.Patient.LoginActivity;
+import com.optimum.Avica.Utils.UserPrefs;
 
 public class LogoutDialog extends Dialog implements
         android.view.View.OnClickListener {
@@ -42,6 +43,7 @@ public class LogoutDialog extends Dialog implements
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.yes_btn:
+                UserPrefs.getInstance().clearDoctorUser();
                 c.startActivity(new Intent(c, LoginActivity.class));
                 c.finish();
                 break;

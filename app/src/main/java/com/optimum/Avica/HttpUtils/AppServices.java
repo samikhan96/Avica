@@ -3,6 +3,8 @@ package com.optimum.Avica.HttpUtils;
 
 import com.android.volley.VolleyError;
 import com.optimum.Avica.Listener.ServiceListener;
+import com.optimum.Avica.Models.DoctorProfile;
+import com.optimum.Avica.Models.PatientProfile;
 import com.optimum.Avica.Models.User;
 import com.optimum.Avica.Utils.UserPrefs;
 
@@ -18,7 +20,7 @@ public class AppServices {
             public void success(JSONObject success) {
                 try {
                     if (success.getBoolean("success")) {
-                        UserPrefs.getInstance().saveDoctorUser(success.getJSONObject("data"));
+                        UserPrefs.getInstance().saveUser(success.getJSONObject("data"));
                         User user = GsonUtils.fromJSON(success.getJSONObject("data"), User.class);
                         listener.success(user);
                     } else listener.error(success.getJSONObject("data").getString("message"));
@@ -98,5 +100,43 @@ public class AppServices {
         });
 
     }
+
+    public static void patientProfile(String TAG,  final ServiceListener<PatientProfile, String> listener) {
+        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.patientprofile, new ServiceListener<JSONObject, VolleyError>() {
+            @Override
+            public void success(JSONObject success) {
+                try {
+                    PatientProfile patientProfile = GsonUtils.fromJSON(success.getJSONObject("data"), PatientProfile.class);
+                    listener.success(patientProfile);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                listener.error(error.getMessage());
+            }
+        });
+    }
+    public static void DoctorProfile(String TAG,  final ServiceListener<DoctorProfile, String> listener) {
+        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.doctorprofile, new ServiceListener<JSONObject, VolleyError>() {
+            @Override
+            public void success(JSONObject success) {
+                try {
+                    DoctorProfile doctorProfile = GsonUtils.fromJSON(success.getJSONObject("data"), DoctorProfile.class);
+                    listener.success(doctorProfile);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                listener.error(error.getMessage());
+            }
+        });
+    }
+
 
 }
