@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.optimum.Avica.HttpUtils.AppServices;
+import com.optimum.Avica.HttpUtils.ConfigConstants;
 import com.optimum.Avica.Listener.ServiceListener;
 import com.optimum.Avica.Models.User;
 import com.optimum.Avica.R;
@@ -128,6 +129,7 @@ public class LoginActivity extends AppCompatActivity {
         AppServices.Login(LoginActivity.class.getSimpleName(), jsonObject, new ServiceListener<User, String>() {
             @Override
             public void success(User success) {
+                ConfigConstants.token = success.token;
                 AppUtils.dismisProgressDialog(LoginActivity.this);
                 LoginDialog cdd = new LoginDialog(LoginActivity.this);
                 cdd.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

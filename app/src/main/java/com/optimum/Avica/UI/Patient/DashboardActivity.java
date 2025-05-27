@@ -21,11 +21,14 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.navigation.NavigationView;
+import com.optimum.Avica.HttpUtils.AppServices;
+import com.optimum.Avica.Listener.ServiceListener;
 import com.optimum.Avica.Models.User;
 import com.optimum.Avica.R;
 import com.optimum.Avica.UI.Patient.History.HistoryActivity;
 import com.optimum.Avica.UI.Patient.TeleMedicine.TelemedActivity;
 import com.optimum.Avica.UI.Patient.Dialogs.LogoutDialog;
+import com.optimum.Avica.Utils.AppUtils;
 import com.optimum.Avica.Utils.UserPrefs;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -204,6 +207,7 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
+        getPatientDashboard(user.id);
 
     }
 
@@ -244,5 +248,21 @@ public class DashboardActivity extends AppCompatActivity {
         }
     }
 
+    public void getPatientDashboard(String id){
+        AppUtils.showProgressDialog(DashboardActivity.this);
 
+        AppServices.Dashboard(DashboardActivity.class.getSimpleName(),id, new ServiceListener<String, String>() {
+            @Override
+            public void success(String success) {
+                AppUtils.dismisProgressDialog(DashboardActivity.this);
+
+            }
+
+            @Override
+            public void error(String error) {
+                AppUtils.dismisProgressDialog(DashboardActivity.this);
+
+            }
+        });
+    }
 }

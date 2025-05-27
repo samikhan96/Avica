@@ -10,5 +10,6 @@ public class ConfigConstants {
     public static final String ResetPass = "/web/auth/reset-password";
     public static final String doctorprofile = "/web/doctor/profile";
     public static final String patientprofile = "/web/patient/profile";
+    public static final String patientDashboard = "/web/rag/patients/";
 
 }
