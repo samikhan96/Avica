@@ -198,7 +198,8 @@
                                     android:padding="@dimen/_2sdp"
                                     android:text="Blood Glucose"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_10ssp" />
+                                    android:textSize="@dimen/_14ssp"
+                                    android:textStyle="bold" />
 
                                 <ImageView
                                     android:layout_width="wrap_content"
@@ -238,7 +239,8 @@
                                     android:padding="@dimen/_2sdp"
                                     android:text="Blood Glucose"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_10ssp" />
+                                    android:textSize="@dimen/_14ssp"
+                                    android:textStyle="bold" />
 
                                 <ImageView
                                     android:layout_width="wrap_content"
@@ -278,7 +280,8 @@
                                     android:padding="@dimen/_2sdp"
                                     android:text="Blood Glucose"
                                     android:textColor="@color/black"
-                                    android:textSize="@dimen/_10ssp" />
+                                    android:textSize="@dimen/_14ssp"
+                                    android:textStyle="bold" />
 
                                 <ImageView
                                     android:layout_width="wrap_content"
