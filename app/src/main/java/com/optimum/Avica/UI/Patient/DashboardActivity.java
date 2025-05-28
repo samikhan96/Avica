@@ -20,16 +20,30 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.navigation.NavigationView;
 import com.optimum.Avica.HttpUtils.AppServices;
 import com.optimum.Avica.Listener.ServiceListener;
+import com.optimum.Avica.Models.DashboardData;
+import com.optimum.Avica.Models.Dashboard_BG;
+import com.optimum.Avica.Models.Dashboard_BP;
 import com.optimum.Avica.Models.User;
 import com.optimum.Avica.R;
 import com.optimum.Avica.UI.Patient.History.HistoryActivity;
 import com.optimum.Avica.UI.Patient.TeleMedicine.TelemedActivity;
 import com.optimum.Avica.UI.Patient.Dialogs.LogoutDialog;
 import com.optimum.Avica.Utils.AppUtils;
+import com.optimum.Avica.Utils.DonutChartView;
 import com.optimum.Avica.Utils.UserPrefs;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -38,16 +52,21 @@ public class DashboardActivity extends AppCompatActivity {
     ImageView drawerimage, noti, navFooter1;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    CircleImageView drawer_img,profile_img;
-    TextView name,drawer_name,specs,drawer_specs;
+    CircleImageView drawer_img, profile_img;
+    TextView name, drawer_name, specs, drawer_specs,
+            bg_totalReading, bg_timeStamp, bg_tv_1, bg_tv_2, bg_tv_3,
+            bp_totalReading, bp_timeStamp, bp_tv_1, bp_tv_2, bp_tv_3;
     LinearLayout l2, l4, l3;
     User user;
+    DonutChartView bg_donutChart,bp_donutChart;
+    Dashboard_BG dashboardBg;
+    Dashboard_BP dashboardBp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        user= UserPrefs.getGetUser();
+        user = UserPrefs.getGetUser();
 
         drawerimage = findViewById(R.id.drawerimage);
         drawerLayout = findViewById(R.id.drawerLayout);
@@ -64,11 +83,24 @@ public class DashboardActivity extends AppCompatActivity {
         l3 = findViewById(R.id.l3);
         l4 = findViewById(R.id.l4);
         noti = findViewById(R.id.noti);
+        bg_donutChart = findViewById(R.id.bg_donutChart);
+        bg_totalReading = findViewById(R.id.bg_totalReading);
+        bg_timeStamp = findViewById(R.id.bg_timeStamp);
+        bg_tv_1 = findViewById(R.id.bg_tv_1);
+        bg_tv_2 = findViewById(R.id.bg_tv_2);
+        bg_tv_3 = findViewById(R.id.bg_tv_3);
 
-        name.setText(user.first_name +" "+user.last_name);
-        drawer_name.setText(user.first_name +" "+user.last_name);
-        specs.setText(user.username);
-        drawer_specs.setText(user.username);
+        bp_donutChart = findViewById(R.id.bp_donutChart);
+        bp_totalReading = findViewById(R.id.bp_totalReading);
+        bp_timeStamp = findViewById(R.id.bp_timeStamp);
+        bp_tv_1 = findViewById(R.id.bp_tv_1);
+        bp_tv_2 = findViewById(R.id.bp_tv_2);
+        bp_tv_3 = findViewById(R.id.bp_tv_3);
+
+        name.setText(user.first_name + " " + user.last_name);
+        drawer_name.setText(user.first_name + " " + user.last_name);
+        specs.setText(user.speciality);
+        drawer_specs.setText(user.speciality);
         // Set Text Values+
         RequestOptions options = new RequestOptions()
                 .centerCrop()
@@ -206,8 +238,38 @@ public class DashboardActivity extends AppCompatActivity {
                 return true;
             }
         });
-
         getPatientDashboard(user.id);
+
+    }
+
+    private void setupBgPieChart(int high, int normal, int low) {
+        int total = high + normal + low;
+
+        bg_totalReading.setText("" + total);
+        // Example values
+        int[] values = {high, normal, low};
+        int[] colors = {
+                0xFF2CC97D,
+                0xFFF7B500,
+                0xFFEF5DA8
+        };
+        bg_donutChart.setValues(values);
+        bg_donutChart.setColors(colors);
+
+    }
+    private void setupBpPieChart(int high, int normal, int low) {
+        int total = high + normal + low;
+
+        bp_totalReading.setText("" + total);
+        // Example values
+        int[] values = {high, normal, low};
+        int[] colors = {
+                0xFF2CC97D,
+                0xFFF7B500,
+                0xFFEF5DA8
+        };
+        bp_donutChart.setValues(values);
+        bp_donutChart.setColors(colors);
 
     }
 
@@ -248,14 +310,17 @@ public class DashboardActivity extends AppCompatActivity {
         }
     }
 
-    public void getPatientDashboard(String id){
+    public void getPatientDashboard(String id) {
         AppUtils.showProgressDialog(DashboardActivity.this);
 
-        AppServices.Dashboard(DashboardActivity.class.getSimpleName(),id, new ServiceListener<String, String>() {
+        AppServices.Dashboard(DashboardActivity.class.getSimpleName(), id, new ServiceListener<DashboardData, String>() {
             @Override
-            public void success(String success) {
+            public void success(DashboardData success) {
                 AppUtils.dismisProgressDialog(DashboardActivity.this);
-
+                dashboardBg = success.getBloodglucose();
+                dashboardBp = success.getBloodpressure();
+                setBGdata();
+                setBPdata();
             }
 
             @Override
@@ -263,6 +328,26 @@ public class DashboardActivity extends AppCompatActivity {
                 AppUtils.dismisProgressDialog(DashboardActivity.this);
 
             }
+
         });
+    }
+
+    public void setBGdata() {
+        bg_tv_1.setText("• High: 235 mmdb " + "(" + dashboardBg.high + ")");
+        bg_tv_2.setText("• Normal: 120 mmdb " + "(" + dashboardBg.normal + ")");
+        bg_tv_3.setText("• Low: 80 mmdb " + "(" + dashboardBg.low + ")");
+        bg_timeStamp.setText("6 pm 12-06-20");
+        setupBgPieChart(dashboardBg.high, dashboardBg.normal, dashboardBg.low);
+
+
+    }
+    public void setBPdata() {
+        bp_tv_1.setText("• High: 235 mmdb " + "(" + dashboardBp.high + ")");
+        bp_tv_2.setText("• Normal: 120 mmdb " + "(" + dashboardBp.normal + ")");
+        bp_tv_3.setText("• Low: 80 mmdb " + "(" + dashboardBp.low + ")");
+        bp_timeStamp.setText("6 pm 12-06-20");
+        setupBpPieChart(dashboardBp.high, dashboardBp.normal, dashboardBp.low);
+
+
     }
 }

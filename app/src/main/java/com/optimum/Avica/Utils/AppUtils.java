@@ -127,15 +127,6 @@ public class AppUtils {
         progressDialog.dismiss();
     }
 
-    public static void Toast(String Message) {
-        Toast toast = Toast.makeText(Avica.getContext(), "  "+Message+"  ", Toast.LENGTH_SHORT);
-        TextView textView = (((TextView)((LinearLayout)toast.getView()).getChildAt(0)));
-        textView.setTypeface(Typeface.DEFAULT_BOLD);
-        textView.setTextColor(Color.BLACK);
-        toast.getView().setBackgroundColor(Avica.getContext().getResources().getColor(R.color.white));
-        toast.show();
-    }
-
     public static void Toast(String Message, boolean Long) {
         Toast toast = Toast.makeText(Avica.getContext(), "  "+Message+"  ", Toast.LENGTH_LONG);
         TextView textView = (((TextView)((LinearLayout)toast.getView()).getChildAt(0)));
@@ -145,7 +136,7 @@ public class AppUtils {
         toast.show();
     }
 
-    public static void Toast(int Message) {
+    public static void Toast(String Message) {
         Toast.makeText(Avica.getContext(), "  "+ String.valueOf(Message)+"  ", Toast.LENGTH_SHORT).show();
     }
 

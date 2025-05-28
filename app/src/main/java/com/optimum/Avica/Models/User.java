@@ -15,6 +15,15 @@ public class User {
     public String organization_id;
     public boolean isPincode;
     public String token;
+    public String speciality;
+
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
 
     public String getId() {
         return id;

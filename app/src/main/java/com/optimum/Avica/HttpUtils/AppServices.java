@@ -3,12 +3,14 @@ package com.optimum.Avica.HttpUtils;
 
 import com.android.volley.VolleyError;
 import com.optimum.Avica.Listener.ServiceListener;
+import com.optimum.Avica.Models.DashboardData;
 import com.optimum.Avica.Models.Dashboard_BG;
 import com.optimum.Avica.Models.Dashboard_BP;
 import com.optimum.Avica.Models.Dashboard_ECG;
 import com.optimum.Avica.Models.Dashboard_Spo2;
 import com.optimum.Avica.Models.Dashboard_Temp;
 import com.optimum.Avica.Models.DoctorProfile;
+import com.optimum.Avica.Models.Notifications;
 import com.optimum.Avica.Models.PatientProfile;
 import com.optimum.Avica.Models.User;
 import com.optimum.Avica.Utils.UserPrefs;
@@ -16,6 +18,9 @@ import com.optimum.Avica.Utils.UserPrefs;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AppServices {
 
@@ -86,7 +91,7 @@ public class AppServices {
     }
 
     public static void ResetPass(String TAG, JSONObject userObject, final ServiceListener<String, String> listener) {
-        RestAPI.PostJsonRequest_new(TAG, ConfigConstants.ResetPass, userObject, new ServiceListener<JSONObject, VolleyError>() {
+        RestAPI.PostJsonRequest(TAG, ConfigConstants.ResetPass, userObject, new ServiceListener<JSONObject, VolleyError>() {
             @Override
             public void success(JSONObject success) {
                 try {
@@ -144,17 +149,13 @@ public class AppServices {
     }
 
 
-    public static void Dashboard(String TAG,String id,  final ServiceListener<String, String> listener) {
+    public static void Dashboard(String TAG,String id,  final ServiceListener<DashboardData, String> listener) {
         RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.patientDashboard+id, new ServiceListener<JSONObject, VolleyError>() {
             @Override
             public void success(JSONObject success) {
                 try {
-                    Dashboard_ECG dashboardEcg = GsonUtils.fromJSON(success.getJSONObject("data").getJSONObject("ecg"), Dashboard_ECG.class);
-                    Dashboard_Spo2 dashboardSpo2 = GsonUtils.fromJSON(success.getJSONObject("data").getJSONObject("spo2"), Dashboard_Spo2.class);
-                    Dashboard_BP dashboardBp = GsonUtils.fromJSON(success.getJSONObject("data").getJSONObject("bloodpressure"), Dashboard_BP.class);
-                    Dashboard_BG dashboardBg = GsonUtils.fromJSON(success.getJSONObject("data").getJSONObject("bloodglucose"), Dashboard_BG.class);
-                    Dashboard_Temp dashboardTemp = GsonUtils.fromJSON(success.getJSONObject("data").getJSONObject("temperature"), Dashboard_Temp.class);
-                    listener.success(success.toString());
+                    DashboardData dashboardData = GsonUtils.fromJSON(success.getJSONObject("data"),DashboardData.class);
+                    listener.success(dashboardData);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -166,6 +167,29 @@ public class AppServices {
             }
         });
     }
+
+
+
+
+    public static void getNotificiation(String TAG, final ServiceListener<ArrayList<Notifications>, String> listener) {
+        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.notifications, new ServiceListener<JSONObject, VolleyError>() {
+            @Override
+            public void success(JSONObject success) {
+                try {
+                    ArrayList<Notifications> data = new ArrayList<>(Arrays.asList(GsonUtils.fromJSON(success.getJSONArray("data").toString(), Notifications[].class)));
+                    listener.success(data);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                listener.error(error.getMessage());
+            }
+        });
+    }
+
 
 
 }
