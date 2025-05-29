@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.optimum.Avica.Adapters.AdapterPush;
 import com.optimum.Avica.HttpUtils.AppServices;
 import com.optimum.Avica.Listener.ServiceListener;
-import com.optimum.Avica.Models.DoctorProfile;
 import com.optimum.Avica.Models.Notifications;
 import com.optimum.Avica.R;
 import com.optimum.Avica.Utils.AppUtils;

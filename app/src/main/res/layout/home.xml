@@ -389,6 +389,387 @@
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="@dimen/_230sdp"
+                        android:layout_height="@dimen/_350sdp"
+                        android:layout_margin="@dimen/_10sdp"
+                        card_view:cardCornerRadius="@dimen/_10sdp"
+                        card_view:cardElevation="@dimen/_5sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="Temperature"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14ssp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:layout_width="300dp"
+                                android:layout_height="300dp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <com.optimum.Avica.Utils.DonutChartView
+                                    android:id="@+id/Temp_donutChart"
+                                    android:layout_width="230dp"
+                                    android:layout_height="230dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginBottom="0dp" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="@dimen/_50sdp"
+                                    android:orientation="vertical">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="16dp"
+                                        android:text="Total Readings"
+                                        android:textColor="#0B75F9"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                    <TextView
+                                        android:id="@+id/Temp_totalReading"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="35"
+                                        android:textColor="#000000"
+                                        android:textSize="@dimen/_16ssp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="8dp"
+                                        android:text="Time Stamp:"
+                                        android:textColor="#777777"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                    <TextView
+                                        android:id="@+id/Temp_timeStamp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="3dp"
+                                        android:text="6 pm 12-06-20"
+                                        android:textColor="#0B75F9"
+                                        android:textSize="@dimen/_10ssp" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/Temp_donutChart"
+                                    android:orientation="vertical">
+
+
+                                    <TextView
+                                        android:id="@+id/Temp_tv_1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• High: 235 mmdb (20)"
+                                        android:textColor="#EF5DA8"
+                                        android:textSize="@dimen/_11ssp" />
+
+                                    <TextView
+                                        android:id="@+id/Temp_tv_2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• Normal: 120 mmdb (10)"
+                                        android:textColor="#2CC97D"
+                                        android:textSize="@dimen/_11ssp" />
+
+                                    <TextView
+                                        android:id="@+id/Temp_tv_3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• Low: 80 mmdb (5)"
+                                        android:textColor="#F7B500"
+                                        android:textSize="@dimen/_11ssp" />
+                                </LinearLayout>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="@dimen/_230sdp"
+                        android:layout_height="@dimen/_350sdp"
+                        android:layout_margin="@dimen/_10sdp"
+                        card_view:cardCornerRadius="@dimen/_10sdp"
+                        card_view:cardElevation="@dimen/_5sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="Spo2"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14ssp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:layout_width="300dp"
+                                android:layout_height="300dp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <com.optimum.Avica.Utils.DonutChartView
+                                    android:id="@+id/spo2_donutChart"
+                                    android:layout_width="230dp"
+                                    android:layout_height="230dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginBottom="0dp" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="@dimen/_50sdp"
+                                    android:orientation="vertical">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="16dp"
+                                        android:text="Total Readings"
+                                        android:textColor="#0B75F9"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                    <TextView
+                                        android:id="@+id/spo2_totalReading"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="35"
+                                        android:textColor="#000000"
+                                        android:textSize="@dimen/_16ssp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="8dp"
+                                        android:text="Time Stamp:"
+                                        android:textColor="#777777"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                    <TextView
+                                        android:id="@+id/spo2_timeStamp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="3dp"
+                                        android:text="6 pm 12-06-20"
+                                        android:textColor="#0B75F9"
+                                        android:textSize="@dimen/_10ssp" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/spo2_donutChart"
+                                    android:orientation="vertical">
+
+
+                                    <TextView
+                                        android:id="@+id/spo2_tv_1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• High: 235 mmdb (20)"
+                                        android:textColor="#EF5DA8"
+                                        android:textSize="@dimen/_11ssp" />
+
+                                    <TextView
+                                        android:id="@+id/spo2_tv_2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• Normal: 120 mmdb (10)"
+                                        android:textColor="#2CC97D"
+                                        android:textSize="@dimen/_11ssp" />
+
+                                    <TextView
+                                        android:id="@+id/spo2_tv_3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• Low: 80 mmdb (5)"
+                                        android:textColor="#F7B500"
+                                        android:textSize="@dimen/_11ssp" />
+                                </LinearLayout>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="@dimen/_230sdp"
+                        android:layout_height="@dimen/_350sdp"
+                        android:layout_margin="@dimen/_10sdp"
+                        card_view:cardCornerRadius="@dimen/_10sdp"
+                        card_view:cardElevation="@dimen/_5sdp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="@dimen/_2sdp"
+                                android:text="ECG"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14ssp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:layout_width="300dp"
+                                android:layout_height="300dp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:gravity="center_horizontal"
+                                android:orientation="vertical">
+
+                                <com.optimum.Avica.Utils.DonutChartView
+                                    android:id="@+id/ecg_donutChart"
+                                    android:layout_width="230dp"
+                                    android:layout_height="230dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginBottom="0dp" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="@dimen/_50sdp"
+                                    android:orientation="vertical">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="16dp"
+                                        android:text="Total Readings"
+                                        android:textColor="#0B75F9"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                    <TextView
+                                        android:id="@+id/ecg_totalReading"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="35"
+                                        android:textColor="#000000"
+                                        android:textSize="@dimen/_16ssp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="8dp"
+                                        android:text="Time Stamp:"
+                                        android:textColor="#777777"
+                                        android:textSize="@dimen/_10ssp" />
+
+                                    <TextView
+                                        android:id="@+id/ecg_timeStamp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="3dp"
+                                        android:text="6 pm 12-06-20"
+                                        android:textColor="#0B75F9"
+                                        android:textSize="@dimen/_10ssp" />
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/ecg_donutChart"
+                                    android:orientation="vertical">
+
+
+                                    <TextView
+                                        android:id="@+id/ecg_tv_1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• High: 235 mmdb (20)"
+                                        android:textColor="#EF5DA8"
+                                        android:textSize="@dimen/_11ssp" />
+
+                                    <TextView
+                                        android:id="@+id/ecg_tv_2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• Normal: 120 mmdb (10)"
+                                        android:textColor="#2CC97D"
+                                        android:textSize="@dimen/_11ssp" />
+
+                                    <TextView
+                                        android:id="@+id/ecg_tv_3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="• Low: 80 mmdb (5)"
+                                        android:textColor="#F7B500"
+                                        android:textSize="@dimen/_11ssp" />
+                                </LinearLayout>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
 
                 </LinearLayout>

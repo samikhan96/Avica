@@ -16,6 +16,11 @@ public class PatientProfile implements Serializable {
     public String username;
     public String created_at;
     public String updated_at;
+    public String language;
+    public String timeZone;
+    public String SSN;
+    public String subscribeId;
+    public String measurementSystem;
     public PatientProfileInfo patient;
 
 

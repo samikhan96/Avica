@@ -4,18 +4,12 @@ package com.optimum.Avica.HttpUtils;
 import com.android.volley.VolleyError;
 import com.optimum.Avica.Listener.ServiceListener;
 import com.optimum.Avica.Models.DashboardData;
-import com.optimum.Avica.Models.Dashboard_BG;
-import com.optimum.Avica.Models.Dashboard_BP;
-import com.optimum.Avica.Models.Dashboard_ECG;
-import com.optimum.Avica.Models.Dashboard_Spo2;
-import com.optimum.Avica.Models.Dashboard_Temp;
-import com.optimum.Avica.Models.DoctorProfile;
+import com.optimum.Avica.Models.DoctorProfile.ProfileData;
 import com.optimum.Avica.Models.Notifications;
 import com.optimum.Avica.Models.PatientProfile;
 import com.optimum.Avica.Models.User;
 import com.optimum.Avica.Utils.UserPrefs;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -111,8 +105,29 @@ public class AppServices {
 
     }
 
-    public static void patientProfile(String TAG,  final ServiceListener<PatientProfile, String> listener) {
-        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.patientprofile, new ServiceListener<JSONObject, VolleyError>() {
+    public static void AddMeasurment(String TAG,String id, JSONObject userObject, final ServiceListener<String, String> listener) {
+        RestAPI.PostJsonRequest(TAG, ConfigConstants.AddMeasurment+id, userObject, new ServiceListener<JSONObject, VolleyError>() {
+            @Override
+            public void success(JSONObject success) {
+                try {
+                    if (success.getBoolean("success")) {
+                        listener.success(success.getJSONObject("data").toString());
+                    } else listener.error(success.getJSONObject("data").toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                listener.error(error.getMessage());
+            }
+        });
+
+    }
+
+    public static void patientProfile(String TAG,String id,  final ServiceListener<PatientProfile, String> listener) {
+        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.patientprofile+id, new ServiceListener<JSONObject, VolleyError>() {
             @Override
             public void success(JSONObject success) {
                 try {
@@ -129,12 +144,12 @@ public class AppServices {
             }
         });
     }
-    public static void DoctorProfile(String TAG,  final ServiceListener<DoctorProfile, String> listener) {
-        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.doctorprofile, new ServiceListener<JSONObject, VolleyError>() {
+    public static void DoctorProfile(String TAG,String id,  final ServiceListener<ProfileData, String> listener) {
+        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.doctorprofile+id, new ServiceListener<JSONObject, VolleyError>() {
             @Override
             public void success(JSONObject success) {
                 try {
-                    DoctorProfile doctorProfile = GsonUtils.fromJSON(success.getJSONObject("data"), DoctorProfile.class);
+                    ProfileData doctorProfile = GsonUtils.fromJSON(success.getJSONObject("data"), ProfileData.class);
                     listener.success(doctorProfile);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -151,6 +166,24 @@ public class AppServices {
 
     public static void Dashboard(String TAG,String id,  final ServiceListener<DashboardData, String> listener) {
         RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.patientDashboard+id, new ServiceListener<JSONObject, VolleyError>() {
+            @Override
+            public void success(JSONObject success) {
+                try {
+                    DashboardData dashboardData = GsonUtils.fromJSON(success.getJSONObject("data"),DashboardData.class);
+                    listener.success(dashboardData);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                listener.error(error.getMessage());
+            }
+        });
+    }
+    public static void Dashboard_doc(String TAG,  final ServiceListener<DashboardData, String> listener) {
+        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.DocDashboard, new ServiceListener<JSONObject, VolleyError>() {
             @Override
             public void success(JSONObject success) {
                 try {

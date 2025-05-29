@@ -11,10 +11,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.optimum.Avica.HttpUtils.AppServices;
 import com.optimum.Avica.Listener.ServiceListener;
-import com.optimum.Avica.Models.DoctorProfile;
-import com.optimum.Avica.Models.PatientProfile;
+import com.optimum.Avica.Models.DoctorProfile.ProfileData;
+import com.optimum.Avica.Models.User;
 import com.optimum.Avica.R;
 import com.optimum.Avica.Utils.AppUtils;
+import com.optimum.Avica.Utils.UserPrefs;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -22,12 +23,14 @@ public class DocProfileActivity extends AppCompatActivity {
 
     private CircleImageView prpfile_img;
     TextView tvName, tvEmail, tvDOB, tvPhone, tvHeight, tvWeight, tvLanguage, tvSSN, tvSubscriberId, tvMeasurementSystem, tvTimeZone;
-    DoctorProfile doctorProfile;
+    ProfileData doctorProfile;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doc_profile);
+        user= UserPrefs.getGetUser();
         ImageView back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,15 +54,15 @@ public class DocProfileActivity extends AppCompatActivity {
         tvTimeZone = findViewById(R.id.tv_11);
 
 
-        getDoctorProfile();
+        getDoctorProfile(user.id);
     }
 
-    public void getDoctorProfile(){
+    public void getDoctorProfile(String id){
         AppUtils.showProgressDialog(DocProfileActivity.this);
 
-        AppServices.DoctorProfile(DocProfileActivity.class.getSimpleName(), new ServiceListener<DoctorProfile, String>() {
+        AppServices.DoctorProfile(DocProfileActivity.class.getSimpleName(),id, new ServiceListener<ProfileData, String>() {
             @Override
-            public void success(DoctorProfile success) {
+            public void success(ProfileData success) {
                 doctorProfile= success;
                 AppUtils.dismisProgressDialog(DocProfileActivity.this);
                 setValues();
@@ -74,6 +77,24 @@ public class DocProfileActivity extends AppCompatActivity {
     }
 
     public void setValues(){
+        // Set Text Values+
+        RequestOptions options = new RequestOptions()
+                .centerCrop()
+                .placeholder(R.drawable.app_icon)
+                .error(R.drawable.app_icon);
+        Glide.with(DocProfileActivity.this).load(doctorProfile.getUri()).apply(options).into(prpfile_img);
+
+        tvName.setText(doctorProfile.getFirstName() + " " + doctorProfile.getLastName());
+        tvEmail.setText(doctorProfile.getEmail());
+        AppUtils.setFormattedDate(doctorProfile.getDob(),tvDOB);
+        tvPhone.setText(doctorProfile.getPhoneNumber());
+        tvHeight.setText(doctorProfile.getEmail());
+        tvWeight.setText(doctorProfile.getDoctor().getSpecialities().get(0).getTitle());
+        tvLanguage.setText(doctorProfile.getTitle());
+        tvSSN.setText(doctorProfile.getDoctor().getEmployeeId());
+        tvSubscriberId.setText(doctorProfile.getDoctor().getSpecialities().get(0).getInstituteName());
+        tvMeasurementSystem.setText(doctorProfile.getDoctor().getNpiNumber());
+        tvTimeZone.setText(doctorProfile.getLocation().getAddress());
 
 
     }

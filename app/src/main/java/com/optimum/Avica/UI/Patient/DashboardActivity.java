@@ -32,6 +32,9 @@ import com.optimum.Avica.Listener.ServiceListener;
 import com.optimum.Avica.Models.DashboardData;
 import com.optimum.Avica.Models.Dashboard_BG;
 import com.optimum.Avica.Models.Dashboard_BP;
+import com.optimum.Avica.Models.Dashboard_ECG;
+import com.optimum.Avica.Models.Dashboard_Spo2;
+import com.optimum.Avica.Models.Dashboard_Temp;
 import com.optimum.Avica.Models.User;
 import com.optimum.Avica.R;
 import com.optimum.Avica.UI.Patient.History.HistoryActivity;
@@ -55,12 +58,18 @@ public class DashboardActivity extends AppCompatActivity {
     CircleImageView drawer_img, profile_img;
     TextView name, drawer_name, specs, drawer_specs,
             bg_totalReading, bg_timeStamp, bg_tv_1, bg_tv_2, bg_tv_3,
-            bp_totalReading, bp_timeStamp, bp_tv_1, bp_tv_2, bp_tv_3;
+            bp_totalReading, bp_timeStamp, bp_tv_1, bp_tv_2, bp_tv_3,
+            Temp_totalReading, Temp_timeStamp, Temp_tv_1, Temp_tv_2, Temp_tv_3,
+            spo2_totalReading, spo2_timeStamp, spo2_tv_1, spo2_tv_2, spo2_tv_3,
+            ecg_totalReading, ecg_timeStamp, ecg_tv_1, ecg_tv_2, ecg_tv_3;
     LinearLayout l2, l4, l3;
     User user;
-    DonutChartView bg_donutChart,bp_donutChart;
+    DonutChartView bg_donutChart, bp_donutChart, Temp_donutChart, spo2_donutChart, ecg_donutChart;
     Dashboard_BG dashboardBg;
     Dashboard_BP dashboardBp;
+    Dashboard_Temp dashboardTemp;
+    Dashboard_Spo2 dashboardspo2;
+    Dashboard_ECG dashboardECG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,10 +106,30 @@ public class DashboardActivity extends AppCompatActivity {
         bp_tv_2 = findViewById(R.id.bp_tv_2);
         bp_tv_3 = findViewById(R.id.bp_tv_3);
 
+        Temp_donutChart = findViewById(R.id.Temp_donutChart);
+        Temp_totalReading = findViewById(R.id.Temp_totalReading);
+        Temp_timeStamp = findViewById(R.id.Temp_timeStamp);
+        Temp_tv_1 = findViewById(R.id.Temp_tv_1);
+        Temp_tv_2 = findViewById(R.id.Temp_tv_2);
+        Temp_tv_3 = findViewById(R.id.Temp_tv_3);
+
+        spo2_donutChart = findViewById(R.id.spo2_donutChart);
+        spo2_totalReading = findViewById(R.id.spo2_totalReading);
+        spo2_timeStamp = findViewById(R.id.spo2_timeStamp);
+        spo2_tv_1 = findViewById(R.id.spo2_tv_1);
+        spo2_tv_2 = findViewById(R.id.spo2_tv_2);
+        spo2_tv_3 = findViewById(R.id.spo2_tv_3);
+
+        ecg_donutChart = findViewById(R.id.ecg_donutChart);
+        ecg_totalReading = findViewById(R.id.ecg_totalReading);
+        ecg_timeStamp = findViewById(R.id.ecg_timeStamp);
+        ecg_tv_1 = findViewById(R.id.ecg_tv_1);
+        ecg_tv_2 = findViewById(R.id.ecg_tv_2);
+        ecg_tv_3 = findViewById(R.id.ecg_tv_3);
+
         name.setText(user.first_name + " " + user.last_name);
         drawer_name.setText(user.first_name + " " + user.last_name);
-        specs.setText(user.speciality);
-        drawer_specs.setText(user.speciality);
+
         // Set Text Values+
         RequestOptions options = new RequestOptions()
                 .centerCrop()
@@ -175,7 +204,13 @@ public class DashboardActivity extends AppCompatActivity {
                     case R.id.item2:
                         //close drawer
                         drawerLayout.closeDrawer(GravityCompat.START);
-                        intent = new Intent(DashboardActivity.this, ProfileActivity.class);
+                        if (SelectUserActivity.LoginType.equalsIgnoreCase("Patient")) {
+
+                            intent = new Intent(DashboardActivity.this, ProfileActivity.class);
+                        } else {
+                            intent = new Intent(DashboardActivity.this, DocProfileActivity.class);
+
+                        }
                         startActivity(intent);
                         break;
                     case R.id.item3:
@@ -238,7 +273,6 @@ public class DashboardActivity extends AppCompatActivity {
                 return true;
             }
         });
-        getPatientDashboard(user.id);
 
     }
 
@@ -257,6 +291,7 @@ public class DashboardActivity extends AppCompatActivity {
         bg_donutChart.setColors(colors);
 
     }
+
     private void setupBpPieChart(int high, int normal, int low) {
         int total = high + normal + low;
 
@@ -270,6 +305,54 @@ public class DashboardActivity extends AppCompatActivity {
         };
         bp_donutChart.setValues(values);
         bp_donutChart.setColors(colors);
+
+    }
+
+    private void setupTempPieChart(int high, int normal, int low) {
+        int total = high + normal + low;
+
+        Temp_totalReading.setText("" + total);
+        // Example values
+        int[] values = {high, normal, low};
+        int[] colors = {
+                0xFF2CC97D,
+                0xFFF7B500,
+                0xFFEF5DA8
+        };
+        Temp_donutChart.setValues(values);
+        Temp_donutChart.setColors(colors);
+
+    }
+
+    private void setupspo2PieChart(int high, int normal, int low) {
+        int total = high + normal + low;
+
+        spo2_totalReading.setText("" + total);
+        // Example values
+        int[] values = {high, normal, low};
+        int[] colors = {
+                0xFF2CC97D,
+                0xFFF7B500,
+                0xFFEF5DA8
+        };
+        spo2_donutChart.setValues(values);
+        spo2_donutChart.setColors(colors);
+
+    }
+
+    private void setupecgPieChart(int high, int normal, int low) {
+        int total = high + normal + low;
+
+        ecg_totalReading.setText("" + total);
+        // Example values
+        int[] values = {high, normal, low};
+        int[] colors = {
+                0xFF2CC97D,
+                0xFFF7B500,
+                0xFFEF5DA8
+        };
+        ecg_donutChart.setValues(values);
+        ecg_donutChart.setColors(colors);
 
     }
 
@@ -301,11 +384,18 @@ public class DashboardActivity extends AppCompatActivity {
             nav_Menu.findItem(R.id.item10).setVisible(false);
             l3.setVisibility(View.VISIBLE);
             l4.setVisibility(View.GONE);
+            specs.setText(user.username);
+            drawer_specs.setText(user.username);
+            getPatientDashboard(user.id);
+
         } else {
             nav_Menu.findItem(R.id.item6).setVisible(false);
             nav_Menu.findItem(R.id.item7).setVisible(false);
             l4.setVisibility(View.VISIBLE);
             l3.setVisibility(View.GONE);
+            specs.setText(user.speciality);
+            drawer_specs.setText(user.speciality);
+            getDocDashboard();
 
         }
     }
@@ -319,8 +409,42 @@ public class DashboardActivity extends AppCompatActivity {
                 AppUtils.dismisProgressDialog(DashboardActivity.this);
                 dashboardBg = success.getBloodglucose();
                 dashboardBp = success.getBloodpressure();
+                dashboardTemp = success.getTemperature();
+                dashboardspo2 = success.getSpo2();
+                dashboardECG = success.getEcg();
                 setBGdata();
                 setBPdata();
+                setTempdata();
+                setspo2data();
+                setecgdata();
+            }
+
+            @Override
+            public void error(String error) {
+                AppUtils.dismisProgressDialog(DashboardActivity.this);
+
+            }
+
+        });
+    }
+
+    public void getDocDashboard() {
+        AppUtils.showProgressDialog(DashboardActivity.this);
+
+        AppServices.Dashboard_doc(DashboardActivity.class.getSimpleName(), new ServiceListener<DashboardData, String>() {
+            @Override
+            public void success(DashboardData success) {
+                AppUtils.dismisProgressDialog(DashboardActivity.this);
+                dashboardBg = success.getBloodglucose();
+                dashboardBp = success.getBloodpressure();
+                dashboardTemp = success.getTemperature();
+                dashboardspo2 = success.getSpo2();
+                dashboardECG = success.getEcg();
+                setBGdata();
+                setBPdata();
+                setTempdata();
+                setspo2data();
+                setecgdata();
             }
 
             @Override
@@ -338,16 +462,38 @@ public class DashboardActivity extends AppCompatActivity {
         bg_tv_3.setText("• Low: 80 mmdb " + "(" + dashboardBg.low + ")");
         bg_timeStamp.setText("6 pm 12-06-20");
         setupBgPieChart(dashboardBg.high, dashboardBg.normal, dashboardBg.low);
-
-
     }
+
     public void setBPdata() {
         bp_tv_1.setText("• High: 235 mmdb " + "(" + dashboardBp.high + ")");
         bp_tv_2.setText("• Normal: 120 mmdb " + "(" + dashboardBp.normal + ")");
         bp_tv_3.setText("• Low: 80 mmdb " + "(" + dashboardBp.low + ")");
         bp_timeStamp.setText("6 pm 12-06-20");
         setupBpPieChart(dashboardBp.high, dashboardBp.normal, dashboardBp.low);
-
-
     }
+
+    public void setTempdata() {
+        Temp_tv_1.setText("• High: 235 mmdb " + "(" + dashboardTemp.high + ")");
+        Temp_tv_2.setText("• Normal: 120 mmdb " + "(" + dashboardTemp.normal + ")");
+        Temp_tv_3.setText("• Low: 80 mmdb " + "(" + dashboardTemp.low + ")");
+        Temp_timeStamp.setText("6 pm 12-06-20");
+        setupTempPieChart(dashboardTemp.high, dashboardTemp.normal, dashboardTemp.low);
+    }
+
+    public void setspo2data() {
+        spo2_tv_1.setText("• High: 235 mmdb " + "(" + dashboardspo2.high + ")");
+        spo2_tv_2.setText("• Normal: 120 mmdb " + "(" + dashboardspo2.normal + ")");
+        spo2_tv_3.setText("• Low: 80 mmdb " + "(" + dashboardspo2.low + ")");
+        spo2_timeStamp.setText("6 pm 12-06-20");
+        setupspo2PieChart(dashboardspo2.high, dashboardspo2.normal, dashboardspo2.low);
+    }
+
+    public void setecgdata() {
+        ecg_tv_1.setText("• High: 235 mmdb " + "(" + dashboardECG.high + ")");
+        ecg_tv_2.setText("• Normal: 120 mmdb " + "(" + dashboardECG.normal + ")");
+        ecg_tv_3.setText("• Low: 80 mmdb " + "(" + dashboardECG.low + ")");
+        ecg_timeStamp.setText("6 pm 12-06-20");
+        setupecgPieChart(dashboardECG.high, dashboardECG.normal, dashboardECG.low);
+    }
+
 }

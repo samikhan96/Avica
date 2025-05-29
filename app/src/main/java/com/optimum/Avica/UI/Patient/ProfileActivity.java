@@ -19,25 +19,25 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.optimum.Avica.HttpUtils.AppServices;
 import com.optimum.Avica.Listener.ServiceListener;
 import com.optimum.Avica.Models.PatientProfile;
+import com.optimum.Avica.Models.User;
 import com.optimum.Avica.R;
 import com.optimum.Avica.Utils.AppUtils;
+import com.optimum.Avica.Utils.UserPrefs;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ProfileActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class ProfileActivity extends AppCompatActivity {
 
     private CircleImageView prpfile_img;
     TextView tvName, tvEmail, tvDOB, tvPhone, tvHeight, tvWeight, tvLanguage, tvSSN, tvSubscriberId, tvMeasurementSystem, tvTimeZone;
     PatientProfile patientProfile;
-    private GoogleMap mMap;
-    // Specify the latitude and longitude here
-    private double latitude = 24.830918;
-    private double longitude = 67.051161;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        user = UserPrefs.getGetUser();
         ImageView back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,19 +61,13 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
         tvTimeZone = findViewById(R.id.tv_11);
 
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        if (mapFragment != null) {
-            mapFragment.getMapAsync(this);
-        }
-
-        getProfile();
+        getProfile(user.id);
     }
 
-    public void getProfile(){
+    public void getProfile(String id){
         AppUtils.showProgressDialog(ProfileActivity.this);
 
-        AppServices.patientProfile(ProfileActivity.class.getSimpleName(), new ServiceListener<PatientProfile, String>() {
+        AppServices.patientProfile(ProfileActivity.class.getSimpleName(),id, new ServiceListener<PatientProfile, String>() {
             @Override
             public void success(PatientProfile success) {
                 patientProfile= success;
@@ -100,28 +94,18 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
 
         tvName.setText(patientProfile.first_name + " " + patientProfile.last_name);
         tvEmail.setText(patientProfile.email);
-        tvDOB.setText(patientProfile.dob);
+        AppUtils.setFormattedDate(patientProfile.dob,tvDOB);
         tvPhone.setText(patientProfile.phone_number);
         tvHeight.setText(patientProfile.patient.height);
         tvWeight.setText(patientProfile.patient.weight);
-        tvLanguage.setText("English");
-        tvSSN.setText("13127386184");
-        tvSubscriberId.setText("1234-XYZ");
-        tvMeasurementSystem.setText("Standard");
-        tvTimeZone.setText("UTC+5");
+        tvLanguage.setText(patientProfile.language);
+        tvSSN.setText(patientProfile.SSN);
+        tvSubscriberId.setText(patientProfile.subscribeId);
+        tvMeasurementSystem.setText(patientProfile.measurementSystem);
+        tvTimeZone.setText(patientProfile.timeZone);
 
     }
 
-    @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
-        mMap = googleMap;
 
-        // Create LatLng object for the given location
-        LatLng location = new LatLng(latitude, longitude);
-
-        // Add a marker at the specified location and move the camera
-        mMap.addMarker(new MarkerOptions().position(location).title("My Location"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15f));
-    }
 
 }

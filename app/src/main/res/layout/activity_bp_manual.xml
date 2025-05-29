@@ -140,44 +140,6 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:text="Pulse"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_12ssp"
-            android:textStyle="bold" />
-
-        <!-- Username Field -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:background="@drawable/et_bg"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/_35sdp"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:padding="@dimen/_7sdp"
-                android:src="@drawable/ecg_beat" />
-
-            <EditText
-                android:inputType="number"
-                android:id="@+id/et_3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:background="@null"
-                android:hint="123"
-                android:paddingLeft="@dimen/_10sdp"
-                android:textSize="@dimen/_10ssp" />
-
-        </LinearLayout>
 
 
         <Button

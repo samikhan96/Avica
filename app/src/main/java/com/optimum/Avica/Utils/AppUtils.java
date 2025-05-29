@@ -24,6 +24,7 @@ import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class AppUtils {
    public static ProgressDialog progressDialog;
@@ -138,6 +139,20 @@ public class AppUtils {
 
     public static void Toast(String Message) {
         Toast.makeText(Avica.getContext(), "  "+ String.valueOf(Message)+"  ", Toast.LENGTH_SHORT).show();
+    }
+
+    // Static method to convert date format and set text to TextView
+    public static void setFormattedDate(String isoDate, TextView textView) {
+        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault());
+        SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        try {
+            Date date = inputFormat.parse(isoDate);
+            String dobFormatted = outputFormat.format(date);
+            textView.setText(dobFormatted);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            textView.setText("Invalid date");
+        }
     }
 
 }
