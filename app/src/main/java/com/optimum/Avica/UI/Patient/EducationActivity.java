@@ -1,15 +1,23 @@
 package com.optimum.Avica.UI.Patient;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.optimum.Avica.Adapters.AdapterEducation;
+import com.optimum.Avica.Adapters.AdapterPush;
 import com.optimum.Avica.Adapters.CustomAdapter;
+import com.optimum.Avica.HttpUtils.AppServices;
+import com.optimum.Avica.Listener.ServiceListener;
+import com.optimum.Avica.Models.Education;
 import com.optimum.Avica.Models.Item;
+import com.optimum.Avica.Models.Notifications;
 import com.optimum.Avica.R;
+import com.optimum.Avica.Utils.AppUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +25,8 @@ import java.util.List;
 public class EducationActivity extends AppCompatActivity {
 
     RecyclerView list1,list2;
-    private CustomAdapter customAdapter;
-    private List<Item> itemList;
+    ArrayList<Education> educationArrayList = new ArrayList<>();
+    AdapterEducation adapterEducation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +45,35 @@ public class EducationActivity extends AppCompatActivity {
         list2=findViewById(R.id.list2);
 
 
-        // Sample data
-        itemList = new ArrayList<>();
-        itemList.add(new Item("Title 1", "Description 1"));
-        itemList.add(new Item("Title 2", "Description 2"));
-        itemList.add(new Item("Title 3", "Description 3"));
+        getEducation();
+    }
 
-        customAdapter = new CustomAdapter(itemList);
-        list1.setAdapter(customAdapter);
-        list2.setAdapter(customAdapter);
+    public void getEducation(){
+        AppUtils.showProgressDialog(EducationActivity.this);
+
+        AppServices.getEducation(EducationActivity.class.getSimpleName(), new ServiceListener<ArrayList<Education>, String>() {
+            @Override
+            public void success(ArrayList<Education> success) {
+                AppUtils.dismisProgressDialog(EducationActivity.this);
+                educationArrayList = success;
+                setAdapter();
+
+            }
+
+            @Override
+            public void error(String error) {
+                AppUtils.dismisProgressDialog(EducationActivity.this);
+
+            }
+        });
+    }
+    public void setAdapter() {
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        list1.setLayoutManager(layoutManager);
+        adapterEducation = new AdapterEducation(EducationActivity.this, educationArrayList, this);
+        list1.setAdapter(adapterEducation);
 
     }
+
 }

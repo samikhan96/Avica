@@ -12,6 +12,9 @@ public class ConfigConstants {
     public static final String patientprofile = "/users/profile/";
     public static final String patientDashboard = "/web/rag/patients/";
     public static final String DocDashboard = "/web/rag/";
+    public static final String Education = "/web/education";
+    public static final String Medication = "/app/medications/patients/";
+    public static final String Report = "/web/emr";
     public static final String notifications = "/web/notifications";
     public static final String AddMeasurment = "/users/single-value-measurement/";
 
