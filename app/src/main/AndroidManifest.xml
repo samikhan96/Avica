@@ -46,9 +46,6 @@
             android:name=".UI.Patient.NotificationActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.Patient.PatientListActivity"
-            android:exported="false" />
-        <activity
             android:name=".UI.Patient.BloodGlucose.WatchTutorialActivity"
             android:exported="false" />
         <activity

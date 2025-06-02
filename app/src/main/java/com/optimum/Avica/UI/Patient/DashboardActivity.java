@@ -62,7 +62,7 @@ public class DashboardActivity extends AppCompatActivity {
             Temp_totalReading, Temp_timeStamp, Temp_tv_1, Temp_tv_2, Temp_tv_3,
             spo2_totalReading, spo2_timeStamp, spo2_tv_1, spo2_tv_2, spo2_tv_3,
             ecg_totalReading, ecg_timeStamp, ecg_tv_1, ecg_tv_2, ecg_tv_3;
-    LinearLayout l2, l4, l3;
+    LinearLayout l2,  l3;
     User user;
     DonutChartView bg_donutChart, bp_donutChart, Temp_donutChart, spo2_donutChart, ecg_donutChart;
     Dashboard_BG dashboardBg;
@@ -90,7 +90,6 @@ public class DashboardActivity extends AppCompatActivity {
         navFooter1 = findViewById(R.id.footer_item_1);
         l2 = findViewById(R.id.l2);
         l3 = findViewById(R.id.l3);
-        l4 = findViewById(R.id.l4);
         noti = findViewById(R.id.noti);
         bg_donutChart = findViewById(R.id.bg_donutChart);
         bg_totalReading = findViewById(R.id.bg_totalReading);
@@ -145,6 +144,14 @@ public class DashboardActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(DashboardActivity.this, MeasurmentsActivity.class));
                 finish();
+            }
+        });
+
+        l3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppUtils.Toast("Coming Soon");
+
             }
         });
 
