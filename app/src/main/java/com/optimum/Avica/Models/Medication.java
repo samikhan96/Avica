@@ -10,7 +10,7 @@ public class Medication implements Serializable {
     public String end_date;
     public String time;
     public String dosage;
-    public int frequency;
+    public String frequency;
     public String unit;
     public String created_at;
 
@@ -63,11 +63,11 @@ public class Medication implements Serializable {
         this.dosage = dosage;
     }
 
-    public int getFrequency() {
+    public String getFrequency() {
         return frequency;
     }
 
-    public void setFrequency(int frequency) {
+    public void setFrequency(String frequency) {
         this.frequency = frequency;
     }
 

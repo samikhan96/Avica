@@ -29,7 +29,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfileActivity extends AppCompatActivity {
 
     private CircleImageView prpfile_img;
-    TextView tvName, tvEmail, tvDOB, tvPhone, tvHeight, tvWeight, tvLanguage, tvSSN, tvSubscriberId, tvMeasurementSystem, tvTimeZone;
+    TextView tvName, tvEmail, tvDOB, tvPhone, tvHeight, tvWeight, tvLanguage, tvSSN,
+            tvSubscriberId, tvMeasurementSystem, tvTimeZone,tv_12;
     PatientProfile patientProfile;
     User user;
 
@@ -59,6 +60,7 @@ public class ProfileActivity extends AppCompatActivity {
         tvSubscriberId = findViewById(R.id.tv_9);
         tvMeasurementSystem = findViewById(R.id.tv_10);
         tvTimeZone = findViewById(R.id.tv_11);
+        tv_12 = findViewById(R.id.tv_12);
 
 
         getProfile(user.id);
@@ -103,6 +105,7 @@ public class ProfileActivity extends AppCompatActivity {
         tvSubscriberId.setText(patientProfile.subscribeId);
         tvMeasurementSystem.setText(patientProfile.measurementSystem);
         tvTimeZone.setText(patientProfile.timeZone);
+        tv_12.setText(patientProfile.patient.emr);
 
     }
 

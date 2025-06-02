@@ -1,21 +1,26 @@
-package com.optimum.Avica.UI.Patient;
+package com.optimum.Avica.UI.Patient.History;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.optimum.Avica.R;
 
-public class ComplianceActivity extends AppCompatActivity {
+import java.util.Locale;
+
+public class AddDiagnosis extends AppCompatActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_compliance);
-
+        setContentView(R.layout.activity_add_diagnosis);
 
         ImageView back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -24,6 +29,6 @@ public class ComplianceActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
+
 }

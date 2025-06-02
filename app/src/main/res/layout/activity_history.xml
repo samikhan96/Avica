@@ -44,17 +44,18 @@
 
     </RelativeLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/_10sdp"
-        android:orientation="vertical">
+        android:fillViewport="true">
 
-
-        <HorizontalScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="none">
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_10sdp"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_10sdp">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -62,266 +63,572 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_120sdp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_90sdp"
                     android:layout_margin="@dimen/_5sdp"
                     android:layout_weight="1"
-                    app:cardCornerRadius="@dimen/_20sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
                     app:cardElevation="@dimen/_2sdp">
 
                     <ImageView
                         android:id="@+id/item_1"
-                        android:layout_width="@dimen/_140sdp"
-                        android:layout_height="@dimen/_130sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
-                        android:src="@drawable/frame_211" />
+                        android:src="@drawable/phr_1" />
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_120sdp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_90sdp"
                     android:layout_margin="@dimen/_5sdp"
                     android:layout_weight="1"
-                    app:cardCornerRadius="@dimen/_20sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
                     app:cardElevation="@dimen/_2sdp">
 
                     <ImageView
                         android:id="@+id/item_2"
-                        android:layout_width="@dimen/_140sdp"
-                        android:layout_height="@dimen/_130sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
-                        android:src="@drawable/frame_22" />
+                        android:src="@drawable/phr_2" />
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_120sdp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_90sdp"
                     android:layout_margin="@dimen/_5sdp"
                     android:layout_weight="1"
-                    app:cardCornerRadius="@dimen/_20sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
                     app:cardElevation="@dimen/_2sdp">
 
                     <ImageView
                         android:id="@+id/item_3"
-                        android:layout_width="@dimen/_140sdp"
-                        android:layout_height="@dimen/_130sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
-                        android:src="@drawable/frame_21__1_" />
+                        android:src="@drawable/phr_3" />
 
                 </androidx.cardview.widget.CardView>
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_120sdp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_90sdp"
                     android:layout_margin="@dimen/_5sdp"
                     android:layout_weight="1"
-                    app:cardCornerRadius="@dimen/_20sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
                     app:cardElevation="@dimen/_2sdp">
 
                     <ImageView
                         android:id="@+id/item_4"
-                        android:layout_width="@dimen/_140sdp"
-                        android:layout_height="@dimen/_130sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
-                        android:src="@drawable/frame_22__1_" />
+                        android:src="@drawable/phr_4" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_2sdp">
+
+                    <ImageView
+                        android:id="@+id/item_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/phr_5" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="@dimen/_2sdp">
+
+                    <ImageView
+                        android:id="@+id/item_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/phr_6" />
 
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="@dimen/_10sdp"
+                android:text="History List"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp" />
 
-        </HorizontalScrollView>
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginRight="@dimen/_5sdp"
-            app:cardCornerRadius="@dimen/_10sdp"
-            app:cardElevation="@dimen/_2sdp">
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/_10sdp">
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_4sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:background="#E7F2FF"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:orientation="vertical"
+                    android:padding="12dp">
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <!-- Top Row with PDF icon and Actions -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Name"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:src="@drawable/ic_pdf" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="Document1.PDF"
+                            android:textSize="@dimen/_12ssp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/eye" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/ic_download" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/ic_delete" />
+                    </LinearLayout>
+
+                    <!-- Title -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Family History Title"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold" />
+
+                    <!-- Description -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Debitis ut suscipit enim iure quasi. Aut rerum expedita. Dolorem iusto error doloremque aut. Quae aut tempora est mollitia rem tempora reprehenderit quisquam..."
+                        android:textColor="#808080"
+                        android:textSize="@dimen/_10ssp" />
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="EMR"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:text="View More"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold" />
+
+                    <!-- Footer -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_2sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Report Type\"
+                                android:textSize="@dimen/_11ssp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+                                android:text="FAMILY_HISTORY"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10ssp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_2sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Created At"
+                                android:textSize="@dimen/_11ssp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="6/2/2025, 4:48:48 PM"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10ssp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_4sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <!-- Top Row with PDF icon and Actions -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:src="@drawable/ic_pdf" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="Document1.PDF"
+                            android:textSize="@dimen/_12ssp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/eye" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/ic_download" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/ic_delete" />
+                    </LinearLayout>
+
+                    <!-- Title -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Family History Title"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold" />
+
+                    <!-- Description -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Debitis ut suscipit enim iure quasi. Aut rerum expedita. Dolorem iusto error doloremque aut. Quae aut tempora est mollitia rem tempora reprehenderit quisquam..."
+                        android:textColor="#808080"
+                        android:textSize="@dimen/_10ssp" />
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Date"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:text="View More"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold" />
+
+                    <!-- Footer -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_2sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Report Type\"
+                                android:textSize="@dimen/_11ssp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+                                android:text="FAMILY_HISTORY"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10ssp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_2sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Created At"
+                                android:textSize="@dimen/_11ssp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="6/2/2025, 4:48:48 PM"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10ssp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_4sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <!-- Top Row with PDF icon and Actions -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <ImageView
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:src="@drawable/ic_pdf" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="Document1.PDF"
+                            android:textSize="@dimen/_12ssp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/eye" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/ic_download" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/ic_delete" />
+                    </LinearLayout>
+
+                    <!-- Title -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Family History Title"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp" />
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold" />
 
+                    <!-- Description -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Debitis ut suscipit enim iure quasi. Aut rerum expedita. Dolorem iusto error doloremque aut. Quae aut tempora est mollitia rem tempora reprehenderit quisquam..."
+                        android:textColor="#808080"
+                        android:textSize="@dimen/_10ssp" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:text="View More"
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/_11ssp"
+                        android:textStyle="bold" />
+
+                    <!-- Footer -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_2sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Report Type\"
+                                android:textSize="@dimen/_11ssp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+                                android:text="FAMILY_HISTORY"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10ssp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_2sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Created At"
+                                android:textSize="@dimen/_11ssp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="6/2/2025, 4:48:48 PM"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10ssp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Sami"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="112211"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="July 31 2025"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
+            </androidx.cardview.widget.CardView>
 
 
-                </LinearLayout>
+        </LinearLayout>
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Sami"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="112211"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="July 31 2025"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Sami"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="112211"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="July 31 2025"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
-
+    </ScrollView>
 
 </LinearLayout>

@@ -14,7 +14,7 @@ import com.optimum.Avica.UI.Patient.PinActivity;
 public class HistoryActivity extends AppCompatActivity {
 
 
-    ImageView item1,item2,item3,item4;
+    ImageView item1,item2,item3,item4,item5,item6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +32,14 @@ public class HistoryActivity extends AppCompatActivity {
         item2=findViewById(R.id.item_2);
         item3=findViewById(R.id.item_3);
         item4=findViewById(R.id.item_4);
+        item5=findViewById(R.id.item_5);
+        item6=findViewById(R.id.item_6);
 
 
         item1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HistoryActivity.this, AddPresentComplain.class);
+                Intent intent = new Intent(HistoryActivity.this, AddFamilyHistory.class);
                 startActivity(intent);
             }
         });
@@ -45,7 +47,7 @@ public class HistoryActivity extends AppCompatActivity {
         item2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HistoryActivity.this, AddFamilyHistory.class);
+                Intent intent = new Intent(HistoryActivity.this, AddPresentComplain.class);
                 startActivity(intent);
             }
         });
@@ -62,6 +64,22 @@ public class HistoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HistoryActivity.this, AddMedication.class);
+                startActivity(intent);
+            }
+        });
+
+        item5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HistoryActivity.this, AddDiagnosis.class);
+                startActivity(intent);
+            }
+        });
+
+        item6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HistoryActivity.this, AddRecords.class);
                 startActivity(intent);
             }
         });

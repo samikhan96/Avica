@@ -44,27 +44,10 @@
         android:id="@+id/item6"
         android:icon="@drawable/receipt_search"
         app:showAsAction="always"
-        android:title="History" />
+        android:title="PHR" />
 
 
-    <item
-        android:id="@+id/item7"
-        android:icon="@drawable/frame_16"
-        app:showAsAction="always"
-        android:title="Reports" />
 
 
-    <item
-        android:id="@+id/item8"
-        android:icon="@drawable/receipt_search"
-        app:showAsAction="always"
-        android:title="Compliance" />
-
-
-    <item
-        android:id="@+id/item9"
-        android:icon="@drawable/frame_16"
-        app:showAsAction="always"
-        android:title="RAG" />
 
 </menu>

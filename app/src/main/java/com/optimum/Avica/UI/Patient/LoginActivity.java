@@ -47,17 +47,10 @@ public class LoginActivity extends AppCompatActivity {
         et_email=findViewById(R.id.et_email);
         password=findViewById(R.id.password);
 
-        if (SelectUserActivity.LoginType.equalsIgnoreCase("patient")) {
 //        PATIENTLOGIN
         et_email.setText("haris@avica.com");
         password.setText("Patient@123");
-        }
-        if (SelectUserActivity.LoginType.equalsIgnoreCase("doctor")) {
 
-//        DOCTORLOGIN
-            et_email.setText("muhammadsaqib@avica.com");
-            password.setText("Doctor@123");
-        }
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override

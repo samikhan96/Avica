@@ -148,24 +148,6 @@ public class AppServices {
         });
     }
 
-    public static void DoctorProfile(String TAG, String id, final ServiceListener<ProfileData, String> listener) {
-        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.doctorprofile + id, new ServiceListener<JSONObject, VolleyError>() {
-            @Override
-            public void success(JSONObject success) {
-                try {
-                    ProfileData doctorProfile = GsonUtils.fromJSON(success.getJSONObject("data"), ProfileData.class);
-                    listener.success(doctorProfile);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void error(VolleyError error) {
-                listener.error(error.getMessage());
-            }
-        });
-    }
 
 
     public static void Dashboard(String TAG, String id, final ServiceListener<DashboardData, String> listener) {
@@ -186,26 +168,6 @@ public class AppServices {
             }
         });
     }
-
-    public static void Dashboard_doc(String TAG, final ServiceListener<DashboardData, String> listener) {
-        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.DocDashboard, new ServiceListener<JSONObject, VolleyError>() {
-            @Override
-            public void success(JSONObject success) {
-                try {
-                    DashboardData dashboardData = GsonUtils.fromJSON(success.getJSONObject("data"), DashboardData.class);
-                    listener.success(dashboardData);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void error(VolleyError error) {
-                listener.error(error.getMessage());
-            }
-        });
-    }
-
 
     public static void getNotificiation(String TAG, final ServiceListener<ArrayList<Notifications>, String> listener) {
         RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.notifications, new ServiceListener<JSONObject, VolleyError>() {

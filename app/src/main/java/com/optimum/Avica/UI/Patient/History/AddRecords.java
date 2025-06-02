@@ -1,23 +1,26 @@
-package com.optimum.Avica.UI.Patient.BloodPressure;
+package com.optimum.Avica.UI.Patient.History;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.optimum.Avica.R;
-import com.optimum.Avica.UI.Patient.BloodGlucose.AutomaticActivity;
-import com.optimum.Avica.UI.Patient.BloodGlucose.ManualActivity;
 
-public class DoctorBloodPressureActivity extends AppCompatActivity {
+import java.util.Locale;
+
+public class AddRecords extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doc_bp);
+        setContentView(R.layout.activity_add_record);
 
         ImageView back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -26,6 +29,5 @@ public class DoctorBloodPressureActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 }

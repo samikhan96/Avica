@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/app_bg_new"
+    tools:context=".UI.Patient.PrivacyPolicyActivity"
     android:orientation="vertical"
-    tools:context=".UI.Patient.PrivacyPolicyActivity">
+    android:background="@drawable/app_bg_new">
 
     <RelativeLayout
         android:id="@+id/toolbar"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:padding="@dimen/_10sdp"
-            android:text="Add Family History"
+            android:text="Add Record"
             android:textColor="@color/black"
             android:textSize="@dimen/_16ssp"
             android:textStyle="bold" />

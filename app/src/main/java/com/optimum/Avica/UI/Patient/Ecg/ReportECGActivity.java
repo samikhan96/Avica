@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.optimum.Avica.R;
 
-public class DoctorECGActivity extends AppCompatActivity {
+public class ReportECGActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -129,6 +129,8 @@ public class DashboardActivity extends AppCompatActivity {
 
         name.setText(user.first_name + " " + user.last_name);
         drawer_name.setText(user.first_name + " " + user.last_name);
+        specs.setText(user.username);
+        drawer_specs.setText(user.username);
 
         // Set Text Values+
         RequestOptions options = new RequestOptions()
@@ -138,7 +140,6 @@ public class DashboardActivity extends AppCompatActivity {
         Glide.with(DashboardActivity.this).load(user.uri).apply(options).into(drawer_img);
         Glide.with(DashboardActivity.this).load(user.uri).apply(options).into(profile_img);
 
-        hideItem(SelectUserActivity.LoginType);
         l2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,17 +174,9 @@ public class DashboardActivity extends AppCompatActivity {
         drawer_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (SelectUserActivity.LoginType.equalsIgnoreCase("patient")) {
                     Intent intent = new Intent(DashboardActivity.this, ProfileActivity.class);
                     startActivity(intent);
                     drawerLayout.closeDrawer(GravityCompat.START);
-                }
-                if (SelectUserActivity.LoginType.equalsIgnoreCase("doctor")) {
-                    Intent intent = new Intent(DashboardActivity.this, DocProfileActivity.class);
-                    startActivity(intent);
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                }
-
 
             }
         });
@@ -204,13 +197,8 @@ public class DashboardActivity extends AppCompatActivity {
                     case R.id.item2:
                         //close drawer
                         drawerLayout.closeDrawer(GravityCompat.START);
-                        if (SelectUserActivity.LoginType.equalsIgnoreCase("Patient")) {
 
-                            intent = new Intent(DashboardActivity.this, ProfileActivity.class);
-                        } else {
-                            intent = new Intent(DashboardActivity.this, DocProfileActivity.class);
-
-                        }
+                        intent = new Intent(DashboardActivity.this, ProfileActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.item3:
@@ -241,38 +229,12 @@ public class DashboardActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
 
-                    case R.id.item7:
-                        //close drawer
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        intent = new Intent(DashboardActivity.this, ReportActivity.class);
-                        startActivity(intent);
-                        break;
-
-                    case R.id.item8:
-                        //close drawer
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        intent = new Intent(DashboardActivity.this, ComplianceActivity.class);
-                        startActivity(intent);
-                        break;
-
-                    case R.id.item9:
-                        //close drawer
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        intent = new Intent(DashboardActivity.this, RAGActivity.class);
-                        startActivity(intent);
-                        break;
-                    case R.id.item10:
-                        //close drawer
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        intent = new Intent(DashboardActivity.this, PatientListActivity.class);
-                        startActivity(intent);
-                        break;
-
                 }
 
                 return true;
             }
         });
+        getPatientDashboard(user.id);
 
     }
 
@@ -376,29 +338,6 @@ public class DashboardActivity extends AppCompatActivity {
 
     }
 
-    private void hideItem(String LoginType) {
-        Menu nav_Menu = navigationView.getMenu();
-        if (LoginType.equalsIgnoreCase("Patient")) {
-            nav_Menu.findItem(R.id.item8).setVisible(false);
-            nav_Menu.findItem(R.id.item9).setVisible(false);
-            nav_Menu.findItem(R.id.item10).setVisible(false);
-            l3.setVisibility(View.VISIBLE);
-            l4.setVisibility(View.GONE);
-            specs.setText(user.username);
-            drawer_specs.setText(user.username);
-            getPatientDashboard(user.id);
-
-        } else {
-            nav_Menu.findItem(R.id.item6).setVisible(false);
-            nav_Menu.findItem(R.id.item7).setVisible(false);
-            l4.setVisibility(View.VISIBLE);
-            l3.setVisibility(View.GONE);
-            specs.setText(user.speciality);
-            drawer_specs.setText(user.speciality);
-            getDocDashboard();
-
-        }
-    }
 
     public void getPatientDashboard(String id) {
         AppUtils.showProgressDialog(DashboardActivity.this);
@@ -428,33 +367,6 @@ public class DashboardActivity extends AppCompatActivity {
         });
     }
 
-    public void getDocDashboard() {
-        AppUtils.showProgressDialog(DashboardActivity.this);
-
-        AppServices.Dashboard_doc(DashboardActivity.class.getSimpleName(), new ServiceListener<DashboardData, String>() {
-            @Override
-            public void success(DashboardData success) {
-                AppUtils.dismisProgressDialog(DashboardActivity.this);
-                dashboardBg = success.getBloodglucose();
-                dashboardBp = success.getBloodpressure();
-                dashboardTemp = success.getTemperature();
-                dashboardspo2 = success.getSpo2();
-                dashboardECG = success.getEcg();
-                setBGdata();
-                setBPdata();
-                setTempdata();
-                setspo2data();
-                setecgdata();
-            }
-
-            @Override
-            public void error(String error) {
-                AppUtils.dismisProgressDialog(DashboardActivity.this);
-
-            }
-
-        });
-    }
 
     public void setBGdata() {
         bg_tv_1.setText("• High: 235 mmdb " + "(" + dashboardBg.high + ")");

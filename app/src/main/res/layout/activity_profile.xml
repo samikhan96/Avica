@@ -472,7 +472,6 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:visibility="invisible"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
@@ -483,17 +482,17 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="@dimen/_2sdp"
-                            android:text="Weight"
-                            android:textColor="@color/black"
+                            android:text="EMR"
+                            android:textColor="@color/menu_icon"
                             android:textSize="@dimen/_10ssp" />
 
                         <TextView
+                            android:id="@+id/tv_12"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:padding="@dimen/_2sdp"
-                            android:text="70 Kg"
-                            android:textColor="@color/menu_icon"
+                            android:text="1234"
+                            android:textColor="@color/black"
                             android:textSize="@dimen/_10ssp" />
 
                     </LinearLayout>

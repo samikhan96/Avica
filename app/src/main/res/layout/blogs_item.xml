@@ -28,7 +28,7 @@
 
             <ImageView
                 android:id="@+id/img"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/_120sdp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/app_icon" />

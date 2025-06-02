@@ -116,6 +116,12 @@
             android:name=".UI.Patient.History.HistoryActivity"
             android:exported="false" />
         <activity
+            android:name=".UI.Patient.History.AddDiagnosis"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Patient.History.AddRecords"
+            android:exported="false" />
+        <activity
             android:name=".UI.Patient.MedicationActivity"
             android:exported="false" />
         <activity
@@ -154,9 +160,7 @@
         <activity
             android:name=".UI.Patient.ProfileActivity"
             android:exported="false" />
-        <activity
-            android:name=".UI.Patient.DocProfileActivity"
-            android:exported="false" />
+
         <activity
             android:name=".UI.Patient.DashboardActivity"
             android:exported="false" />
@@ -189,19 +193,13 @@
             android:name=".UI.Patient.PinActivity"
             android:exported="false" />
 
-        <activity
-            android:name=".UI.Patient.ComplianceActivity"
-            android:exported="false" />
+
 
         <activity
-            android:name=".UI.Patient.RAGActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".UI.Patient.BloodGlucose.DoctorBloodGlucoseActivity"
+            android:name=".UI.Patient.BloodGlucose.ReportBloodGlucoseActivity"
             android:exported="false" />
         <activity
-            android:name=".UI.Patient.BloodPressure.DoctorBloodPressureActivity"
+            android:name=".UI.Patient.BloodPressure.ReportBloodPressureActivity"
             android:exported="false" />
         <uses-library
             android:name="org.apache.http.legacy"

@@ -69,7 +69,7 @@ public class EducationActivity extends AppCompatActivity {
     }
     public void setAdapter() {
         LinearLayoutManager layoutManager
-                = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         list1.setLayoutManager(layoutManager);
         adapterEducation = new AdapterEducation(EducationActivity.this, educationArrayList, this);
         list1.setAdapter(adapterEducation);
