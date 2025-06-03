@@ -1,6 +1,7 @@
 package com.optimum.Avica.HttpUtils;
 
 
+import com.android.volley.NetworkResponse;
 import com.android.volley.VolleyError;
 import com.optimum.Avica.Listener.ServiceListener;
 import com.optimum.Avica.Models.DashboardData;
@@ -16,6 +17,7 @@ import com.optimum.Avica.Utils.UserPrefs;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -149,7 +151,6 @@ public class AppServices {
     }
 
 
-
     public static void Dashboard(String TAG, String id, final ServiceListener<DashboardData, String> listener) {
         RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.patientDashboard + id, new ServiceListener<JSONObject, VolleyError>() {
             @Override
@@ -207,8 +208,9 @@ public class AppServices {
         });
 
     }
-    public static void getMedication(String TAG,String id, final ServiceListener<ArrayList<Medication>, String> listener) {
-        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.Medication+id, new ServiceListener<JSONObject, VolleyError>() {
+
+    public static void getMedication(String TAG, String id, final ServiceListener<ArrayList<Medication>, String> listener) {
+        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.Medication + id, new ServiceListener<JSONObject, VolleyError>() {
             @Override
             public void success(JSONObject success) {
                 try {
@@ -226,8 +228,9 @@ public class AppServices {
         });
 
     }
-    public static void getReports(String TAG,String id, final ServiceListener<ArrayList<Reports>, String> listener) {
-        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.Report+"?patient_id="+id, new ServiceListener<JSONObject, VolleyError>() {
+
+    public static void getReports(String TAG, String id, final ServiceListener<ArrayList<Reports>, String> listener) {
+        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.PHR + "?patient_id=" + id, new ServiceListener<JSONObject, VolleyError>() {
             @Override
             public void success(JSONObject success) {
                 try {
@@ -246,5 +249,65 @@ public class AppServices {
 
     }
 
+    public static void AddPHR(String TAG, JSONObject userObject, final ServiceListener<String, String> listener) {
+        RestAPI.PostJsonRequest(TAG, ConfigConstants.PHR, userObject, new ServiceListener<JSONObject, VolleyError>() {
+            @Override
+            public void success(JSONObject success) {
+                try {
+                    if (success.getBoolean("success")) {
+                        listener.success(success.getJSONObject("data").toString());
+                    } else listener.error(success.getJSONObject("data").toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
 
+            @Override
+            public void error(VolleyError error) {
+                listener.error(error.getMessage());
+            }
+        });
+
+    }
+
+    public static void Uploader(String TAG, JSONObject userObject, final ServiceListener<String, String> listener) {
+        try {
+            String filePath = userObject.getString("filePath"); // e.g., {"filePath": "/storage/emulated/0/DCIM/sample.jpg"}
+            File file = new File(filePath);
+
+            if (!file.exists()) {
+                listener.error("File does not exist");
+                return;
+            }
+
+            RestAPI.UploadFileRequest(TAG, ConfigConstants.uploader, file, new ServiceListener<NetworkResponse, VolleyError>() {
+                @Override
+                public void success(NetworkResponse response) {
+                    try {
+                        String jsonString = new String(response.data);
+                        JSONObject jsonResponse = new JSONObject(jsonString);
+
+                        if (jsonResponse.getBoolean("success")) {
+                            listener.success(jsonResponse.getJSONObject("data").toString());
+                        } else {
+                            listener.error(jsonResponse.getJSONObject("data").toString());
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        listener.error("JSON parse error");
+                    }
+                }
+
+                @Override
+                public void error(VolleyError error) {
+                    listener.error(error.getMessage());
+                }
+            });
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            listener.error("Invalid JSON input");
+        }
+    }
 }
+

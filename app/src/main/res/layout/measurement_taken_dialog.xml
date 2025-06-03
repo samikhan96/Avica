@@ -43,7 +43,7 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Measurement Taken!"
+                android:text="PHR Taken!"
                 android:textSize="@dimen/_16ssp" />
 
             <TextView

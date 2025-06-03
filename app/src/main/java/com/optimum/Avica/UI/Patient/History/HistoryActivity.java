@@ -1,25 +1,42 @@
 package com.optimum.Avica.UI.Patient.History;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.optimum.Avica.Adapters.AdapterReport;
+import com.optimum.Avica.HttpUtils.AppServices;
+import com.optimum.Avica.Listener.ServiceListener;
+import com.optimum.Avica.Models.Reports;
+import com.optimum.Avica.Models.User;
 import com.optimum.Avica.R;
 import com.optimum.Avica.UI.Patient.LoginActivity;
 import com.optimum.Avica.UI.Patient.PinActivity;
+import com.optimum.Avica.UI.Patient.ReportActivity;
+import com.optimum.Avica.Utils.AppUtils;
+import com.optimum.Avica.Utils.UserPrefs;
+
+import java.util.ArrayList;
 
 public class HistoryActivity extends AppCompatActivity {
 
 
     ImageView item1,item2,item3,item4,item5,item6;
-
+    RecyclerView list1;
+    ArrayList<Reports> reportsArrayList = new ArrayList<>();
+    AdapterReport adapterReport;
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+        user = UserPrefs.getGetUser();
+
         ImageView back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,5 +100,39 @@ public class HistoryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        list1=findViewById(R.id.list1);
+        getPHR();
+
+
+
     }
+    public void getPHR(){
+        AppUtils.showProgressDialog(HistoryActivity.this);
+
+        AppServices.getReports(ReportActivity.class.getSimpleName(),user.id, new ServiceListener<ArrayList<Reports>, String>() {
+            @Override
+            public void success(ArrayList<Reports> success) {
+                AppUtils.dismisProgressDialog(HistoryActivity.this);
+                reportsArrayList = success;
+                setAdapter();
+
+            }
+
+            @Override
+            public void error(String error) {
+                AppUtils.dismisProgressDialog(HistoryActivity.this);
+
+            }
+        });
+    }
+    public void setAdapter() {
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        list1.setLayoutManager(layoutManager);
+        adapterReport = new AdapterReport(HistoryActivity.this, reportsArrayList, this);
+        list1.setAdapter(adapterReport);
+
+    }
+
 }

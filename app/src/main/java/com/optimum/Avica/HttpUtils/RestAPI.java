@@ -2,6 +2,7 @@ package com.optimum.Avica.HttpUtils;
 
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -14,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -87,5 +89,26 @@ public class RestAPI {
     }
 
 
+    public static void UploadFileRequest(String TAG, String apiEndpoint, File file, final ServiceListener<NetworkResponse, VolleyError> listener) {
+        MultipartRequest multipartRequest = new MultipartRequest(
+                ConfigConstants.API_BASE_URL + apiEndpoint,
+                file,
+                "file", // <-- This is the key expected by the server
+                new Response.Listener<NetworkResponse>() {
+                    @Override
+                    public void onResponse(NetworkResponse response) {
+                        listener.success(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        listener.error(error);
+                    }
+                }
+        );
+
+        HttpRequestHandler.getInstance().addToRequestQueue(multipartRequest, TAG);
+    }
 
 }

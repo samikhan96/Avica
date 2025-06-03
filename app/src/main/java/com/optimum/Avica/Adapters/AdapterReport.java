@@ -32,7 +32,7 @@ public class AdapterReport extends RecyclerView.Adapter<AdapterReport.MyViewHold
 
     @Override
     public AdapterReport.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new AdapterReport.MyViewHolder(layoutInflater.inflate(R.layout.medication_item, parent, false));
+        return new AdapterReport.MyViewHolder(layoutInflater.inflate(R.layout.phr_item, parent, false));
     }
 
     @Override
@@ -40,10 +40,9 @@ public class AdapterReport extends RecyclerView.Adapter<AdapterReport.MyViewHold
         Reports pamModel = pamModelArrayList.get(position);
 
         holder.tv_1.setText(pamModel.title);
-        holder.tv_2.setText(pamModel.title);
-        holder.tv_3.setText(pamModel.title);
-        holder.tv_4.setText(pamModel.title);
-        holder.tv_5.setText(pamModel.title);
+        holder.tv_2.setText(pamModel.description);
+        holder.tv_3.setText(pamModel.type);
+        AppUtils.setFormattedDate(pamModel.created,holder.tv_4);
 
 
 
@@ -55,7 +54,7 @@ public class AdapterReport extends RecyclerView.Adapter<AdapterReport.MyViewHold
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView tv_1,tv_2,tv_3,tv_4,tv_5;
+        private TextView tv_1,tv_2,tv_3,tv_4;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -63,7 +62,6 @@ public class AdapterReport extends RecyclerView.Adapter<AdapterReport.MyViewHold
             tv_2 =  itemView.findViewById(R.id.tv_2);
             tv_3 =  itemView.findViewById(R.id.tv_3);
             tv_4 =  itemView.findViewById(R.id.tv_4);
-            tv_5 =  itemView.findViewById(R.id.tv_5);
 
         }
 
