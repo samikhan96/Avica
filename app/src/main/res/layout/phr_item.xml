@@ -29,14 +29,14 @@
                 <ImageView
                     android:layout_width="@dimen/_40sdp"
                     android:layout_height="@dimen/_40sdp"
-                    android:src="@drawable/ic_pdf" />
+                    android:src="@drawable/jpg_icon" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
-                    android:text="Document1.PDF"
+                    android:text="Document.JPG"
                     android:textSize="@dimen/_12ssp"
                     android:textStyle="bold" />
 
