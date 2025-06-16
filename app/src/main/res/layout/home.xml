@@ -166,7 +166,7 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="vertical">
 
-                                <com.optimum.Avica.Utils.DonutChartView
+                                <com.example.myapplication.AvicaPatient.Utils.DonutChartView
                                     android:id="@+id/bg_donutChart"
                                     android:layout_width="230dp"
                                     android:layout_height="230dp"
@@ -294,7 +294,7 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="vertical">
 
-                                <com.optimum.Avica.Utils.DonutChartView
+                                <com.example.myapplication.AvicaPatient.Utils.DonutChartView
                                     android:id="@+id/bp_donutChart"
                                     android:layout_width="230dp"
                                     android:layout_height="230dp"
@@ -422,7 +422,7 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="vertical">
 
-                                <com.optimum.Avica.Utils.DonutChartView
+                                <com.example.myapplication.AvicaPatient.Utils.DonutChartView
                                     android:id="@+id/Temp_donutChart"
                                     android:layout_width="230dp"
                                     android:layout_height="230dp"
@@ -549,7 +549,7 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="vertical">
 
-                                <com.optimum.Avica.Utils.DonutChartView
+                                <com.example.myapplication.AvicaPatient.Utils.DonutChartView
                                     android:id="@+id/spo2_donutChart"
                                     android:layout_width="230dp"
                                     android:layout_height="230dp"
@@ -676,7 +676,7 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="vertical">
 
-                                <com.optimum.Avica.Utils.DonutChartView
+                                <com.example.myapplication.AvicaPatient.Utils.DonutChartView
                                     android:id="@+id/ecg_donutChart"
                                     android:layout_width="230dp"
                                     android:layout_height="230dp"

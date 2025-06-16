@@ -1,0 +1,29 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.vivalnk.sdk.demo.base" >
+4
+5    <uses-sdk android:minSdkVersion="21" />
+6
+7    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+7-->D:\AvicaPatient\base\src\main\AndroidManifest.xml:3:1-76
+7-->D:\AvicaPatient\base\src\main\AndroidManifest.xml:3:18-73
+8
+9    <application>
+9-->D:\AvicaPatient\base\src\main\AndroidManifest.xml:5:1-15:15
+10        <activity
+10-->D:\AvicaPatient\base\src\main\AndroidManifest.xml:7:3-9:14
+11            android:name="com.nbsp.materialfilepicker.ui.FilePickerActivity"
+11-->D:\AvicaPatient\base\src\main\AndroidManifest.xml:7:13-77
+12            android:theme="@style/MFP_BaseTheme" >
+12-->D:\AvicaPatient\base\src\main\AndroidManifest.xml:8:7-43
+13        </activity>
+14        <activity
+14-->D:\AvicaPatient\base\src\main\AndroidManifest.xml:11:3-13:14
+15            android:name="com.vivalnk.sdk.demo.base.custom.DialogActivity"
+15-->D:\AvicaPatient\base\src\main\AndroidManifest.xml:11:13-50
+16            android:theme="@style/dialog_style" >
+16-->D:\AvicaPatient\base\src\main\AndroidManifest.xml:12:5-40
+17        </activity>
+18    </application>
+19
+20</manifest>

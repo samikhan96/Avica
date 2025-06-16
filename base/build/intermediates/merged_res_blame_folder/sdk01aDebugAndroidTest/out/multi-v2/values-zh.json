@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.vivalnk.sdk.demo.base.test.base-mergeSdk01aDebugAndroidTestResources-47:/values-zh/values-zh.xml",
+            "map": [
+                {
+                    "source": "D:\\AvicaPatient\\base\\build\\intermediates\\packaged_res\\sdk01aDebug\\values-zh\\values-zh.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,93,130",
+                        "endColumns": "37,36,33",
+                        "endOffsets": "88,125,159"
+                    }
+                }
+            ]
+        }
+    ]
+}

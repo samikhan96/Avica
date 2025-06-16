@@ -1,0 +1,37 @@
+[
+{
+  "directory": "D:/AvicaPatient/base/.cxx/Debug/1e6d6pv6/arm64-v8a",
+  "command": "C:\\Users\\user\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android21 --sysroot=C:/Users/user/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dwfdb_EXPORTS -ID:/AvicaPatient/base/src/main/cpp/include -ID:/AvicaPatient/base/src/main/cpp/facde -ID:/AvicaPatient/base/src/main/cpp/source -ID:/AvicaPatient/base/src/main/cpp/source/wfdb -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -o CMakeFiles\\wfdb.dir\\facade\\com_vivalnk_sdk_demo_core_WfdbUtils.cpp.o -c D:\\AvicaPatient\\base\\src\\main\\cpp\\facade\\com_vivalnk_sdk_demo_core_WfdbUtils.cpp",
+  "file": "D:\\AvicaPatient\\base\\src\\main\\cpp\\facade\\com_vivalnk_sdk_demo_core_WfdbUtils.cpp"
+},
+{
+  "directory": "D:/AvicaPatient/base/.cxx/Debug/1e6d6pv6/arm64-v8a",
+  "command": "C:\\Users\\user\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android21 --sysroot=C:/Users/user/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dwfdb_EXPORTS -ID:/AvicaPatient/base/src/main/cpp/include -ID:/AvicaPatient/base/src/main/cpp/facde -ID:/AvicaPatient/base/src/main/cpp/source -ID:/AvicaPatient/base/src/main/cpp/source/wfdb -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -o CMakeFiles\\wfdb.dir\\source\\wfdb\\annot.c.o -c D:\\AvicaPatient\\base\\src\\main\\cpp\\source\\wfdb\\annot.c",
+  "file": "D:\\AvicaPatient\\base\\src\\main\\cpp\\source\\wfdb\\annot.c"
+},
+{
+  "directory": "D:/AvicaPatient/base/.cxx/Debug/1e6d6pv6/arm64-v8a",
+  "command": "C:\\Users\\user\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android21 --sysroot=C:/Users/user/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dwfdb_EXPORTS -ID:/AvicaPatient/base/src/main/cpp/include -ID:/AvicaPatient/base/src/main/cpp/facde -ID:/AvicaPatient/base/src/main/cpp/source -ID:/AvicaPatient/base/src/main/cpp/source/wfdb -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -o CMakeFiles\\wfdb.dir\\source\\wfdb\\calib.c.o -c D:\\AvicaPatient\\base\\src\\main\\cpp\\source\\wfdb\\calib.c",
+  "file": "D:\\AvicaPatient\\base\\src\\main\\cpp\\source\\wfdb\\calib.c"
+},
+{
+  "directory": "D:/AvicaPatient/base/.cxx/Debug/1e6d6pv6/arm64-v8a",
+  "command": "C:\\Users\\user\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android21 --sysroot=C:/Users/user/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dwfdb_EXPORTS -ID:/AvicaPatient/base/src/main/cpp/include -ID:/AvicaPatient/base/src/main/cpp/facde -ID:/AvicaPatient/base/src/main/cpp/source -ID:/AvicaPatient/base/src/main/cpp/source/wfdb -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -o CMakeFiles\\wfdb.dir\\source\\wfdb\\signal.c.o -c D:\\AvicaPatient\\base\\src\\main\\cpp\\source\\wfdb\\signal.c",
+  "file": "D:\\AvicaPatient\\base\\src\\main\\cpp\\source\\wfdb\\signal.c"
+},
+{
+  "directory": "D:/AvicaPatient/base/.cxx/Debug/1e6d6pv6/arm64-v8a",
+  "command": "C:\\Users\\user\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android21 --sysroot=C:/Users/user/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dwfdb_EXPORTS -ID:/AvicaPatient/base/src/main/cpp/include -ID:/AvicaPatient/base/src/main/cpp/facde -ID:/AvicaPatient/base/src/main/cpp/source -ID:/AvicaPatient/base/src/main/cpp/source/wfdb -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -o CMakeFiles\\wfdb.dir\\source\\wfdb\\wfdb_lib.cpp.o -c D:\\AvicaPatient\\base\\src\\main\\cpp\\source\\wfdb\\wfdb_lib.cpp",
+  "file": "D:\\AvicaPatient\\base\\src\\main\\cpp\\source\\wfdb\\wfdb_lib.cpp"
+},
+{
+  "directory": "D:/AvicaPatient/base/.cxx/Debug/1e6d6pv6/arm64-v8a",
+  "command": "C:\\Users\\user\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android21 --sysroot=C:/Users/user/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dwfdb_EXPORTS -ID:/AvicaPatient/base/src/main/cpp/include -ID:/AvicaPatient/base/src/main/cpp/facde -ID:/AvicaPatient/base/src/main/cpp/source -ID:/AvicaPatient/base/src/main/cpp/source/wfdb -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -o CMakeFiles\\wfdb.dir\\source\\wfdb\\wfdbinit.c.o -c D:\\AvicaPatient\\base\\src\\main\\cpp\\source\\wfdb\\wfdbinit.c",
+  "file": "D:\\AvicaPatient\\base\\src\\main\\cpp\\source\\wfdb\\wfdbinit.c"
+},
+{
+  "directory": "D:/AvicaPatient/base/.cxx/Debug/1e6d6pv6/arm64-v8a",
+  "command": "C:\\Users\\user\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe --target=aarch64-none-linux-android21 --sysroot=C:/Users/user/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dwfdb_EXPORTS -ID:/AvicaPatient/base/src/main/cpp/include -ID:/AvicaPatient/base/src/main/cpp/facde -ID:/AvicaPatient/base/src/main/cpp/source -ID:/AvicaPatient/base/src/main/cpp/source/wfdb -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -o CMakeFiles\\wfdb.dir\\source\\wfdb\\wfdbio.c.o -c D:\\AvicaPatient\\base\\src\\main\\cpp\\source\\wfdb\\wfdbio.c",
+  "file": "D:\\AvicaPatient\\base\\src\\main\\cpp\\source\\wfdb\\wfdbio.c"
+}
+]

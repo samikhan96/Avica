@@ -1,0 +1,3 @@
+D:/AvicaPatient/base/.cxx/Debug/1e6d6pv6/x86_64/CMakeFiles/wfdb.dir
+D:/AvicaPatient/base/.cxx/Debug/1e6d6pv6/x86_64/CMakeFiles/edit_cache.dir
+D:/AvicaPatient/base/.cxx/Debug/1e6d6pv6/x86_64/CMakeFiles/rebuild_cache.dir

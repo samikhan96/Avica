@@ -1,0 +1,14 @@
+# ninja log v5
+2	45	0	D:/AvicaPatient/base/.cxx/Debug/1e6d6pv6/x86/CMakeFiles/cmake.verify_globs	de04c0d3a1eeecbf
+0	13	0	clean	1d4282ff59bab214
+2	106	0	D:/AvicaPatient/base/.cxx/Debug/1e6d6pv6/x86/CMakeFiles/cmake.verify_globs	de04c0d3a1eeecbf
+0	18	0	clean	1d4282ff59bab214
+1	37	0	D:/AvicaPatient/base/.cxx/Debug/1e6d6pv6/x86/CMakeFiles/cmake.verify_globs	de04c0d3a1eeecbf
+45	268	771793248	CMakeFiles/wfdb.dir/source/wfdb/wfdbinit.c.o	dce51fcb1202459b
+24	456	771793248	CMakeFiles/wfdb.dir/source/wfdb/calib.c.o	dd77bbde28d938b4
+55	472	771793248	CMakeFiles/wfdb.dir/source/wfdb/wfdbio.c.o	68bda96867370c3b
+13	487	771793248	CMakeFiles/wfdb.dir/source/wfdb/annot.c.o	d0da0602464398c7
+1	494	771793248	CMakeFiles/wfdb.dir/facade/com_vivalnk_sdk_demo_core_WfdbUtils.cpp.o	31bc6f1e52938f80
+66	525	771793248	CMakeFiles/wfdb.dir/source/wfdb/wfdb_lib.cpp.o	328fc3e5272c7e75
+35	725	771793248	CMakeFiles/wfdb.dir/source/wfdb/signal.c.o	aa4595be8ad842be
+729	994	771793249	D:/AvicaPatient/base/build/intermediates/cxx/Debug/1e6d6pv6/obj/x86/libwfdb.so	48667b99169e9afd

@@ -1,0 +1,35 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\AvicaPatient\base\src\main\AndroidManifest.xml:1:1-16:12
+INJECTED from D:\AvicaPatient\base\src\main\AndroidManifest.xml:1:1-16:12
+	package
+		ADDED from D:\AvicaPatient\base\src\main\AndroidManifest.xml:2:3-38
+		INJECTED from D:\AvicaPatient\base\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\AvicaPatient\base\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\AvicaPatient\base\src\main\AndroidManifest.xml:3:1-76
+	android:name
+		ADDED from D:\AvicaPatient\base\src\main\AndroidManifest.xml:3:18-73
+application
+ADDED from D:\AvicaPatient\base\src\main\AndroidManifest.xml:5:1-15:15
+activity#com.nbsp.materialfilepicker.ui.FilePickerActivity
+ADDED from D:\AvicaPatient\base\src\main\AndroidManifest.xml:7:3-9:14
+	android:theme
+		ADDED from D:\AvicaPatient\base\src\main\AndroidManifest.xml:8:7-43
+	android:name
+		ADDED from D:\AvicaPatient\base\src\main\AndroidManifest.xml:7:13-77
+activity#com.vivalnk.sdk.demo.base.custom.DialogActivity
+ADDED from D:\AvicaPatient\base\src\main\AndroidManifest.xml:11:3-13:14
+	android:theme
+		ADDED from D:\AvicaPatient\base\src\main\AndroidManifest.xml:12:5-40
+	android:name
+		ADDED from D:\AvicaPatient\base\src\main\AndroidManifest.xml:11:13-50
+uses-sdk
+INJECTED from D:\AvicaPatient\base\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\AvicaPatient\base\src\main\AndroidManifest.xml
+INJECTED from D:\AvicaPatient\base\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\AvicaPatient\base\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\AvicaPatient\base\src\main\AndroidManifest.xml

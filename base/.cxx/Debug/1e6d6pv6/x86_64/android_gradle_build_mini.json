@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "D:\\AvicaPatient\\base\\src\\main\\cpp\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\user\\AppData\\Local\\Android\\Sdk\\cmake\\3.18.1\\bin\\ninja.exe",
+      "-C",
+      "D:\\AvicaPatient\\base\\.cxx\\Debug\\1e6d6pv6\\x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\user\\AppData\\Local\\Android\\Sdk\\cmake\\3.18.1\\bin\\ninja.exe",
+    "-C",
+    "D:\\AvicaPatient\\base\\.cxx\\Debug\\1e6d6pv6\\x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "wfdb::@6890427a1f51a3e7e1df": {
+      "artifactName": "wfdb",
+      "abi": "x86_64",
+      "output": "D:\\AvicaPatient\\base\\build\\intermediates\\cxx\\Debug\\1e6d6pv6\\obj\\x86_64\\libwfdb.so",
+      "runtimeFiles": []
+    }
+  }
+}
