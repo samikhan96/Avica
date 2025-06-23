@@ -1,218 +1,303 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-  <include
-      android:id="@+id/toolbar_title"
-      layout="@layout/toolbar"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      />
+    android:background="@drawable/app_bg_new"
+    android:orientation="vertical"
+    tools:context=".UI.Patient.PrivacyPolicyActivity">
 
-  <ScrollView
-      android:layout_below="@+id/toolbar_title"
-      android:layout_above="@id/bt_continue"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      >
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:gravity="center_vertical"
-          android:orientation="horizontal"
-          android:padding="5dp"
-          >
-        <CheckBox
-            android:id="@+id/radio_auto_connect_last"
-            android:scaleX="1.1"
-            android:scaleY="1.1"
+        android:layout_height="@dimen/_60sdp">
+
+
+        <RelativeLayout
+            android:id="@+id/menu"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:background="@drawable/sample_circle">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_7sdp"
+                android:src="@drawable/arrow_left" />
+        </RelativeLayout>
+
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:textSize="@dimen/text_18"
-            android:text="@string/config_auto_connect_last"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/_10sdp"
+            android:text="ECG Config"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-      </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
 
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:gravity="center_vertical"
-          android:orientation="horizontal"
-          android:padding="5dp"
-          >
-        <CheckBox
-            android:id="@+id/radio_auto_connect"
-            android:scaleX="1.1"
-            android:scaleY="1.1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:textSize="@dimen/text_18"
-            android:text="@string/config_auto_connect"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-      </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:gravity="center_vertical"
-          android:orientation="horizontal"
-          android:padding="5dp"
-          >
-        <CheckBox
-            android:id="@+id/radio_log_output"
-            android:scaleX="1.1"
-            android:scaleY="1.1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:text="@string/config_log_output"
-            android:textSize="@dimen/text_18"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-      </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
+                    <CheckBox
+                        android:id="@+id/radio_auto_connect_last"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="1.1"
+                        android:scaleY="1.1" />
 
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:gravity="center_vertical"
-          android:orientation="horizontal"
-          android:padding="5dp"
-          >
-        <CheckBox
-            android:id="@+id/radio_ecg_sync_clock"
-            android:scaleX="1.1"
-            android:scaleY="1.1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:textSize="@dimen/text_18"
-            android:text="@string/config_ecg_sync_clock"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-      </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/config_auto_connect_last"
+                        android:textSize="@dimen/text_18" />
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:gravity="center_vertical"
-          android:orientation="horizontal"
-          android:padding="5dp"
-          >
-        <CheckBox
-            android:id="@+id/radio_blooddev_read_file"
-            android:scaleX="1.1"
-            android:scaleY="1.1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:textSize="@dimen/text_18"
-            android:text="@string/config_blooddev_read_file"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-      </LinearLayout>
+                    <CheckBox
+                        android:id="@+id/radio_auto_connect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="1.1"
+                        android:scaleY="1.1" />
 
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:gravity="center_vertical"
-          android:orientation="horizontal"
-          android:padding="5dp"
-          >
-        <CheckBox
-            android:id="@+id/radio_data_upload"
-            android:scaleX="1.1"
-            android:scaleY="1.1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/tv_data_upload"
-            android:layout_marginLeft="5dp"
-            android:textSize="@dimen/text_18"
-            android:text="@string/config_data_upload"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-      </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/config_auto_connect"
+                        android:textSize="@dimen/text_18" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/radio_log_output"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="1.1"
+                        android:scaleY="1.1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/config_log_output"
+                        android:textSize="@dimen/text_18" />
+                </LinearLayout>
 
 
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:gravity="center_vertical"
-          android:orientation="horizontal"
-          android:padding="5dp"
-          >
-        <CheckBox
-            android:id="@+id/radio_heart_rate"
-            android:scaleX="1.1"
-            android:scaleY="1.1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:textSize="@dimen/text_18"
-            android:text="@string/config_heart_rate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-      </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:gravity="center_vertical"
-          android:orientation="horizontal"
-          android:padding="5dp"
-          >
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:textSize="@dimen/text_14"
-            android:text="@string/config_blood_rtsupload_rate"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:id="@+id/et_blood_rtsupload_rate"
-            android:layout_width="100dp"
-            android:numeric="decimal"
-            android:layout_height="wrap_content"/>
-      </LinearLayout>
-      <Button
-          android:id="@+id/bt_tannotation"
-          android:text="旧数据库"
-          android:gravity="center"
-          android:visibility="gone"
-          android:layout_alignParentBottom="true"
-          android:textSize="@dimen/text_20"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"/>
-    </LinearLayout>
-  </ScrollView>
+                    <CheckBox
+                        android:id="@+id/radio_ecg_sync_clock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="1.1"
+                        android:scaleY="1.1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/config_ecg_sync_clock"
+                        android:textSize="@dimen/text_18" />
+                </LinearLayout>
 
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
 
-  <Button
-      android:id="@+id/bt_continue"
-      android:text="@string/config_OK"
-      android:layout_centerHorizontal="true"
-      android:gravity="center"
-      android:layout_alignParentBottom="true"
-      android:textSize="@dimen/text_20"
-      android:layout_width="200dp"
-      android:layout_height="80dp"/>
-</RelativeLayout>
+                    <CheckBox
+                        android:id="@+id/radio_blooddev_read_file"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="1.1"
+                        android:scaleY="1.1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/config_blooddev_read_file"
+                        android:textSize="@dimen/text_18" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/radio_data_upload"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="1.1"
+                        android:scaleY="1.1" />
+
+                    <TextView
+                        android:id="@+id/tv_data_upload"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/config_data_upload"
+                        android:textSize="@dimen/text_18" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <CheckBox
+                        android:id="@+id/radio_heart_rate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleX="1.1"
+                        android:scaleY="1.1" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/config_heart_rate"
+                        android:textSize="@dimen/text_18" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/config_blood_rtsupload_rate"
+                        android:textSize="@dimen/text_14" />
+
+                    <EditText
+                        android:id="@+id/et_blood_rtsupload_rate"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:numeric="decimal" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/bt_tannotation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:text="旧数据库"
+                    android:textSize="@dimen/text_20"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:visibility="gone"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/_20sdp"
+                app:cardElevation="@dimen/_4sdp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_20sdp"
+                    android:src="@drawable/device1" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/_20sdp"
+                app:cardElevation="@dimen/_4sdp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_20sdp"
+                    android:src="@drawable/device2" />
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/bt_continue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="@drawable/btn_bg"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_14ssp" />
+</LinearLayout>

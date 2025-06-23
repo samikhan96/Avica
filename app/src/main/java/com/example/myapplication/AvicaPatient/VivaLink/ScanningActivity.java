@@ -1,5 +1,8 @@
 package com.example.myapplication.AvicaPatient.VivaLink;
 
+import static com.vivalnk.sdk.demo.base.app.BaseActivity.navTo;
+
+import android.animation.ValueAnimator;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +21,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.AvicaPatient.R;
+import com.example.myapplication.AvicaPatient.Utils.AppUtils;
+import com.example.myapplication.AvicaPatient.Utils.CircularProgressView;
 import com.example.myapplication.AvicaPatient.VivaLink.adapter.ScanListAdapter;
 import com.google.android.material.navigation.NavigationView;
 import com.vivalnk.sdk.VitalClient;
@@ -47,8 +52,7 @@ import com.example.myapplication.AvicaPatient.VivaLink.adapter.ScanListAdapter.S
 
 
 
-public class ScanningActivity extends BaseDeviceActivity implements
-        NavigationView.OnNavigationItemSelectedListener {
+public class ScanningActivity extends BaseDeviceActivity {
 
 
     private String tag="devicetag";
@@ -81,7 +85,6 @@ public class ScanningActivity extends BaseDeviceActivity implements
             updateList();
 
             mIsScanning = true;
-            setScanText(R.string.stop_scan);
 
         }
 
@@ -127,6 +130,7 @@ public class ScanningActivity extends BaseDeviceActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         initView();
         try {
@@ -180,15 +184,6 @@ public class ScanningActivity extends BaseDeviceActivity implements
     /**
      * 关闭扫描
      */
-    private void stopScan() {
-        if (mIsScanning == false) {
-            return;
-        }
-
-        mIsScanning = false;
-        setScanText(R.string.start_scan);
-        VitalClient.getInstance().stopScan(scanListener);
-    }
 
     @Override
     protected void onResume() {
@@ -203,15 +198,10 @@ public class ScanningActivity extends BaseDeviceActivity implements
         }
     }
 
-    @Override
-    protected Layout getLayout() {
-        return Layout.createLayoutByID(R.layout.activity_main);
-    }
 
     @Override
     protected void onDestroy() {
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        stopScan();
         super.onDestroy();
         EventBusHelper.getDefault().unregister(this);
     }
@@ -233,11 +223,11 @@ public class ScanningActivity extends BaseDeviceActivity implements
             navToDeviceActivity(ScanningActivity.this, connectEvent.device);
         } else if (ConnectEvent.ON_DISCONNECTED.equalsIgnoreCase(connectEvent.event)) {
             updateContent(false, connectEvent.device);
-            showToast(
+            AppUtils.Toast(
                     ErrorMessageHandler.getInstance().getDisconnectedMeesage(connectEvent.device, connectEvent.isForce));
         } else if (ConnectEvent.ON_ERROR.equalsIgnoreCase(connectEvent.event)) {
             updateContent(false, connectEvent.device);
-            showToast(ErrorMessageHandler.getInstance().getConnectErrorMeesage(connectEvent.device, connectEvent.code, connectEvent.msg));
+            AppUtils.Toast(ErrorMessageHandler.getInstance().getConnectErrorMeesage(connectEvent.device, connectEvent.code, connectEvent.msg));
         }
     }
 
@@ -253,6 +243,10 @@ public class ScanningActivity extends BaseDeviceActivity implements
     }
 
     private void initView() {
+
+        CircularProgressView progressView = findViewById(R.id.progressView);
+        startScanningAnimation(progressView);
+
         // list view
         rvScanList=findViewById(R.id.rvList);
         rvScanList.setLayoutManager(new LinearLayoutManager(this));
@@ -291,11 +285,7 @@ public class ScanningActivity extends BaseDeviceActivity implements
         deviceLinkedHashSet.addAll(devices);
         updateList();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+
 
     }
 
@@ -315,38 +305,22 @@ public class ScanningActivity extends BaseDeviceActivity implements
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
+
             super.onBackPressed();
         }
-    }
 
 
 
-    /**
-     *
-     * @param resID
-     */
-    private void setScanText(@StringRes int resID) {
-        if (toolbar.getMenu() != null && toolbar.getMenu().size() > 0) {
-            MenuItem item = toolbar.getMenu().getItem(0);
-            item.setTitle(resID);
-        }
-    }
 
 
     @Override
     protected void onLocationTurnOff() {
         super.onLocationTurnOff();
-        stopScan();
     }
 
     @Override
     protected void onBluetoothTurnOff() {
         super.onBluetoothTurnOff();
-        stopScan();
     }
 
     private AlertDialog mTimezoneSwitchDialog;
@@ -371,12 +345,22 @@ public class ScanningActivity extends BaseDeviceActivity implements
             onDeviceFound(event.device);
         } else if (ScanEvent.ON_STOP.equalsIgnoreCase(event.event) || ScanEvent.ON_ERROR.equalsIgnoreCase(event.event)) {
             mIsScanning = false;
-            setScanText(R.string.start_scan);
         }
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
+    private void startScanningAnimation(CircularProgressView progressView) {
+        ValueAnimator animator = ValueAnimator.ofFloat(0f, 100f);
+        animator.setDuration(2000); // 2 seconds per rotation
+        animator.setRepeatCount(ValueAnimator.INFINITE);
+        animator.setRepeatMode(ValueAnimator.RESTART);
+
+        animator.addUpdateListener(animation -> {
+            float animatedValue = (float) animation.getAnimatedValue();
+            progressView.setProgress(animatedValue);
+        });
+
+        animator.start();
     }
+
+
 }

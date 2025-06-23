@@ -70,6 +70,7 @@ public class PinActivity extends AppCompatActivity {
             @Override
             public void success(String success) {
                 AppUtils.dismisProgressDialog(PinActivity.this);
+                AppUtils.Toast("Password Reset Successfully");
 
                 Intent intent = new Intent(PinActivity.this, LoginActivity.class);
                 startActivity(intent);

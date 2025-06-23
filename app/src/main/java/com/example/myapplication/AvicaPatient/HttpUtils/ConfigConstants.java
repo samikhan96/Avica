@@ -7,7 +7,7 @@ public class ConfigConstants {
     public static final String Login = "/web/auth/login";
     public static final String ForgetPassword = "/web/auth/forgot-password";
     public static final String TechnicalSupport = "/web/support";
-    public static final String ResetPass = "/web/auth/reset-password";
+    public static final String ResetPass = "/users/reset-password";
     public static final String patientprofile = "/users/profile/";
     public static final String patientDashboard = "/web/rag/patients/";
     public static final String Education = "/web/education";
@@ -16,5 +16,6 @@ public class ConfigConstants {
     public static final String uploader = "/web/uploader";
     public static final String notifications = "/web/notifications";
     public static final String AddMeasurment = "/users/single-value-measurement/";
+    public static final String gettelemedappointments = "/app/telemed/appointments";
 
 }

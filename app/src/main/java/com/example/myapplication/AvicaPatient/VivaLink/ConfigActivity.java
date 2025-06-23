@@ -2,15 +2,27 @@ package com.example.myapplication.AvicaPatient.VivaLink;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myapplication.AvicaPatient.R;
+import com.example.myapplication.AvicaPatient.Utils.AppUtils;
 import com.tencent.mmkv.MMKV;
 import com.vivalnk.sdk.BuildConfig;
 import com.vivalnk.sdk.VitalClient;
@@ -18,19 +30,16 @@ import com.vivalnk.sdk.demo.base.app.BaseToolbarActivity;
 import com.vivalnk.sdk.demo.base.app.Layout;
 import com.vivalnk.sdk.demo.repository.device.DeviceManager;
 
-public class ConfigActivity extends BaseToolbarActivity {
+public class ConfigActivity extends AppCompatActivity {
 
     private boolean isFirst=true;
 
-    @Override
-    protected Layout getLayout() {
-        return Layout.createLayoutByID(R.layout.activity_config);
-    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_config);
         initView();
         setListener();
         if (com.vivalnk.sdk.BuildConfig.sdkChannel.equals("sdk01")) {
@@ -41,15 +50,21 @@ public class ConfigActivity extends BaseToolbarActivity {
     }
 
     private void initView() {
-        actionBar.setTitle(getString(R.string.config_title));
-        toolbar.setNavigationOnClickListener((v) -> finish());
+
+        ImageView back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void doShowToast(String msg){
         if(isFirst){
             return;
         }
-        showToast(msg);
+        AppUtils.Toast(msg);
     }
 
     private void setListener(){
@@ -137,17 +152,6 @@ public class ConfigActivity extends BaseToolbarActivity {
 
         isFirst=false;
 
-//        Button button=findViewById(R.id.bt_tannotation);
-
-//        button.setOnClickListener(v->{
-//            if("旧数据库".equals(button.getText())){
-//                button.setText("新数据库");
-//                ConstantTest.isUseNewDao=true;
-//            }else{
-//                button.setText("旧数据库");
-//                ConstantTest.isUseNewDao=false;
-//            }
-//        });
     }
 
     /**
@@ -160,30 +164,51 @@ public class ConfigActivity extends BaseToolbarActivity {
         if (MMKV.defaultMMKV().getString(VitalClient.Builder.Key.subjectId, "").isEmpty()) {
             MMKV.defaultMMKV().putString(VitalClient.Builder.Key.subjectId, "testAndroid");
         }
-        View view = LayoutInflater.from(this).inflate(R.layout.subject_id_layout, null);
+        View view = LayoutInflater.from(this).inflate(R.layout.ecg_register_dialog, null);
         final EditText edtProjectId = (EditText) view.findViewById(R.id.edtProjectId);
         final EditText edtSubjectId = (EditText) view.findViewById(R.id.edtSubjectId);
-        new AlertDialog.Builder(this).setTitle("Register Subject")
-                .setIcon(android.R.drawable.ic_dialog_info)
+        final Button btnOk = (Button) view.findViewById(R.id.yes_btn);
+        // Initialize AlertDialog
+        AlertDialog dialog = new AlertDialog.Builder(this)
                 .setView(view)
-                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        String projectId = edtProjectId.getText().toString();
-                        String subjectId = edtSubjectId.getText().toString();
+                .create(); // don't use setPositiveButton or setNegativeButton
+        // Handle OK button
+        btnOk.setOnClickListener(v -> {
+            String projectId = edtProjectId.getText().toString();
+            String subjectId = edtSubjectId.getText().toString();
 
-                        if (TextUtils.isEmpty(projectId)) {
-                            projectId = DeviceManager.projectId;
-                        }
+            if (TextUtils.isEmpty(projectId)) {
+                projectId = DeviceManager.projectId;
+            }
 
-                        if (TextUtils.isEmpty(subjectId)) {
-                            subjectId = DeviceManager.subjectId;
-                        }
-                        MMKV.defaultMMKV().putString(VitalClient.Builder.Key.projectId, projectId);
-                        MMKV.defaultMMKV().putString(VitalClient.Builder.Key.subjectId, subjectId);
-                    }
-                })
-                .setNegativeButton(R.string.cancel, null)
-                .show();
+            if (TextUtils.isEmpty(subjectId)) {
+                subjectId = DeviceManager.subjectId;
+            }
+            MMKV.defaultMMKV().putString(VitalClient.Builder.Key.projectId, projectId);
+            MMKV.defaultMMKV().putString(VitalClient.Builder.Key.subjectId, subjectId);
+
+            dialog.dismiss();
+        });
+        dialog.show();
+        dialog.setCancelable(false);
+
+        Window window = dialog.getWindow();
+        if (window != null) {
+            // 1. Remove default dialog padding background
+            window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+            // 2. Set left & right margins by reducing width
+            int marginInDp = 24; // margin on each side
+            int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
+
+            int marginInPx = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP, marginInDp, getResources().getDisplayMetrics());
+
+            // Apply calculated width with margin, keep height wrap_content
+            int dialogWidth = screenWidth - (2 * marginInPx);
+            window.setLayout(dialogWidth, WindowManager.LayoutParams.WRAP_CONTENT);
+        }
+
     }
 
 

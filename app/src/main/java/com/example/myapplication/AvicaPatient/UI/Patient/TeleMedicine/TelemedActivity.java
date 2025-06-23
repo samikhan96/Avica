@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.myapplication.AvicaPatient.HttpUtils.AppServices;
 import com.example.myapplication.AvicaPatient.R;
 
 public class TelemedActivity extends AppCompatActivity {
@@ -33,5 +34,10 @@ public class TelemedActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void getTelemedicineappointments(){
+
+        AppServices.getEducation();
     }
 }

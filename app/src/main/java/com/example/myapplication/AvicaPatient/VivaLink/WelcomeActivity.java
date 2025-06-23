@@ -5,10 +5,13 @@ import android.Manifest.permission;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.AvicaPatient.R;
+import com.example.myapplication.AvicaPatient.Utils.AppUtils;
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.XXPermissions;
 import com.vivalnk.sdk.common.utils.PermissionHelper;
@@ -19,9 +22,10 @@ import java.util.List;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-public class WelcomeActivity extends BaseToolbarActivity {
+public class WelcomeActivity extends AppCompatActivity {
 
   public static String[] permissions;
+  ImageView bt_continue;
 
   static {
     permissions = new String[]{
@@ -52,16 +56,15 @@ public class WelcomeActivity extends BaseToolbarActivity {
     }
 
   }
-
-  @Override
-  protected Layout getLayout() {
-    return Layout.createLayoutByID(R.layout.activity_welcome);
-  }
-
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    checkPermission();
+    setContentView(R.layout.activity_welcome);
+    bt_continue=findViewById(R.id.bt_continue);
+    bt_continue.setOnClickListener(v -> {
+      checkPermission();
+    });
+
   }
 
   //request location and write permissions at rum time
@@ -87,7 +90,7 @@ public class WelcomeActivity extends BaseToolbarActivity {
 
                 if (Build.VERSION.SDK_INT < 29) {
                   if (!PermissionHelper.hasPermission(WelcomeActivity.this, permission.ACCESS_COARSE_LOCATION)) {
-                    showToast("You must grant the location permission under Android 10!");
+                    AppUtils.Toast("You must grant the location permission under Android 10!");
                     finish();
                     return;
                   }
@@ -99,7 +102,7 @@ public class WelcomeActivity extends BaseToolbarActivity {
                           !PermissionHelper.hasPermission(WelcomeActivity.this, permission.ACCESS_COARSE_LOCATION)
                                   || !PermissionHelper.hasPermission(WelcomeActivity.this, permission.ACCESS_FINE_LOCATION)
                   ) {
-                    showToast("You must grant the location permissions under Android 12!");
+                    AppUtils.Toast("You must grant the location permissions under Android 12!");
                     finish();
                     return;
                   }
@@ -112,7 +115,7 @@ public class WelcomeActivity extends BaseToolbarActivity {
                                   || !PermissionHelper.hasPermission(WelcomeActivity.this, permission.BLUETOOTH_CONNECT)
                                   || !PermissionHelper.hasPermission(WelcomeActivity.this, permission.BLUETOOTH_SCAN)
                   ) {
-                    showToast("You must grant the bluetooth and location permissions on Android 12!");
+                    AppUtils.Toast("You must grant the bluetooth and location permissions on Android 12!");
                     finish();
                     return;
                   }
@@ -128,11 +131,11 @@ public class WelcomeActivity extends BaseToolbarActivity {
               @Override
               public void onDenied(List<String> permissions, boolean never) {
                 if (never) {
-                  showToast("被永久拒绝授权，请手动授予App相关权限");
+                  AppUtils.Toast("被永久拒绝授权，请手动授予App相关权限");
                   // 如果是被永久拒绝就跳转到应用权限系统设置页面
                   XXPermissions.startPermissionActivity(WelcomeActivity.this, permissions);
                 } else {
-                  showToast("App相关权限授权失败");
+                  AppUtils.Toast("App相关权限授权失败");
                 }
               }
             });

@@ -16,8 +16,10 @@ import android.text.TextUtils;
 import androidx.annotation.CallSuper;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.AvicaPatient.R;
+import com.example.myapplication.AvicaPatient.Utils.AppUtils;
 import com.vivalnk.sdk.common.ble.BleRuntimeChecker;
 import com.vivalnk.sdk.common.eventbus.EventBus;
 import com.vivalnk.sdk.common.eventbus.Subscribe;
@@ -28,7 +30,7 @@ import com.vivalnk.sdk.demo.repository.device.DeviceManager;
 import com.vivalnk.sdk.model.Device;
 import com.vivalnk.sdk.model.DeviceModel;
 
-public abstract class BaseDeviceActivity extends BaseToolbarActivity {
+public abstract class BaseDeviceActivity extends AppCompatActivity {
 
     private static final int REQUESTCODE_BLE_SETTING = 1000;
     private static final int REQUESTCODE_GPS_SETTING = REQUESTCODE_BLE_SETTING + 1;
@@ -121,7 +123,7 @@ public abstract class BaseDeviceActivity extends BaseToolbarActivity {
         }
 
         if (BleRuntimeChecker.checkBleRuntime(this) != 0) {
-            showToast("checkBleRuntime not passed, code = " + BleRuntimeChecker.checkBleRuntime(this));
+            AppUtils.Toast("checkBleRuntime not passed, code = " + BleRuntimeChecker.checkBleRuntime(this));
             return false;
         }
 

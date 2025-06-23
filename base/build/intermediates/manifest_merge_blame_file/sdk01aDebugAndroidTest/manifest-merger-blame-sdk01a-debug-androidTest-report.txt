@@ -3,24 +3,24 @@
 3    package="com.vivalnk.sdk.demo.base.test" >
 4
 5    <uses-sdk
-5-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest3469157484123110344.xml:5:5-74
+5-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest9453606501664958765.xml:5:5-74
 6        android:minSdkVersion="21"
-6-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest3469157484123110344.xml:5:15-41
+6-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest9453606501664958765.xml:5:15-41
 7        android:targetSdkVersion="34" />
-7-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest3469157484123110344.xml:5:42-71
+7-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest9453606501664958765.xml:5:42-71
 8
 9    <instrumentation
-9-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest3469157484123110344.xml:11:5-15:80
+9-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest9453606501664958765.xml:11:5-15:80
 10        android:name="androidx.test.runner.AndroidJUnitRunner"
-10-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest3469157484123110344.xml:11:22-76
+10-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest9453606501664958765.xml:11:22-76
 11        android:functionalTest="false"
-11-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest3469157484123110344.xml:14:22-52
+11-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest9453606501664958765.xml:14:22-52
 12        android:handleProfiling="false"
-12-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest3469157484123110344.xml:13:22-53
+12-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest9453606501664958765.xml:13:22-53
 13        android:label="Tests for com.vivalnk.sdk.demo.base.test"
-13-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest3469157484123110344.xml:15:22-78
+13-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest9453606501664958765.xml:15:22-78
 14        android:targetPackage="com.vivalnk.sdk.demo.base.test" />
-14-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest3469157484123110344.xml:12:22-76
+14-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest9453606501664958765.xml:12:22-76
 15
 16    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 16-->[:base] D:\AvicaPatient\base\build\intermediates\merged_manifest\sdk01aDebug\AndroidManifest.xml:7:5-80
@@ -92,14 +92,14 @@
 59-->[androidx.core:core:1.12.0] C:\Users\user\.gradle\caches\transforms-3\1a7ada001a7406ca70e46695f68023e1\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
 60
 61    <application
-61-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest3469157484123110344.xml:7:5-9:19
+61-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest9453606501664958765.xml:7:5-9:19
 62        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 62-->[androidx.core:core:1.12.0] C:\Users\user\.gradle\caches\transforms-3\1a7ada001a7406ca70e46695f68023e1\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
 63        android:debuggable="true"
 64        android:extractNativeLibs="true" >
 65        <uses-library android:name="android.test.runner" />
-65-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest3469157484123110344.xml:8:9-60
-65-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest3469157484123110344.xml:8:23-57
+65-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest9453606501664958765.xml:8:9-60
+65-->D:\AvicaPatient\base\build\intermediates\tmp\manifest\androidTest\sdk01a\debug\tempFile1ProcessTestManifest9453606501664958765.xml:8:23-57
 66
 67        <activity
 67-->[:base] D:\AvicaPatient\base\build\intermediates\merged_manifest\sdk01aDebug\AndroidManifest.xml:10:9-13:20

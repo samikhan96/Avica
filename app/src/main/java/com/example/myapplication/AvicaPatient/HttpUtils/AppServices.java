@@ -247,6 +247,25 @@ public class AppServices {
         });
 
     }
+    public static void gettelemedappointments(String TAG, final ServiceListener<ArrayList<Reports>, String> listener) {
+        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.gettelemedappointments , new ServiceListener<JSONObject, VolleyError>() {
+            @Override
+            public void success(JSONObject success) {
+                try {
+                    ArrayList<Reports> data = new ArrayList<>(Arrays.asList(GsonUtils.fromJSON(success.getJSONArray("data").toString(), Reports[].class)));
+                    listener.success(data);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                listener.error(error.getMessage());
+            }
+        });
+
+    }
 
     public static void AddPHR(String TAG, JSONObject userObject, final ServiceListener<String, String> listener) {
         RestAPI.PostJsonRequest(TAG, ConfigConstants.PHR, userObject, new ServiceListener<JSONObject, VolleyError>() {
