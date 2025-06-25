@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +22,7 @@ import com.example.myapplication.AvicaPatient.R;
 import com.example.myapplication.AvicaPatient.UI.Patient.Dialogs.LoginDialog;
 import com.example.myapplication.AvicaPatient.Utils.AppUtils;
 import com.example.myapplication.AvicaPatient.Utils.UserPrefs;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView terms;
     EditText et_email,password;
     String email, pass;
-
+    String token;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +48,19 @@ public class LoginActivity extends AppCompatActivity {
         terms=findViewById(R.id.terms);
         et_email=findViewById(R.id.et_email);
         password=findViewById(R.id.password);
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Log.w("FCM", "Fetching FCM registration token failed", task.getException());
+                        return;
+                    }
+
+                    // Get new FCM registration token
+                    token = task.getResult();
+                    Log.d("FCM", "FCM Token: " + token);
+                });
+
 
 //        PATIENTLOGIN
         et_email.setText("haris@avica.com");
@@ -115,6 +130,7 @@ public class LoginActivity extends AppCompatActivity {
         try {
             jsonObject.put("email", email);
             jsonObject.put("password", pass);
+            jsonObject.put("device_token", token);
         } catch (JSONException e) {
             e.printStackTrace();
         }

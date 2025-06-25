@@ -44,17 +44,14 @@
 
     </RelativeLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
 
     <LinearLayout
-        android:paddingBottom="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:orientation="vertical">
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/_10sdp">
 
 
         <LinearLayout
@@ -66,37 +63,85 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_120sdp"
+                android:layout_height="@dimen/_100sdp"
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_weight="1"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_2sdp">
 
-                <ImageView
-                    android:id="@+id/item_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="@dimen/_10sdp"
-                    android:src="@drawable/tele_item1" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Total\nAppointments"
+                        android:textColor="@color/text_blue"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/item_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="00"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_18ssp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_120sdp"
+                android:layout_height="@dimen/_100sdp"
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_weight="1"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_2sdp">
 
-                <ImageView
-                    android:id="@+id/item_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="@dimen/_10sdp"
-                    android:src="@drawable/tele_item2" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Completed \nAppointments"
+                        android:textColor="@color/text_blue"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/item_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="00"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_18ssp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
@@ -112,37 +157,85 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_120sdp"
+                android:layout_height="@dimen/_100sdp"
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_weight="1"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_2sdp">
 
-                <ImageView
-                    android:id="@+id/item_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="@dimen/_10sdp"
-                    android:src="@drawable/tele_item3" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Cancelled\nAppointments"
+                        android:textColor="@color/text_blue"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/item_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="00"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_18ssp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/_120sdp"
+                android:layout_height="@dimen/_100sdp"
                 android:layout_margin="@dimen/_5sdp"
                 android:layout_weight="1"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_2sdp">
 
-                <ImageView
-                    android:id="@+id/item_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="@dimen/_10sdp"
-                    android:src="@drawable/tele_item4" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Pending\nAppointments"
+                        android:textColor="@color/text_blue"
+                        android:textSize="@dimen/_11ssp" />
+
+                    <TextView
+                        android:id="@+id/item_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        android:text="00"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_18ssp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
@@ -151,207 +244,125 @@
 
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10sdp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_5sdp"
-            app:cardCornerRadius="@dimen/_10sdp"
-            app:cardElevation="@dimen/_2sdp">
-
-            <LinearLayout
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/_10sdp">
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:background="#E7F2FF"
-                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Patient Name"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp" />
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="@dimen/_400sdp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        app:cardCornerRadius="@dimen/_10sdp"
+                        app:cardElevation="@dimen/_2sdp">
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Doctor Name"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingBottom="@dimen/_10sdp">
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Date Appointment Schedule"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_12ssp" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
+                                android:background="#E7F2FF"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
 
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="@dimen/_10sdp"
+                                    android:layout_weight="1"
+                                    android:padding="@dimen/_5sdp"
+                                    android:text="Patient Name"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12ssp" />
 
-                </LinearLayout>
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_weight="1"
+                                    android:padding="@dimen/_5sdp"
+                                    android:text="Doctor Name"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12ssp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_weight="1"
+                                    android:padding="@dimen/_5sdp"
+                                    android:text="Date"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12ssp" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Sami"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Dr Sami"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="12-03-2024"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_weight="1"
+                                    android:padding="@dimen/_5sdp"
+                                    android:text="Status"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12ssp" />
 
 
-                </LinearLayout>
+                            </LinearLayout>
 
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/list1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_230sdp"
+                                    android:nestedScrollingEnabled="false"
+                                    android:orientation="horizontal"
+                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                    tools:listitem="@layout/medication_item" />
+                            </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Sami"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
+                        </LinearLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Dr Sami"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="12-03-2024"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
+                    </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
+            </HorizontalScrollView>
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Sami"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Dr Sami"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_weight="1"
-                        android:padding="@dimen/_5sdp"
-                        android:text="12-03-2024"
-                        android:textColor="@color/menu_icon"
-                        android:textSize="@dimen/_10ssp" />
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-            <Button
-                android:id="@+id/loginBtn"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:background="@drawable/btn_bg"
-                android:text="Create New Appointment"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/_14ssp" />
 
         </LinearLayout>
 
     </LinearLayout>
-    </ScrollView>
 
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/btn_bg"
+        android:text="Create New Appointment"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_14ssp" />
 </LinearLayout>

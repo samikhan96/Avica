@@ -21,7 +21,7 @@ import com.example.myapplication.AvicaPatient.UI.Patient.Temperature.Temperature
 
 public class MeasurmentsActivity extends AppCompatActivity {
 
-    LinearLayout l1;
+    LinearLayout l1,l3;
     ImageView item_1,item_2,item_3,item_4,item_5,item_6;
 
 
@@ -32,6 +32,7 @@ public class MeasurmentsActivity extends AppCompatActivity {
 
 
         l1 = findViewById(R.id.l1);
+        l3 = findViewById(R.id.l3);
         item_1 = findViewById(R.id.item_1);
         item_2 = findViewById(R.id.item_2);
         item_3 = findViewById(R.id.item_3);
@@ -47,6 +48,15 @@ public class MeasurmentsActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        l3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MeasurmentsActivity.this, ChatActivity.class));
+                finish();
+            }
+        });
+
 
         item_1.setOnClickListener(new View.OnClickListener() {
             @Override

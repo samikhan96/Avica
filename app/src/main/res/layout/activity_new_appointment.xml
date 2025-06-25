@@ -83,7 +83,8 @@
                     android:src="@drawable/user" />
 
                 <EditText
-                    android:inputType="number"
+                    android:id="@+id/et_1"
+                    android:inputType="textCapSentences"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginRight="@dimen/_10sdp"
@@ -122,12 +123,14 @@
                     android:src="@drawable/user" />
 
                 <EditText
-                    android:inputType="number"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:id="@+id/et_2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginRight="@dimen/_10sdp"
                     android:background="@null"
-                    android:hint="Enter doctor name"
+                    android:hint="Select Doctor"
                     android:paddingLeft="@dimen/_10sdp"
                     android:textSize="@dimen/_10ssp" />
 
@@ -160,6 +163,7 @@
                     android:src="@drawable/calendar" />
 
                 <EditText
+                    android:id="@+id/et_3"
                     android:inputType="number"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -198,7 +202,7 @@
                     android:src="@drawable/clock" />
 
                 <EditText
-                    android:inputType="number"
+                    android:id="@+id/et_4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginRight="@dimen/_10sdp"
@@ -231,7 +235,7 @@
                 <EditText
                     android:layout_margin="@dimen/_10sdp"
                     android:paddingLeft="@dimen/_10sdp"
-                    android:id="@+id/et_email"
+                    android:id="@+id/et_5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/_10sdp"

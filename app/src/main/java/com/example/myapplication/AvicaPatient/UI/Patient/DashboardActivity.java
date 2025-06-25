@@ -139,8 +139,8 @@ public class DashboardActivity extends AppCompatActivity {
         l3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AppUtils.Toast("Coming Soon");
-
+                startActivity(new Intent(DashboardActivity.this, ChatActivity.class));
+                finish();
             }
         });
 

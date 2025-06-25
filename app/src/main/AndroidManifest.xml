@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.example.myapplication.AvicaPatient">
+  <uses-feature
+      android:name="android.hardware.camera"
+      android:required="false" /> <!-- Permissions -->
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.RECORD_AUDIO" />
+  <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
@@ -28,6 +36,7 @@ Needed only if your app looks for Bluetooth devices.
   <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
   <application
+
       android:name="com.example.myapplication.AvicaPatient.Avica"
     android:allowBackup="true"
     android:icon="@drawable/app_icon"
@@ -35,7 +44,8 @@ Needed only if your app looks for Bluetooth devices.
     android:roundIcon="@drawable/app_icon"
     android:supportsRtl="true"
     android:requestLegacyExternalStorage="true"
-    android:theme="@style/AppTheme">
+    android:theme="@style/AppTheme"
+      android:usesCleartextTraffic="true" >
     <activity android:name="com.example.myapplication.AvicaPatient.VivaLink.WelcomeActivity"
       android:exported="true">
     </activity>
@@ -206,6 +216,12 @@ Needed only if your app looks for Bluetooth devices.
         android:name="com.example.myapplication.AvicaPatient.UI.Patient.DashboardActivity"
         android:exported="false" />
     <activity
+        android:name="com.example.myapplication.AvicaPatient.UI.Patient.ChatActivity"
+        android:exported="false" />
+    <activity
+        android:name="com.example.myapplication.AvicaPatient.UI.Patient.ChatDetailActivity"
+        android:exported="false" />
+    <activity
         android:name="com.example.myapplication.AvicaPatient.UI.Patient.TechnicalSupportActivity"
         android:exported="false" />
     <activity
@@ -233,7 +249,13 @@ Needed only if your app looks for Bluetooth devices.
     <activity
         android:name="com.example.myapplication.AvicaPatient.UI.Patient.PinActivity"
         android:exported="false" />
+    <activity
+        android:name="com.example.myapplication.AvicaPatient.UI.Patient.JoinMeetingActivity"
+        android:exported="false" />
 
+    <activity
+        android:name="com.example.myapplication.AvicaPatient.UI.Patient.VideoCall_Activity"
+        android:exported="false" />
 
 
     <activity
@@ -246,6 +268,13 @@ Needed only if your app looks for Bluetooth devices.
         android:name="org.apache.http.legacy"
         android:required="false" />
 
+    <service
+        android:name=".Utils.MyFirebaseMessagingService"
+        android:exported="true">
+      <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+      </intent-filter>
+    </service>
 
 
     <service

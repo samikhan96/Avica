@@ -4,7 +4,9 @@ package com.example.myapplication.AvicaPatient.HttpUtils;
 import com.android.volley.NetworkResponse;
 import com.android.volley.VolleyError;
 import com.example.myapplication.AvicaPatient.Listener.ServiceListener;
+import com.example.myapplication.AvicaPatient.Models.Appointment.AppointmentData;
 import com.example.myapplication.AvicaPatient.Models.DashboardData;
+import com.example.myapplication.AvicaPatient.Models.DoctorProfile.ProfileData;
 import com.example.myapplication.AvicaPatient.Models.Education;
 import com.example.myapplication.AvicaPatient.Models.Medication;
 import com.example.myapplication.AvicaPatient.Models.Notifications;
@@ -247,12 +249,32 @@ public class AppServices {
         });
 
     }
-    public static void gettelemedappointments(String TAG, final ServiceListener<ArrayList<Reports>, String> listener) {
+
+    public static void gettelemedappointments(String TAG,  final ServiceListener<AppointmentData, String> listener) {
         RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.gettelemedappointments , new ServiceListener<JSONObject, VolleyError>() {
             @Override
             public void success(JSONObject success) {
                 try {
-                    ArrayList<Reports> data = new ArrayList<>(Arrays.asList(GsonUtils.fromJSON(success.getJSONArray("data").toString(), Reports[].class)));
+                    AppointmentData dashboardData = GsonUtils.fromJSON(success.getJSONObject("data"), AppointmentData.class);
+                    listener.success(dashboardData);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                listener.error(error.getMessage());
+            }
+        });
+    }
+
+    public static void getDoctors(String TAG,  final ServiceListener<ArrayList<ProfileData>, String> listener) {
+        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.getDoctors , new ServiceListener<JSONObject, VolleyError>() {
+            @Override
+            public void success(JSONObject success) {
+                try {
+                    ArrayList<ProfileData> data = new ArrayList<>(Arrays.asList(GsonUtils.fromJSON(success.getJSONArray("data").toString(), ProfileData[].class)));
                     listener.success(data);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -266,6 +288,7 @@ public class AppServices {
         });
 
     }
+
 
     public static void AddPHR(String TAG, JSONObject userObject, final ServiceListener<String, String> listener) {
         RestAPI.PostJsonRequest(TAG, ConfigConstants.PHR, userObject, new ServiceListener<JSONObject, VolleyError>() {
@@ -287,6 +310,28 @@ public class AppServices {
         });
 
     }
+
+    public static void CreateAppointment(String TAG,  JSONObject userObject, final ServiceListener<String, String> listener) {
+        RestAPI.PostJsonRequest(TAG, ConfigConstants.CreateAppointment, userObject, new ServiceListener<JSONObject, VolleyError>() {
+            @Override
+            public void success(JSONObject success) {
+                try {
+                    if (success.getBoolean("success")) {
+                        listener.success(success.getJSONObject("data").toString());
+                    } else listener.error(success.getJSONObject("data").toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                listener.error(error.getMessage());
+            }
+        });
+
+    }
+
 
     public static void Uploader(String TAG, JSONObject userObject, final ServiceListener<String, String> listener) {
         try {

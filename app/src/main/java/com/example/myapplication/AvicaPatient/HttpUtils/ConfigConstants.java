@@ -13,9 +13,11 @@ public class ConfigConstants {
     public static final String Education = "/web/education";
     public static final String Medication = "/app/medications/patients/";
     public static final String PHR = "/web/emr";
+    public static final String CreateAppointment = "/web/telemed";
     public static final String uploader = "/web/uploader";
     public static final String notifications = "/web/notifications";
     public static final String AddMeasurment = "/users/single-value-measurement/";
     public static final String gettelemedappointments = "/app/telemed/appointments";
+    public static final String getDoctors = "/users?role=DOCTOR";
 
 }

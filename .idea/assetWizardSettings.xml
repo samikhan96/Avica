@@ -14,8 +14,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ecg_bg" />
-                            <entry key="sourceFile" value="D:\ecg_bg.svg" />
+                            <entry key="outputName" value="received" />
+                            <entry key="sourceFile" value="D:\received.svg" />
                           </map>
                         </option>
                       </PersistentState>

@@ -271,4 +271,8 @@ public class ProfileData {
         this.measurementSystem = measurementSystem;
     }
 
+    public ProfileData(String id, String name) {
+        this.id = id;
+        this.firstName = name;
+    }
 }

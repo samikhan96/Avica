@@ -2,7 +2,25 @@ ninja: Entering directory `D:\AvicaPatient\base\.cxx\Debug\1e6d6pv6\x86'
 [0/2] Re-checking globbed directories...
 [1/8] Building C object CMakeFiles/wfdb.dir/source/wfdb/wfdbinit.c.o
 [2/8] Building C object CMakeFiles/wfdb.dir/source/wfdb/calib.c.o
-[3/8] Building C object CMakeFiles/wfdb.dir/source/wfdb/annot.c.o
+[3/8] Building CXX object CMakeFiles/wfdb.dir/facade/com_vivalnk_sdk_demo_core_WfdbUtils.cpp.o
+[4/8] Building CXX object CMakeFiles/wfdb.dir/source/wfdb/wfdb_lib.cpp.o
+D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdb_lib.cpp:80:10: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    init("ECGRec_201917-C600026_2019-08-12.dat", "ECGRec_201917-C600026_2019-08-12");
+         ^
+D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdb_lib.cpp:80:50: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    init("ECGRec_201917-C600026_2019-08-12.dat", "ECGRec_201917-C600026_2019-08-12");
+                                                 ^
+D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdb_lib.cpp:82:29: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    initSignalInfo(128, 16, "测试...", "mV", 1000, 0, 0);
+                            ^
+D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdb_lib.cpp:82:42: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    initSignalInfo(128, 16, "测试...", "mV", 1000, 0, 0);
+                                       ^
+D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdb_lib.cpp:86:17: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
+    setBaseTime("14:32:33 05/11/2019");
+                ^
+5 warnings generated.
+[5/8] Building C object CMakeFiles/wfdb.dir/source/wfdb/annot.c.o
 D:/AvicaPatient/base/src/main/cpp/source/wfdb/annot.c:680:9: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
         if (ap = annot->aux)
             ~~~^~~~~~~~~~~~
@@ -15,7 +33,7 @@ D:/AvicaPatient/base/src/main/cpp/source/wfdb/annot.c:680:9: note: use '==' to t
                ^
                ==
 1 warning generated.
-[4/8] Building C object CMakeFiles/wfdb.dir/source/wfdb/wfdbio.c.o
+[6/8] Building C object CMakeFiles/wfdb.dir/source/wfdb/wfdbio.c.o
 D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdbio.c:466:12: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
     static first_call = 1;
     ~~~~~~ ^
@@ -40,24 +58,6 @@ D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdblib.h:276:20: note: expanded f
 #define MKDIR(D,P)      mkdir((D),(P))
                         ^
 4 warnings generated.
-[5/8] Building CXX object CMakeFiles/wfdb.dir/source/wfdb/wfdb_lib.cpp.o
-D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdb_lib.cpp:80:10: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
-    init("ECGRec_201917-C600026_2019-08-12.dat", "ECGRec_201917-C600026_2019-08-12");
-         ^
-D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdb_lib.cpp:80:50: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
-    init("ECGRec_201917-C600026_2019-08-12.dat", "ECGRec_201917-C600026_2019-08-12");
-                                                 ^
-D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdb_lib.cpp:82:29: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
-    initSignalInfo(128, 16, "测试...", "mV", 1000, 0, 0);
-                            ^
-D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdb_lib.cpp:82:42: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
-    initSignalInfo(128, 16, "测试...", "mV", 1000, 0, 0);
-                                       ^
-D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdb_lib.cpp:86:17: warning: ISO C++11 does not allow conversion from string literal to 'char *' [-Wwritable-strings]
-    setBaseTime("14:32:33 05/11/2019");
-                ^
-5 warnings generated.
-[6/8] Building CXX object CMakeFiles/wfdb.dir/facade/com_vivalnk_sdk_demo_core_WfdbUtils.cpp.o
 [7/8] Building C object CMakeFiles/wfdb.dir/source/wfdb/signal.c.o
 D:/AvicaPatient/base/src/main/cpp/source/wfdb/signal.c:484:13: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
             if (is = vsd[--maxvsig]) {

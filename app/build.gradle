@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 apply from  : "$rootDir/ext.gradle"
 
@@ -52,6 +53,7 @@ repositories {
 }
 
 dependencies {
+
     //local libaries
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     //libraries module
@@ -87,6 +89,7 @@ dependencies {
     // MMKV and Room
     implementation("com.tencent:mmkv-static:1.2.11")
     implementation("androidx.room:room-runtime:2.4.2")
+    implementation 'com.google.firebase:firebase-messaging:24.1.1'
     annotationProcessor("androidx.room:room-compiler:2.4.2")
 
     // Nordic BLE libraries
@@ -107,5 +110,15 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
 
+    // Networking libraries
+    implementation("com.squareup.okhttp3:okhttp:3.12.1")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:adapter-rxjava2:2.6.1")
+    implementation('io.socket:socket.io-client:2.0.1') {
+        exclude group: 'org.json', module: 'json'
+    }
+    implementation 'io.agora.rtc:full-sdk:4.5.2' // or latest version
 
 }
