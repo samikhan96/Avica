@@ -45,6 +45,7 @@ public class ManualActivity extends AppCompatActivity {
 
 
         sendBtn=findViewById(R.id.sendBtn);
+        et_email=findViewById(R.id.et_email);
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

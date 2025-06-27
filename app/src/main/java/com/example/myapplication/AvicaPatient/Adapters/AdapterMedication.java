@@ -43,6 +43,7 @@ public class AdapterMedication extends RecyclerView.Adapter<AdapterMedication.My
         holder.tv_3.setText(pamModel.frequency);
         AppUtils.setFormattedDate(pamModel.start_date,holder.tv_4);
         AppUtils.setFormattedDate(pamModel.end_date,holder.tv_5);
+        AppUtils.setFormattedTime(pamModel.time,holder.tv_6);
 
 
 
@@ -54,7 +55,7 @@ public class AdapterMedication extends RecyclerView.Adapter<AdapterMedication.My
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView tv_1,tv_2,tv_3,tv_4,tv_5;
+        private TextView tv_1,tv_2,tv_3,tv_4,tv_5,tv_6;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -63,6 +64,7 @@ public class AdapterMedication extends RecyclerView.Adapter<AdapterMedication.My
             tv_3 =  itemView.findViewById(R.id.tv_3);
             tv_4 =  itemView.findViewById(R.id.tv_4);
             tv_5 =  itemView.findViewById(R.id.tv_5);
+            tv_6 =  itemView.findViewById(R.id.tv_6);
 
         }
 

@@ -72,8 +72,7 @@ public class AddFamilyHistory extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                uploadImage();
+                validate();
             }
         });
 
@@ -85,6 +84,7 @@ public class AddFamilyHistory extends AppCompatActivity {
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imageUri = data.getData();
+            uploadImage();
 
         }
     }
@@ -131,7 +131,6 @@ public class AddFamilyHistory extends AppCompatActivity {
                         try {
                             JSONObject data = new JSONObject(result);
                             imageUrl = data.getString("url");
-                            validate();
                         } catch (JSONException e) {
                             e.printStackTrace();
                             Toast.makeText(getApplicationContext(), "Invalid response format", Toast.LENGTH_SHORT).show();

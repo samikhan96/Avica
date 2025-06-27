@@ -25,9 +25,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class AppUtils {
-   public static ProgressDialog progressDialog;
+    public static ProgressDialog progressDialog;
 
     public static String parseDateToddMMyyyy(String time) {
         String inputPattern = "yyyy-MM-dd'T'HH:mm:ss";
@@ -129,8 +130,8 @@ public class AppUtils {
     }
 
     public static void Toast(String Message, boolean Long) {
-        Toast toast = Toast.makeText(Avica.getContext(), "  "+Message+"  ", Toast.LENGTH_LONG);
-        TextView textView = (((TextView)((LinearLayout)toast.getView()).getChildAt(0)));
+        Toast toast = Toast.makeText(Avica.getContext(), "  " + Message + "  ", Toast.LENGTH_LONG);
+        TextView textView = (((TextView) ((LinearLayout) toast.getView()).getChildAt(0)));
         textView.setTypeface(Typeface.DEFAULT_BOLD);
         textView.setTextColor(Color.BLACK);
         toast.getView().setBackgroundColor(Avica.getContext().getResources().getColor(R.color.white));
@@ -138,7 +139,7 @@ public class AppUtils {
     }
 
     public static void Toast(String Message) {
-        Toast.makeText(Avica.getContext(), "  "+ String.valueOf(Message)+"  ", Toast.LENGTH_SHORT).show();
+        Toast.makeText(Avica.getContext(), "  " + String.valueOf(Message) + "  ", Toast.LENGTH_SHORT).show();
     }
 
     // Static method to convert date format and set text to TextView
@@ -152,6 +153,22 @@ public class AppUtils {
         } catch (ParseException e) {
             e.printStackTrace();
             textView.setText("Invalid date");
+        }
+
+    }
+
+    public static void setFormattedTime(String isoDate, TextView textView) {
+        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault());
+        inputFormat.setTimeZone(TimeZone.getTimeZone("UTC")); // Ensure correct parsing of Zulu time
+
+        SimpleDateFormat outputFormat = new SimpleDateFormat("hh:mm a", Locale.getDefault()); // Only time
+        try {
+            Date date = inputFormat.parse(isoDate);
+            String timeFormatted = outputFormat.format(date);
+            textView.setText(timeFormatted);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            textView.setText("Invalid time");
         }
     }
 

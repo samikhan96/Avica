@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import com.example.myapplication.AvicaPatient.R;
 import com.example.myapplication.AvicaPatient.UI.Patient.BloodGlucose.BloodGlucoseActivity;
 import com.example.myapplication.AvicaPatient.UI.Patient.BloodPressure.BloodPressureActivity;
+import com.example.myapplication.AvicaPatient.UI.Patient.Chat.ChatActivity;
 import com.example.myapplication.AvicaPatient.UI.Patient.Ecg.EcgActivity;
 import com.example.myapplication.AvicaPatient.UI.Patient.Respiratory.RespiratoryActivity;
 import com.example.myapplication.AvicaPatient.UI.Patient.Spo2.Spo2Activity;

@@ -216,10 +216,10 @@ Needed only if your app looks for Bluetooth devices.
         android:name="com.example.myapplication.AvicaPatient.UI.Patient.DashboardActivity"
         android:exported="false" />
     <activity
-        android:name="com.example.myapplication.AvicaPatient.UI.Patient.ChatActivity"
+        android:name="com.example.myapplication.AvicaPatient.UI.Patient.Chat.ChatActivity"
         android:exported="false" />
     <activity
-        android:name="com.example.myapplication.AvicaPatient.UI.Patient.ChatDetailActivity"
+        android:name="com.example.myapplication.AvicaPatient.UI.Patient.Chat.ChatDetailActivity"
         android:exported="false" />
     <activity
         android:name="com.example.myapplication.AvicaPatient.UI.Patient.TechnicalSupportActivity"

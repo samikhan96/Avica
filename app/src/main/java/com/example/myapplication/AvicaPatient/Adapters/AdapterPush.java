@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.AvicaPatient.Models.Notifications;
 import com.example.myapplication.AvicaPatient.R;
+import com.example.myapplication.AvicaPatient.Utils.AppUtils;
 
 import java.util.ArrayList;
 
@@ -39,7 +40,8 @@ public class AdapterPush extends RecyclerView.Adapter<AdapterPush.MyViewHolder> 
 
         holder.text_heading.setText(pamModel.title);
         holder.text_discription.setText(pamModel.description);
-
+        String DateandTIme = AppUtils.parseDateToddMMyyyy(pamModel.created_at) + " " + AppUtils.parseDateToTime(pamModel.created_at);
+        holder.datetime.setText(DateandTIme);
 
 
     }
@@ -50,12 +52,13 @@ public class AdapterPush extends RecyclerView.Adapter<AdapterPush.MyViewHolder> 
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView text_heading,text_discription;
+        private TextView text_heading,text_discription,datetime;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             text_heading = itemView.findViewById(R.id.text_heading);
             text_discription =  itemView.findViewById(R.id.text_discription);
+            datetime =  itemView.findViewById(R.id.datetime);
 
         }
 

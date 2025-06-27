@@ -2,17 +2,15 @@ package com.example.myapplication.AvicaPatient.api;
 
 
 
-import com.example.myapplication.AvicaPatient.Models.ChatResponse;
-import com.example.myapplication.AvicaPatient.Models.ChatRoom;
-import com.example.myapplication.AvicaPatient.Models.SearchUserChat;
+import com.example.myapplication.AvicaPatient.Models.Chat.ChatResponse;
+import com.example.myapplication.AvicaPatient.Models.Chat.ChatRoom;
+import com.example.myapplication.AvicaPatient.Models.Chat.SearchUserChat;
 
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 

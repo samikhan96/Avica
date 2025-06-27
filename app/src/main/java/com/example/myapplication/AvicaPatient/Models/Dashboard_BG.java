@@ -8,4 +8,5 @@ public class Dashboard_BG implements Serializable {
     public int normal;
     public int low;
     public int pending;
+
 }

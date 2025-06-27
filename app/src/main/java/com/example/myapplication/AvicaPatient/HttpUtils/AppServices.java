@@ -152,8 +152,8 @@ public class AppServices {
     }
 
 
-    public static void Dashboard(String TAG, String id, final ServiceListener<DashboardData, String> listener) {
-        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.patientDashboard + id, new ServiceListener<JSONObject, VolleyError>() {
+    public static void Dashboard(String TAG,  final ServiceListener<DashboardData, String> listener) {
+        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.patientDashboard, new ServiceListener<JSONObject, VolleyError>() {
             @Override
             public void success(JSONObject success) {
                 try {

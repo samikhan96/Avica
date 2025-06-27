@@ -36,6 +36,7 @@ public class LogoutDialog extends Dialog implements
 
 
         yes_btn.setOnClickListener(this);
+        no_btn.setOnClickListener(this);
 
     }
 
