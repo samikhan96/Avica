@@ -45,18 +45,6 @@
 
     </RelativeLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
-
-    <LinearLayout
-        android:layout_margin="@dimen/_10sdp"
-        android:paddingBottom="@dimen/_10sdp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
 
         <LinearLayout
             android:layout_marginBottom="@dimen/_10sdp"
@@ -71,13 +59,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Blogs"
+                android:text="Articles"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold" />
 
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/viewall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -96,61 +85,12 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 card_view:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="horizontal"
-                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
                 android:id="@+id/list1"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_230sdp"
+                android:layout_height="match_parent"
                 tools:listitem="@layout/blogs_item" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Videos"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_14ssp"
-                android:textStyle="bold" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/ViewAll"
-                android:textColor="@color/blue"
-                android:textSize="@dimen/_10ssp" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.recyclerview.widget.RecyclerView
-                card_view:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="horizontal"
-                android:nestedScrollingEnabled="false"
-                android:id="@+id/list2"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_230sdp"
-                tools:listitem="@layout/video_item" />
-        </LinearLayout>
-
-
-    </LinearLayout>
-    </ScrollView>
 
 </LinearLayout>

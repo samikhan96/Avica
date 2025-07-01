@@ -16,7 +16,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.NetworkResponse;
+import com.android.volley.VolleyError;
 import com.example.myapplication.AvicaPatient.HttpUtils.AppServices;
+import com.example.myapplication.AvicaPatient.HttpUtils.ConfigConstants;
 import com.example.myapplication.AvicaPatient.Listener.ServiceListener;
 import com.example.myapplication.AvicaPatient.Models.User;
 import com.example.myapplication.AvicaPatient.R;
@@ -40,7 +43,7 @@ public class AddFamilyHistory extends AppCompatActivity {
     String s_title, s_desc;
     private static final int PICK_IMAGE_REQUEST = 1;
     private Uri imageUri;
-    String imageUrl;
+    String imageUrl="";
     User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +95,14 @@ public class AddFamilyHistory extends AppCompatActivity {
     public File getFileFromUri(Context context, Uri uri) {
         File file = null;
         try {
-            String fileName = "temp_upload_file_" + System.currentTimeMillis();
+            // Get original file extension
+            String extension = ".jpg"; // Default
+            String mimeType = context.getContentResolver().getType(uri);
+            if (mimeType != null) {
+                extension = "." + mimeType.substring(mimeType.lastIndexOf("/") + 1);
+            }
+
+            String fileName = System.currentTimeMillis() + extension;
             File dir = context.getCacheDir();
             file = new File(dir, fileName);
 
@@ -116,38 +126,42 @@ public class AddFamilyHistory extends AppCompatActivity {
     }
 
     public void uploadImage() {
-
-        // Convert URI to File
-        File imageFile = getFileFromUri(this, imageUri);  // <-- Use this instead of real path
+        File imageFile = getFileFromUri(this, imageUri);
 
         if (imageFile != null) {
-            JSONObject obj = new JSONObject();
-            try {
-                obj.put("filePath", imageFile); // send to uploader
-                AppServices.Uploader("UPLOAD_TAG", obj, new ServiceListener<String, String>() {
-                    @Override
-                    public void success(String result) {
-                        AppUtils.Toast("Upload Success: " + result);
-                        try {
-                            JSONObject data = new JSONObject(result);
-                            imageUrl = data.getString("url");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(getApplicationContext(), "Invalid response format", Toast.LENGTH_SHORT).show();
+            AppServices.UploadFileRequest("UPLOAD_TAG", ConfigConstants.uploader, imageFile, new ServiceListener<NetworkResponse, VolleyError>() {
+                @Override
+                public void success(NetworkResponse result) {
+                    try {
+                        String responseStr = new String(result.data);
+                        JSONObject responseJson = new JSONObject(responseStr);
+
+                        if (responseJson.has("data")) {
+                            JSONObject dataObject = responseJson.getJSONObject("data");
+                            imageUrl = dataObject.getString("url");
+                            AppUtils.Toast("Upload Success");
+                        } else {
+                            AppUtils.Toast("Upload succeeded, but no image URL found.");
                         }
-                    }
 
-                    @Override
-                    public void error(String error) {
-                        AppUtils.Toast("Upload Failed: " + error);
-
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        AppUtils.Toast("Upload parsing error");
                     }
-                });
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+                }
+
+                @Override
+                public void error(VolleyError error) {
+                    AppUtils.Toast("Upload Failed: " + error.getMessage());
+                }
+            });
+        } else {
+            AppUtils.Toast("Invalid image file");
         }
     }
+
+
+
 
     public boolean validate() {
         s_title = et_title.getText().toString();

@@ -29,28 +29,5 @@ public interface ApiService {
             @Path("roomId") String roomId,
             @Header("Authorization") String token
     );
-//
-//
-//    @GET("/api/v1/web/telemed/search")
-//    Call<List<TeleMedSearch>> searchTeleMed(@Header("Authorization") String token);
-//
-//    @GET("/api/v1/web/telemed")
-//    Call<List<TeleMedAppointment>> getTeleMedAppointment(@Header("Authorization") String token);
-//
-//
-//    @GET("/api/v1/web/telemed/view/{id}")
-//    Call<TeleMedAppointment> getAppointmentDetails(@Header("Authorization") String token, @Path("id") String appointmentId);
-//
-//    @GET("/join-meeting/{id}")
-//    Call<JoinedMeetingProps> joinMeeting(@Path("id") String id);
-//
-//
-//    @GET("api/v1/vl/appPatients")
-//    Call<PatientListResponse> getPatientList(@Header("Authorization") String authToken);
-//
-//
-//    // Define the GET request with the dynamic ECG record ID
-//    @GET("api/v1/vl/patients/{ecgRecordId}")
-//    Call<ECGResponse> getECGData(@Path("ecgRecordId") String ecgRecordId,@Header("Authorization") String token);
 
 }

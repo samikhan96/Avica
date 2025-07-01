@@ -1,5 +1,6 @@
 package com.example.myapplication.AvicaPatient.UI.Patient.Chat;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +22,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.myapplication.AvicaPatient.HttpUtils.AppServices;
+import com.example.myapplication.AvicaPatient.Listener.ServiceListener;
 import com.example.myapplication.AvicaPatient.Models.Chat.ChatRoom;
 import com.example.myapplication.AvicaPatient.Models.Chat.SearchUserChat;
 import com.example.myapplication.AvicaPatient.Models.User;
@@ -30,6 +34,9 @@ import com.example.myapplication.AvicaPatient.Utils.AppUtils;
 import com.example.myapplication.AvicaPatient.Utils.UserPrefs;
 import com.example.myapplication.AvicaPatient.api.ApiService;
 import com.example.myapplication.AvicaPatient.api.RetrofitClient;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -134,6 +141,18 @@ public class ChatActivity extends AppCompatActivity {
                 filterUsers(newText);
                 return false;
             }
+        });
+
+        LinearLayout searchContainer = findViewById(R.id.searchContainer);
+
+        // Show result box on any click inside the entire search container
+        searchContainer.setOnClickListener(v -> {
+            searchView.setIconified(false); // Expand SearchView
+            searchView.requestFocus(); // Focus the input field
+
+            // Show the results card
+            searchResultBox.setVisibility(View.VISIBLE);
+
         });
 
         // Make the search results box visible when the SearchView is tapped
@@ -303,20 +322,16 @@ public class ChatActivity extends AppCompatActivity {
             void bind(SearchUserChat.Chat_User user) {
                 messageRole.setText(user.getRole());
                 messageUsername.setText(user.getFirstName());
-                messageUserImage.setImageResource(R.drawable.user);
-
+                // Set Text Values+
+                RequestOptions options = new RequestOptions()
+                        .centerCrop()
+                        .placeholder(R.drawable.app_icon)
+                        .error(R.drawable.app_icon);
+                Glide.with(ChatActivity.this).load(user.getUri()).apply(options).into(messageUserImage);
                 // Set a click listener to open ChatDetailActivity with user info
                 itemView.setOnClickListener(v -> {
-                    Intent intent = new Intent(ChatActivity.this, ChatDetailActivity.class);
-                    intent.putExtra("FIRST_NAME", user.getFirstName());
-                    intent.putExtra("LAST_NAME", user.getLastName());
-                    intent.putExtra("MIDDLE_NAME", user.getMiddleName());
-                    intent.putExtra("USER_EMAIL", user.getEmail());
-                    intent.putExtra("USER_ID", user.getChatUserId());
-                    intent.putExtra("USER_Uri", user.getUri());
-                    intent.putExtra("USER_ROLE", user.getRole());
-                    intent.putExtra("USER_IMAGE", R.drawable.user);
-                    startActivity(intent);
+                    createOrSelectChatRoom(user.getChatUserId());
+                    searchResultBox.setVisibility(View.GONE);
                 });
             }
         }
@@ -343,4 +358,45 @@ public class ChatActivity extends AppCompatActivity {
     }
 
 
+    public void createOrSelectChatRoom(String userId) {
+        AppUtils.showProgressDialog(ChatActivity.this);
+
+        // Create the JSON object
+        JSONObject json = new JSONObject();
+        try {
+            json.put("user_id", userId);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        AppServices.createOrSelectChatRoom(ChatActivity.class.getSimpleName(), json, new ServiceListener<ChatRoom, String>() {
+            @Override
+            public void success(ChatRoom success) {
+                ChatRoom chatRoom;
+                chatRoom = success;
+                for (ChatRoom.User user : chatRoom.getUsers()) {
+                    Intent intent = new Intent(ChatActivity.this, ChatDetailActivity.class);
+                    // Pass user details to the next activity
+                    intent.putExtra("firstName", user.getFirstName());
+                    intent.putExtra("lastName", user.getLastName());
+                    intent.putExtra("middleName", user.getMiddleName());
+                    intent.putExtra("email", user.getEmail());
+                    intent.putExtra("role", user.getRole());
+                    intent.putExtra("uri", user.getUri());
+                    intent.putExtra("chatRoomId", chatRoom.getId()); // Also passing chat room ID
+                    intent.putExtra("id", user.getId()); // Also passing chat room ID
+                    startActivity(intent);
+                }
+                AppUtils.dismisProgressDialog(ChatActivity.this);
+
+            }
+
+            @Override
+            public void error(String error) {
+                AppUtils.dismisProgressDialog(ChatActivity.this);
+
+            }
+        });
+    }
 }

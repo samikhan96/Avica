@@ -8,6 +8,8 @@
     android:orientation="vertical"
     tools:context=".UI.Patient.PrivacyPolicyActivity">
 
+    <include layout="@layout/toolbar"/>
+
     <RelativeLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"

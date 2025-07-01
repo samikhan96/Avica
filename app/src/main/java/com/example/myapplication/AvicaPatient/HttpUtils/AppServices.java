@@ -1,10 +1,14 @@
 package com.example.myapplication.AvicaPatient.HttpUtils;
 
 
+import android.util.Log;
+
 import com.android.volley.NetworkResponse;
+import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.myapplication.AvicaPatient.Listener.ServiceListener;
 import com.example.myapplication.AvicaPatient.Models.Appointment.AppointmentData;
+import com.example.myapplication.AvicaPatient.Models.Chat.ChatRoom;
 import com.example.myapplication.AvicaPatient.Models.DashboardData;
 import com.example.myapplication.AvicaPatient.Models.DoctorProfile.ProfileData;
 import com.example.myapplication.AvicaPatient.Models.Education;
@@ -12,6 +16,7 @@ import com.example.myapplication.AvicaPatient.Models.Medication;
 import com.example.myapplication.AvicaPatient.Models.Notifications;
 import com.example.myapplication.AvicaPatient.Models.PatientProfile;
 import com.example.myapplication.AvicaPatient.Models.Reports;
+import com.example.myapplication.AvicaPatient.Models.Tutorials;
 import com.example.myapplication.AvicaPatient.Models.User;
 import com.example.myapplication.AvicaPatient.Utils.UserPrefs;
 
@@ -289,6 +294,26 @@ public class AppServices {
 
     }
 
+    public static void getTutorials(String TAG,String category,  final ServiceListener<Tutorials, String> listener) {
+        RestAPI.GetUrlEncodedRequest(TAG, ConfigConstants.getTutorials+"?category="+category, new ServiceListener<JSONObject, VolleyError>() {
+            @Override
+            public void success(JSONObject success) {
+                try {
+                    Tutorials dashboardData = GsonUtils.fromJSON(success.getJSONObject("data"), Tutorials.class);
+                    listener.success(dashboardData);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                listener.error(error.getMessage());
+            }
+        });
+    }
+
+
 
     public static void AddPHR(String TAG, JSONObject userObject, final ServiceListener<String, String> listener) {
         RestAPI.PostJsonRequest(TAG, ConfigConstants.PHR, userObject, new ServiceListener<JSONObject, VolleyError>() {
@@ -332,45 +357,93 @@ public class AppServices {
 
     }
 
-
-    public static void Uploader(String TAG, JSONObject userObject, final ServiceListener<String, String> listener) {
-        try {
-            String filePath = userObject.getString("filePath"); // e.g., {"filePath": "/storage/emulated/0/DCIM/sample.jpg"}
-            File file = new File(filePath);
-
-            if (!file.exists()) {
-                listener.error("File does not exist");
-                return;
+    public static void createOrSelectChatRoom(String TAG, JSONObject userObject, final ServiceListener<ChatRoom, String> listener) {
+        RestAPI.PostJsonRequest(TAG, ConfigConstants.createOrSelectChatRoom, userObject, new ServiceListener<JSONObject, VolleyError>() {
+            @Override
+            public void success(JSONObject success) {
+                try {
+                    if (success.getBoolean("success")) {
+                        ChatRoom user = GsonUtils.fromJSON(success.getJSONObject("data"), ChatRoom.class);
+                        listener.success(user);
+                    } else listener.error(success.getJSONObject("data").getString("message"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
-            RestAPI.UploadFileRequest(TAG, ConfigConstants.uploader, file, new ServiceListener<NetworkResponse, VolleyError>() {
-                @Override
-                public void success(NetworkResponse response) {
-                    try {
-                        String jsonString = new String(response.data);
-                        JSONObject jsonResponse = new JSONObject(jsonString);
+            @Override
+            public void error(VolleyError error) {
+                listener.error(error.getMessage());
+            }
+        });
 
-                        if (jsonResponse.getBoolean("success")) {
-                            listener.success(jsonResponse.getJSONObject("data").toString());
+    }
+
+    public static void agoraToken(String TAG, JSONObject userObject, final ServiceListener<String, String> listener) {
+        RestAPI.PostJsonRequest(TAG, ConfigConstants.agoraToken, userObject, new ServiceListener<JSONObject, VolleyError>() {
+            @Override
+            public void success(JSONObject success) {
+                try {
+                    Log.d(TAG, "Response: " + success.toString());
+
+                    if (success.has("data")) {
+                        JSONObject data = success.getJSONObject("data");
+
+                        if (data.has("agoraToken")) {
+                            String token = data.getString("agoraToken");
+                            String numericUid = data.getString("numericUid");
+                            listener.success(token + "/" +numericUid);
                         } else {
-                            listener.error(jsonResponse.getJSONObject("data").toString());
+                            listener.error("agoraToken not found in 'data'");
                         }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        listener.error("JSON parse error");
+                    } else {
+                        listener.error("'data' object not found in response");
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    listener.error("JSON parsing error: " + e.getMessage());
+                }
+            }
+
+            @Override
+            public void error(VolleyError error) {
+                listener.error("Volley error: " + error.getMessage());
+            }
+        });
+    }
+
+
+
+
+
+
+    public static void UploadFileRequest(String TAG, String apiEndpoint, File file,
+                                         final ServiceListener<NetworkResponse, VolleyError> listener) {
+
+        MultipartRequest multipartRequest = new MultipartRequest(
+                ConfigConstants.API_BASE_URL + apiEndpoint,
+                file,
+                "file", // <- This must match server-side form field key
+                new Response.Listener<NetworkResponse>() {
+                    @Override
+                    public void onResponse(NetworkResponse response) {
+                        listener.success(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        listener.error(error);
                     }
                 }
+        );
 
-                @Override
-                public void error(VolleyError error) {
-                    listener.error(error.getMessage());
-                }
-            });
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-            listener.error("Invalid JSON input");
-        }
+        HttpRequestHandler.getInstance().addToRequestQueue(multipartRequest, TAG);
     }
+
+
+
+
 }
 

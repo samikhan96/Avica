@@ -7,6 +7,6 @@ public class Dashboard_BG implements Serializable {
     public int high;
     public int normal;
     public int low;
-    public int pending;
+    public int alert_not_set;
 
 }

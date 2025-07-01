@@ -19,6 +19,9 @@ android {
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        setProperty("archivesBaseName", "AvicaPatient" + "-v" + versionCode)
+
     }
 
     buildTypes {
@@ -119,6 +122,6 @@ dependencies {
     implementation('io.socket:socket.io-client:2.0.1') {
         exclude group: 'org.json', module: 'json'
     }
-    implementation 'io.agora.rtc:full-sdk:4.5.2' // or latest version
+    implementation 'io.agora.rtc:full-sdk:4.5.2'
 
 }

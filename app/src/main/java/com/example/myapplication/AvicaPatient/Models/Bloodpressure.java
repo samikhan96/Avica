@@ -15,7 +15,7 @@ public class Bloodpressure{
     public String updated_status;
     public String updated_status_by;
     public String updated_status_at;
-    public ArrayList<Integer> values;
+    public ArrayList<Double> values;
     public String patient_id;
     public String nurse_id;
     public String doctor_id;

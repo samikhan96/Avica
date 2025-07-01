@@ -1,37 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Remote video full screen -->
+    <FrameLayout
+        android:id="@+id/remote_video_view_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/control_panel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Local video as small overlay -->
     <FrameLayout
         android:id="@+id/local_video_view_container"
-        android:layout_width="match_parent"
-        android:layout_marginTop="300dp"
-        android:layout_height="match_parent"
-        android:background="@android:color/white" />
-
-    <FrameLayout
-
-        android:id="@+id/remote_video_view_container"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="120dp"
+        android:layout_height="160dp"
+        android:layout_margin="16dp"
+        android:background="@android:color/white"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Bottom Control Panel -->
     <LinearLayout
         android:id="@+id/control_panel"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="75dp"
         android:orientation="horizontal"
+        android:gravity="center"
         android:background="#0F336F"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:padding="16dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <!-- Camera Toggle -->
         <androidx.cardview.widget.CardView
             android:id="@+id/card_camera"
             android:layout_width="0dp"
@@ -44,19 +53,20 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@android:color/black"
                     android:textStyle="bold"
                     android:text="Camera" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <!-- Mic Toggle -->
         <androidx.cardview.widget.CardView
             android:id="@+id/card_mic"
             android:layout_width="0dp"
@@ -69,44 +79,46 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:textColor="@android:color/black"
                     android:textStyle="bold"
                     android:text="Mic" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <!-- Speaker Toggle -->
         <androidx.cardview.widget.CardView
             android:id="@+id/card_speaker"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            app:cardCornerRadius="15dp"
             android:layout_marginEnd="8dp"
+            app:cardCornerRadius="15dp"
             app:cardElevation="10dp"
             app:cardBackgroundColor="@android:color/white">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:text="Speaker"
                     android:textStyle="bold"
-                    android:text="Speaker" />
+                    android:textColor="@android:color/black" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <!-- End Call -->
         <androidx.cardview.widget.CardView
             android:id="@+id/card_end_call"
             android:layout_width="0dp"
@@ -118,7 +130,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center">
 

@@ -5,81 +5,83 @@ import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.HttpHeaderParser;
 
 import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MultipartRequest extends Request<NetworkResponse> {
-
     private final Response.Listener<NetworkResponse> mListener;
-    private final Map<String, String> mHeaders;
     private final File mFile;
-    private final String fileParamName;
+    private final String mFilePartName;
+    private final String boundary = "apiclient-" + System.currentTimeMillis();
+    private final String mimeType = "multipart/form-data;boundary=" + boundary;
 
-    public MultipartRequest(
-            String url,
-            File file,
-            String fileParamName,
-            Response.Listener<NetworkResponse> listener,
-            Response.ErrorListener errorListener
-    ) {
+    public MultipartRequest(String url, File file, String filePartName,
+                            Response.Listener<NetworkResponse> listener,
+                            Response.ErrorListener errorListener) {
         super(Method.POST, url, errorListener);
         this.mListener = listener;
-        this.mHeaders = new HashMap<>();
         this.mFile = file;
-        this.fileParamName = fileParamName;
-
-        // Add headers (modify as needed)
-        mHeaders.put("Authorization", "Bearer " + ConfigConstants.token);
-        mHeaders.put("isMobile", "true");
-    }
-
-    @Override
-    public Map<String, String> getHeaders() throws AuthFailureError {
-        return mHeaders;
+        this.mFilePartName = filePartName;
     }
 
     @Override
     public String getBodyContentType() {
-        return "multipart/form-data;boundary=" + boundary;
+        return mimeType;
     }
 
-    private final String boundary = "----MultipartBoundary" + System.currentTimeMillis();
+    @Override
+    public Map<String, String> getHeaders() throws AuthFailureError {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("isMobile", "true");
+        headers.put("Authorization", "Bearer " + ConfigConstants.token);
+        return headers;
+    }
 
     @Override
     public byte[] getBody() throws AuthFailureError {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        DataOutputStream dos = new DataOutputStream(bos);
+
         try {
-            // File part
-            String fileName = mFile.getName();
-            bos.write(("--" + boundary + "\r\n").getBytes());
-            bos.write(("Content-Disposition: form-data; name=\"" + fileParamName + "\"; filename=\"" + fileName + "\"\r\n").getBytes());
-            bos.write(("Content-Type: application/octet-stream\r\n\r\n").getBytes());
-
-            FileInputStream fis = new FileInputStream(mFile);
-            byte[] buffer = new byte[1024];
-            int count;
-            while ((count = fis.read(buffer)) != -1) {
-                bos.write(buffer, 0, count);
-            }
-            fis.close();
-            bos.write(("\r\n").getBytes());
-
-            // Ending boundary
-            bos.write(("--" + boundary + "--\r\n").getBytes());
+            writeFilePart(dos, mFilePartName, mFile);
+            dos.writeBytes("--" + boundary + "--\r\n");
         } catch (IOException e) {
-            VolleyLog.e("Multipart error: " + e.getMessage());
+            e.printStackTrace();
         }
+
         return bos.toByteArray();
+    }
+
+    private void writeFilePart(DataOutputStream dos, String name, File file) throws IOException {
+        String fileName = file.getName();
+        String contentType = URLConnection.guessContentTypeFromName(fileName);
+
+        dos.writeBytes("--" + boundary + "\r\n");
+        dos.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"; filename=\"" + fileName + "\"\r\n");
+        dos.writeBytes("Content-Type: " + (contentType != null ? contentType : "image/jpeg") + "\r\n");
+        dos.writeBytes("\r\n");
+
+        FileInputStream fis = new FileInputStream(file);
+        byte[] buffer = new byte[4096];
+        int bytesRead;
+        while ((bytesRead = fis.read(buffer)) != -1) {
+            dos.write(buffer, 0, bytesRead);
+        }
+        fis.close();
+        dos.writeBytes("\r\n");
     }
 
     @Override
     protected Response<NetworkResponse> parseNetworkResponse(NetworkResponse response) {
-        return Response.success(response, null);
+        return Response.success(response, HttpHeaderParser.parseCacheHeaders(response));
     }
 
     @Override

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.myapplication.AvicaPatient.R;
+import com.example.myapplication.AvicaPatient.VivaLink.WelcomeActivity;
 
 public class EcgActivity extends AppCompatActivity {
 
@@ -33,7 +34,7 @@ public class EcgActivity extends AppCompatActivity {
         item_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(EcgActivity.this, AutomaticActivity.class));
+                startActivity(new Intent(EcgActivity.this, WelcomeActivity.class));
             }
         });
 

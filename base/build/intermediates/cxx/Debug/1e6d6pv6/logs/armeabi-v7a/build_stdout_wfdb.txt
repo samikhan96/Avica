@@ -19,19 +19,7 @@ D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdb_lib.cpp:86:17: warning: ISO C
     setBaseTime("14:32:33 05/11/2019");
                 ^
 5 warnings generated.
-[4/8] Building C object CMakeFiles/wfdb.dir/source/wfdb/annot.c.o
-D:/AvicaPatient/base/src/main/cpp/source/wfdb/annot.c:680:9: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
-        if (ap = annot->aux)
-            ~~~^~~~~~~~~~~~
-D:/AvicaPatient/base/src/main/cpp/source/wfdb/annot.c:680:9: note: place parentheses around the assignment to silence this warning
-        if (ap = annot->aux)
-               ^
-            (              )
-D:/AvicaPatient/base/src/main/cpp/source/wfdb/annot.c:680:9: note: use '==' to turn this assignment into an equality comparison
-        if (ap = annot->aux)
-               ^
-               ==
-1 warning generated.
+[4/8] Building CXX object CMakeFiles/wfdb.dir/facade/com_vivalnk_sdk_demo_core_WfdbUtils.cpp.o
 [5/8] Building C object CMakeFiles/wfdb.dir/source/wfdb/wfdbio.c.o
 D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdbio.c:466:12: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
     static first_call = 1;
@@ -57,7 +45,19 @@ D:/AvicaPatient/base/src/main/cpp/source/wfdb/wfdblib.h:276:20: note: expanded f
 #define MKDIR(D,P)      mkdir((D),(P))
                         ^
 4 warnings generated.
-[6/8] Building CXX object CMakeFiles/wfdb.dir/facade/com_vivalnk_sdk_demo_core_WfdbUtils.cpp.o
+[6/8] Building C object CMakeFiles/wfdb.dir/source/wfdb/annot.c.o
+D:/AvicaPatient/base/src/main/cpp/source/wfdb/annot.c:680:9: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
+        if (ap = annot->aux)
+            ~~~^~~~~~~~~~~~
+D:/AvicaPatient/base/src/main/cpp/source/wfdb/annot.c:680:9: note: place parentheses around the assignment to silence this warning
+        if (ap = annot->aux)
+               ^
+            (              )
+D:/AvicaPatient/base/src/main/cpp/source/wfdb/annot.c:680:9: note: use '==' to turn this assignment into an equality comparison
+        if (ap = annot->aux)
+               ^
+               ==
+1 warning generated.
 [7/8] Building C object CMakeFiles/wfdb.dir/source/wfdb/signal.c.o
 D:/AvicaPatient/base/src/main/cpp/source/wfdb/signal.c:484:13: warning: using the result of an assignment as a condition without parentheses [-Wparentheses]
             if (is = vsd[--maxvsig]) {

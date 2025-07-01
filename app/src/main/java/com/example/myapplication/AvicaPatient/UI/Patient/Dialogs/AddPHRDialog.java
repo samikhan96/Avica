@@ -26,7 +26,7 @@ public class AddPHRDialog extends Dialog implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.measurement_taken_dialog);
+        setContentView(R.layout.phr_taken_dialog);
         yes_btn = (Button) findViewById(R.id.yes_btn);
 
 

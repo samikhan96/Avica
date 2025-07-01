@@ -232,7 +232,7 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void setupBgPieChart(int high, int normal, int low,int pending) {
-        int total = high + normal + low;
+        int total = high + normal + low + pending;
 
         bg_totalReading.setText("" + total);
         // Example values
@@ -249,7 +249,7 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void setupBpPieChart(int high, int normal, int low,int pending) {
-        int total = high + normal + low;
+        int total = high + normal + low + pending;
 
         bp_totalReading.setText("" + total);
         // Example values
@@ -267,7 +267,7 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void setupTempPieChart(int high, int normal, int low,int pending) {
-        int total = high + normal + low;
+        int total = high + normal + low + pending;
 
         Temp_totalReading.setText("" + total);
         // Example values
@@ -285,7 +285,7 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void setupspo2PieChart(int high, int normal, int low,int pending) {
-        int total = high + normal + low;
+        int total = high + normal + low + pending;
 
         spo2_totalReading.setText("" + total);
         // Example values
@@ -303,7 +303,7 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void setupecgPieChart(int high, int normal, int low,int pending) {
-        int total = high + normal + low;
+        int total = high + normal + low + pending;
 
         ecg_totalReading.setText("" + total);
         // Example values
@@ -375,35 +375,35 @@ public class DashboardActivity extends AppCompatActivity {
         bg_tv_2.setText(""+dashboardData.latestReadings.bloodglucose.values.get(0));
         String DateandTIme = AppUtils.parseDateToddMMyyyy(dashboardData.latestReadings.bloodglucose.created_at);
         bg_timeStamp.setText(DateandTIme);
-        setupBgPieChart(dashboardBg.high, dashboardBg.normal, dashboardBg.low,dashboardBg.pending);
+        setupBgPieChart(dashboardBg.high, dashboardBg.normal, dashboardBg.low,dashboardBg.alert_not_set);
     }
 
     public void setBPdata() {
-        bp_tv_2.setText(""+dashboardData.latestReadings.bloodpressure.values.get(0));
+        bp_tv_2.setText(""+dashboardData.latestReadings.bloodpressure.values.get(0) + "/"+dashboardData.latestReadings.bloodpressure.values.get(1));
         String DateandTIme = AppUtils.parseDateToddMMyyyy(dashboardData.latestReadings.bloodpressure.created_at);
         bp_timeStamp.setText(DateandTIme);
-        setupBpPieChart(dashboardBp.high, dashboardBp.normal, dashboardBp.low,dashboardBp.pending);
+        setupBpPieChart(dashboardBp.high, dashboardBp.normal, dashboardBp.low,dashboardBp.alert_not_set);
     }
 
     public void setTempdata() {
         Temp_tv_2.setText(""+dashboardData.latestReadings.temperature.values.get(0));
         String DateandTIme = AppUtils.parseDateToddMMyyyy(dashboardData.latestReadings.temperature.created_at);
         Temp_timeStamp.setText(DateandTIme);
-        setupTempPieChart(dashboardTemp.high, dashboardTemp.normal, dashboardTemp.low,dashboardTemp.pending);
+        setupTempPieChart(dashboardTemp.high, dashboardTemp.normal, dashboardTemp.low,dashboardTemp.alert_not_set);
     }
 
     public void setspo2data() {
         spo2_tv_2.setText(""+dashboardData.latestReadings.spo2.values.get(0));
         String DateandTIme = AppUtils.parseDateToddMMyyyy(dashboardData.latestReadings.spo2.created_at);
         spo2_timeStamp.setText(DateandTIme);
-        setupspo2PieChart(dashboardspo2.high, dashboardspo2.normal, dashboardspo2.low,dashboardspo2.pending);
+        setupspo2PieChart(dashboardspo2.high, dashboardspo2.normal, dashboardspo2.low,dashboardspo2.alert_not_set);
     }
 
     public void setecgdata() {
         ecg_tv_2.setText(""+dashboardData.latestReadings.bloodglucose.values.get(0));
         String DateandTIme = AppUtils.parseDateToddMMyyyy(dashboardData.latestReadings.ecg.created_at);
         ecg_timeStamp.setText(DateandTIme);
-        setupecgPieChart(dashboardECG.high, dashboardECG.normal, dashboardECG.low,dashboardECG.pending);
+        setupecgPieChart(dashboardECG.high, dashboardECG.normal, dashboardECG.low,dashboardECG.alert_not_set);
     }
 
 }

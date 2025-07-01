@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class EducationActivity extends AppCompatActivity {
 
-    RecyclerView list1,list2;
+    RecyclerView list1;
     ArrayList<Education> educationArrayList = new ArrayList<>();
     AdapterEducation adapterEducation;
 
@@ -37,7 +37,6 @@ public class EducationActivity extends AppCompatActivity {
         });
 
         list1=findViewById(R.id.list1);
-        list2=findViewById(R.id.list2);
 
 
         getEducation();
@@ -64,7 +63,7 @@ public class EducationActivity extends AppCompatActivity {
     }
     public void setAdapter() {
         LinearLayoutManager layoutManager
-                = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+                = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         list1.setLayoutManager(layoutManager);
         adapterEducation = new AdapterEducation(EducationActivity.this, educationArrayList, this);
         list1.setAdapter(adapterEducation);

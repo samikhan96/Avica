@@ -19,5 +19,8 @@ public class ConfigConstants {
     public static final String AddMeasurment = "/users/single-value-measurement/";
     public static final String gettelemedappointments = "/app/telemed/appointments";
     public static final String getDoctors = "/users?role=DOCTOR";
+    public static final String createOrSelectChatRoom = "/web/chat/room";
+    public static final String getTutorials = "/web/videos";
+    public static final String agoraToken = "/agora/token";
 
 }

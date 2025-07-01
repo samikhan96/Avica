@@ -40,7 +40,7 @@ public class AdapterMedication extends RecyclerView.Adapter<AdapterMedication.My
 
         holder.tv_1.setText(pamModel.name);
         holder.tv_2.setText(pamModel.dosage);
-        holder.tv_3.setText(pamModel.frequency);
+        holder.tv_3.setText(""+pamModel.frequency);
         AppUtils.setFormattedDate(pamModel.start_date,holder.tv_4);
         AppUtils.setFormattedDate(pamModel.end_date,holder.tv_5);
         AppUtils.setFormattedTime(pamModel.time,holder.tv_6);

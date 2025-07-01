@@ -26,7 +26,6 @@ import com.example.myapplication.AvicaPatient.api.RetrofitClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.socket.client.IO;
@@ -35,120 +34,119 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ChatDetailActivity extends AppCompatActivity  {
+public class ChatDetailActivity extends AppCompatActivity {
 
     private LinearLayout messagesContainer;
     private EditText messageEditText;
     private TextView name;
-    private ImageView sendButton;
-    private ImageView prpfile_img;
+    private ImageView sendButton, prpfile_img;
     private ScrollView messagesScrollView;
 
-    private String existingRoomId; // Store the room ID for fetching chats
-    private String userId; // Store the room ID for fetching chats
-    User user;
+    private String existingRoomId;
+    private String userId;
+    private User user;
     private Socket mSocket;
     private String authToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chatdetail); // Make sure this matches your XML layout file
-        user=UserPrefs.getGetUser();
+        setContentView(R.layout.activity_chatdetail);
+
+        user = UserPrefs.getGetUser();
+        if (user == null) {
+            Log.e("ChatDetailActivity", "User object is null. Exiting activity.");
+            finish();
+            return;
+        }
+
         authToken = user.token;
+        if (authToken == null) {
+            Log.e("ChatDetailActivity", "authToken is null. Exiting activity.");
+            finish();
+            return;
+        }
 
         try {
             IO.Options options = new IO.Options();
             options.transports = new String[]{"websocket"};
             options.reconnection = true;
-
             mSocket = IO.socket("https://avica.up.railway.app/", options);
             mSocket.connect();
-
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("SocketInit", "Socket initialization error", e);
         }
 
-        // Retrieve the "type" and "measurement_id" from the intent
-        String firstName = getIntent().getStringExtra("firstName");
-        String lastName = getIntent().getStringExtra("lastName");
-        String image_uri = getIntent().getStringExtra("uri");
-        name=findViewById(R.id.name);
-        prpfile_img=findViewById(R.id.prpfile_img);
-        name.setText(firstName+" " +lastName);
-        RequestOptions options = new RequestOptions()
-                .centerCrop()
-                .placeholder(R.drawable.app_icon)
-                .error(R.drawable.app_icon);
-        Glide.with(ChatDetailActivity.this).load(image_uri).apply(options).into(prpfile_img);
+        // Retrieve intent data
+        Intent intent = getIntent();
+        if (intent != null) {
+            existingRoomId = intent.getStringExtra("chatRoomId");
+            userId = intent.getStringExtra("id");
 
+            String firstName = intent.getStringExtra("firstName");
+            String lastName = intent.getStringExtra("lastName");
+            String image_uri = intent.getStringExtra("uri");
 
-        ImageView back = findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
+            name = findViewById(R.id.name);
+            prpfile_img = findViewById(R.id.prpfile_img);
+            name.setText(firstName + " " + lastName);
+
+            Glide.with(this)
+                    .load(image_uri)
+                    .apply(new RequestOptions().centerCrop()
+                            .placeholder(R.drawable.app_icon)
+                            .error(R.drawable.app_icon))
+                    .into(prpfile_img);
+
+            List<String> previousMessages = intent.getStringArrayListExtra("PREVIOUS_MESSAGES");
+            if (previousMessages != null) {
+                for (String message : previousMessages) {
+                    addMessage(message, false);
+                }
             }
-        });
+        }
 
         // Initialize views
         messagesContainer = findViewById(R.id.messagesContainer);
         messageEditText = findViewById(R.id.messageEditText);
         sendButton = findViewById(R.id.sendButton);
         messagesScrollView = findViewById(R.id.messagesScrollView);
-        // Get user data from intent
-        Intent intent = getIntent();
-        if (intent != null) {
-            existingRoomId = intent.getStringExtra("chatRoomId"); // Save the chat room ID
-            userId = intent.getStringExtra("id"); // Save the chat room ID
-            Log.d("ChatDetailActivity", "Received chatRoomId: " + existingRoomId);
 
-            // Display previous messages
-            ArrayList<String> previousMessages = intent.getStringArrayListExtra("PREVIOUS_MESSAGES");
-            if (previousMessages != null) {
-                for (String message : previousMessages) {
-                    addMessage(message, false);
-                }
-            } else {
-                Log.d("ChatDetailActivity", "No previous messages found.");
-            }
-        }
+        ImageView back = findViewById(R.id.back);
+        back.setOnClickListener(view -> finish());
 
-        // Send button click listener
         sendButton.setOnClickListener(v -> {
-            String message = messageEditText.getText().toString();
+            String message = messageEditText.getText().toString().trim();
             if (!message.isEmpty()) {
                 sendMessage();
             } else {
-                Log.d("ChatDetailActivity", "Attempted to send an empty message.");
+                Log.d("ChatDetailActivity", "Attempted to send empty message.");
             }
         });
 
-
-        mSocket.on(Socket.EVENT_CONNECT, args -> {
-            Log.d("SOCKET", "Connected");
-
-            // Join the room if needed by backend
-            mSocket.emit("join", existingRoomId);
-
-            // Start listening to room messages
-            listenToRoomMessages();
-        });
-        fetchChats();
+        if (existingRoomId != null) {
+            mSocket.on(Socket.EVENT_CONNECT, args -> {
+                Log.d("SOCKET", "Connected to socket server");
+                mSocket.emit("join", existingRoomId);
+                listenToRoomMessages();
+            });
+            fetchChats();
+        } else {
+            Log.e("ChatDetailActivity", "existingRoomId is null. Skipping socket operations.");
+        }
     }
-
 
     private void sendMessage() {
         try {
-            String messageText = messageEditText.getText().toString();
+            String messageText = messageEditText.getText().toString().trim();
             if (messageText.isEmpty()) return;
 
             JSONObject author = new JSONObject();
-            author.put("first_name", "Ali");
-            author.put("last_name", "Raza");
-            author.put("middle_name", "K");
-            author.put("uri", user.uri);
-            author.put("id", userId);
+            author.put("first_name", user.first_name);
+            author.put("last_name", user.last_name);
+            author.put("middle_name", user.middle_name != null ? user.middle_name : "");
+            author.put("uri", user.uri != null ? user.uri : "");
+            author.put("id", userId != null ? userId : "");
             author.put("role", user.role);
 
             JSONObject message = new JSONObject();
@@ -160,15 +158,12 @@ public class ChatDetailActivity extends AppCompatActivity  {
             message.put("media", "");
 
             mSocket.emit("message", message);
-
-            addMessage(messageText,true);
+            addMessage(messageText, true);
             messageEditText.setText("");
-
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("sendMessage", "Error sending message", e);
         }
     }
-
 
     private void addMessage(String messageText, boolean isSent) {
         int layoutId = isSent ? R.layout.item_message_sent : R.layout.item_message_received;
@@ -177,71 +172,53 @@ public class ChatDetailActivity extends AppCompatActivity  {
         messageTextView.setText(messageText);
         messagesContainer.addView(messageView);
         messagesScrollView.post(() -> messagesScrollView.fullScroll(View.FOCUS_DOWN));
-        Log.d("ChatDetailActivity", "Added message: " + messageText + ", Sent: " + isSent);
-
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mSocket.disconnect();
     }
 
     private void listenToRoomMessages() {
-        // Remove existing listener for safety
-        mSocket.off(existingRoomId);
+        if (existingRoomId == null) return;
 
+        mSocket.off(existingRoomId);
         mSocket.on(existingRoomId, args -> {
             runOnUiThread(() -> {
                 try {
-                    Log.d("SOCKET_EVENT", "📥 Room message received for " + existingRoomId + ": " + args[0]);
-
+                    Log.d("SOCKET_EVENT", "Room message received: " + args[0]);
                     JSONObject data = (JSONObject) args[0];
                     JSONArray messagesArray = data.getJSONArray(existingRoomId);
 
-                    String myUserId = user.id;
-
-// Only add the last message in the array (if exists)
                     if (messagesArray.length() > 0) {
                         JSONObject lastMessage = messagesArray.getJSONObject(messagesArray.length() - 1);
                         String messageText = lastMessage.optString("message", "");
                         String authorID = lastMessage.optString("author_id", "");
-                        boolean isMe = authorID.equals(myUserId);
+                        boolean isMe = authorID.equals(user.id);
                         addMessage(messageText, isMe);
+                        messagesScrollView.post(() -> messagesScrollView.fullScroll(View.FOCUS_DOWN));
                     }
-
-// Scroll to bottom after adding new message
-                    messagesScrollView.post(() -> messagesScrollView.fullScroll(View.FOCUS_DOWN));
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Log.e("listenToRoomMessages", "Error parsing message", e);
                 }
             });
         });
     }
+
     private void fetchChats() {
-        AppUtils.showProgressDialog(ChatDetailActivity.this);
+        AppUtils.showProgressDialog(this);
         ApiService apiService = RetrofitClient.getRetrofitInstance().create(ApiService.class);
-        Log.d("ChatDetailActivity", "Fetching chats for room ID: " + existingRoomId);
+        Log.d("ChatDetailActivity", "Fetching chats for room: " + existingRoomId);
+
         Call<ChatResponse> call = apiService.getChats(existingRoomId, "Bearer " + authToken);
         call.enqueue(new Callback<ChatResponse>() {
             @Override
             public void onResponse(Call<ChatResponse> call, Response<ChatResponse> response) {
+                AppUtils.dismisProgressDialog(ChatDetailActivity.this);
                 if (response.isSuccessful() && response.body() != null) {
                     List<ChatResponse.Chat> chats = response.body().getChats();
-                    Log.d("ChatDetailActivity", "Chats fetched successfully. Number of chats: " + chats.size());
-
-                    // Display each chat message in the messagesContainer
                     for (ChatResponse.Chat chat : chats) {
-                        Log.d("ChatDetailActivity", "Sender: " + chat.getSender() + ", Message: " + chat.getMessage());
-                        addMessage(chat.getMessage(), chat.getSender().equals(user.id)); // Replace "your_user_id" with the actual sender ID of the logged-in user
+                        boolean isMe = chat.getSender().equals(user.id);
+                        addMessage(chat.getMessage(), isMe);
                     }
-                    AppUtils.dismisProgressDialog(ChatDetailActivity.this);
-
-                    // Scroll to the bottom of the message container after loading messages
                     messagesScrollView.post(() -> messagesScrollView.fullScroll(View.FOCUS_DOWN));
                 } else {
-                    Log.e("ChatDetailActivity", "No chats found or response not successful. Response code: " + response.code());
+                    Log.e("ChatDetailActivity", "No chats or response failed. Code: " + response.code());
                 }
             }
 
@@ -253,4 +230,11 @@ public class ChatDetailActivity extends AppCompatActivity  {
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        if (mSocket != null && mSocket.connected()) {
+            mSocket.disconnect();
+        }
+        super.onDestroy();
+    }
 }
