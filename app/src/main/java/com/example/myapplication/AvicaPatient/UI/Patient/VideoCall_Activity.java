@@ -115,6 +115,7 @@ public class VideoCall_Activity extends AppCompatActivity {
         // Set up local video
         FrameLayout localContainer = findViewById(R.id.local_video_view_container);
         SurfaceView localView = new SurfaceView(getBaseContext());
+        localView.setZOrderMediaOverlay(true); // Overlay on top
         localContainer.removeAllViews();
         localContainer.addView(localView);
         mRtcEngine.setupLocalVideo(new VideoCanvas(localView, VideoCanvas.RENDER_MODE_FIT, 0));
@@ -132,7 +133,7 @@ public class VideoCall_Activity extends AppCompatActivity {
     private void setupRemoteVideo(int uid) {
         FrameLayout remoteContainer = findViewById(R.id.remote_video_view_container);
         SurfaceView remoteView = new SurfaceView(getBaseContext());
-        remoteView.setZOrderMediaOverlay(true);
+        remoteView.setZOrderMediaOverlay(false);
         remoteContainer.removeAllViews();
         remoteContainer.addView(remoteView);
         mRtcEngine.setupRemoteVideo(new VideoCanvas(remoteView, VideoCanvas.RENDER_MODE_FIT, uid));
@@ -177,8 +178,8 @@ public class VideoCall_Activity extends AppCompatActivity {
             @Override
             public void success(String result) {
 
-                if (result != null && result.contains("/")) {
-                    String[] parts = result.split("/");
+                if (result != null && result.contains("//")) {
+                    String[] parts = result.split("//");
                     token = parts[0];
                     numericUid = parts[1]; // Now you have token and numericUid separately
                     Log.d(TAG, "Token: " + token);

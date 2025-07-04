@@ -10,7 +10,7 @@
   },
   "cxxBuildFolder": "D:\\AvicaPatient\\base\\.cxx\\Debug\\1e6d6pv6\\x86",
   "soFolder": "D:\\AvicaPatient\\base\\build\\intermediates\\cxx\\Debug\\1e6d6pv6\\obj\\x86",
-  "soRepublishFolder": "D:\\AvicaPatient\\base\\build\\intermediates\\cmake\\sdk01aQA\\obj\\x86",
+  "soRepublishFolder": "D:\\AvicaPatient\\base\\build\\intermediates\\cmake\\sdk01aDebug\\obj\\x86",
   "abiPlatformVersion": 21,
   "cmake": {
     "effectiveConfiguration": {
@@ -22,7 +22,7 @@
     "buildSystemArgumentList": [],
     "cFlagsList": [],
     "cppFlagsList": [],
-    "variantName": "sdk01aQA",
+    "variantName": "sdk01aDebug",
     "isDebuggableEnabled": true,
     "validAbiList": [
       "armeabi-v7a",

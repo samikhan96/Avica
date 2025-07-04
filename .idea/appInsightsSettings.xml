@@ -23,9 +23,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.myapplication.AvicaPatient" />
-                  <option name="mobileSdkAppId" value="1:573854227328:android:0e564d381ea6ce71443f65" />
-                  <option name="projectId" value="avica-935ac" />
-                  <option name="projectNumber" value="573854227328" />
+                  <option name="mobileSdkAppId" value="1:694883685171:android:952ffcb04488cf85f62446" />
+                  <option name="projectId" value="avica-8be78" />
+                  <option name="projectNumber" value="694883685171" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

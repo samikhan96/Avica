@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "573854227328",
-    "project_id": "avica-935ac",
-    "storage_bucket": "avica-935ac.firebasestorage.app"
+    "project_number": "694883685171",
+    "project_id": "avica-8be78",
+    "storage_bucket": "avica-8be78.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:573854227328:android:0e564d381ea6ce71443f65",
+        "mobilesdk_app_id": "1:694883685171:android:952ffcb04488cf85f62446",
         "android_client_info": {
           "package_name": "com.example.myapplication.AvicaPatient"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBEHABn7D4mk8kUoujmOy3PtTpYqH4MY-Y"
+          "current_key": "AIzaSyDXA7daFsHez7GNclKU2epmM3yRpmtw4ec"
         }
       ],
       "services": {

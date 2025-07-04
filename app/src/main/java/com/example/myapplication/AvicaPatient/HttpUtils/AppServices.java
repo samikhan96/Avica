@@ -392,7 +392,7 @@ public class AppServices {
                         if (data.has("agoraToken")) {
                             String token = data.getString("agoraToken");
                             String numericUid = data.getString("numericUid");
-                            listener.success(token + "/" +numericUid);
+                            listener.success(token + "//" +numericUid);
                         } else {
                             listener.error("agoraToken not found in 'data'");
                         }
